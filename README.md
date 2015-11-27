@@ -256,7 +256,9 @@ Thanks to [Cenote GmbH](http://www.cenote.de/) for the [JasperStarter](http://ja
 ##Questions?
 
 Drop me a line on Skype [leandro.bittencourt16] or E-Mail [leandrocintrabitencourt@gmail.com]
+
 Drop me a line on Skype [danielrodrigueslima] or E-Mail [danielrodrigues-ti@hotmail.com]
+
 Drop me a line on E-Mail [jefferson.barreto@outlook.com]
 
 ##License
