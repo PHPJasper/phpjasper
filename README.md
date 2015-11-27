@@ -1,6 +1,65 @@
 # JasperReports for PHP
 
+##Introduction
+
+This package aims to be a solution to compile and process JasperReports (.jrxml & .jasper files).
+
+###Why?
+
+Did you ever had to create a good looking Invoice with a lot of fields for your great web app?
+
+I had to, and the solutions out there were not perfect. Generating *HTML* + *CSS* to make a *PDF*? WTF? That doesn't make any sense! :)
+
+Then I found **JasperReports** the best open source solution for reporting.
+
+###What can I do with this?
+
+Well, everything. JasperReports is a powerful tool for **reporting** and **BI**.
+
+**From their website:**
+
+> The JasperReports Library is the world's most popular open source reporting engine. It is entirely written in Java and it is able to use data coming from any kind of data source and produce pixel-perfect documents that can be viewed, printed or exported in a variety of document formats including HTML, PDF, Excel, OpenOffice and Word.
+
+I recommend using [Jaspersoft Studio](http://community.jaspersoft.com/project/jaspersoft-studio) to build your reports, connect it to your datasource (ex: MySQL, POSTGRES), loop thru the results and output it to PDF, XLS, DOC, RTF, ODF, etc.
+
+*Some examples of what you can do:*
+
+* Invoices
+* Reports
+* Listings
+
 Package to generate reports with [JasperReports 6](http://community.jaspersoft.com/project/jasperreports-library) library through [JasperStarter v3](http://jasperstarter.sourceforge.net/) command-line tool.
+
+##Requirements
+
+* Java JDK 1.8
+* PHP [exec()](http://php.net/manual/function.exec.php) function
+* [optional] [Mysql Connector](http://dev.mysql.com/downloads/connector/j/) (if you want to use database)
+* [optional] [PostgreSQL Connector](https://jdbc.postgresql.org/download.html) (if you want to use database)
+* [optional] [Jaspersoft Studio](http://community.jaspersoft.com/project/jaspersoft-studio) (to draw and compile your reports)
+
+##Installation
+
+###Java
+
+Check if you already have Java installed:
+
+```
+$ java -version
+java version "1.8.0_65"
+Java(TM) SE Runtime Environment (build 1.8.0_65-b17)
+Java HotSpot(TM)  Client VM (build 25.65-b01, mixed mode, sharing)
+```
+
+If you get:
+
+	command not found: java
+
+Then install it with: (Ubuntu/Debian)
+
+	$ sudo apt-get install default-jdk
+
+Now run the `java -version` again and check if the output is ok.
 
 ##Install
 
@@ -23,34 +82,6 @@ And the just run:
 	composer install
 
 and thats it.
-
-##Introduction
-
-This package aims to be a solution to compile and process JasperReports (.jrxml & .jasper files).
-
-###Why?
-
-Did you ever had to create a good looking Invoice with a lot of fields for your great web app?
-
-I had to, and the solutions out there were not perfect. Generating *HTML* + *CSS* to make a *PDF*? WTF? That doesn't make any sense! :)
-
-Then I found **JasperReports** the best open source solution for reporting.
-
-###What can I do with this?
-
-Well, everything. JasperReports is a powerful tool for **reporting** and **BI**.
-
-**From their website:**
-
-> The JasperReports Library is the world's most popular open source reporting engine. It is entirely written in Java and it is able to use data coming from any kind of data source and produce pixel-perfect documents that can be viewed, printed or exported in a variety of document formats including HTML, PDF, Excel, OpenOffice and Word.
-
-I recommend using [Jaspersoft Studio](http://community.jaspersoft.com/project/jaspersoft-studio) to build your reports, connect it to your datasource (ex: MySQL), loop thru the results and output it to PDF, XLS, DOC, RTF, ODF, etc.
-
-*Some examples of what you can do:*
-
-* Invoices
-* Reports
-* Listings
 
 ##Examples
 
@@ -78,8 +109,6 @@ $jasper->compile($input)->execute();
 ```
 
 This commando will compile the `hello_world.jrxml` source file to a `hello_world.jasper` file.
-
-**Note:** If you are using Laravel 4 run `php artisan tinker` and copy & paste the command above.
 
 ####Processing
 
@@ -155,59 +184,56 @@ $jasper->process(
 )->execute();
 ```
 
-##Requirements
-
-* Java JDK 1.8
-* PHP [exec()](http://php.net/manual/function.exec.php) function
-* [optional] [Mysql Connector](http://dev.mysql.com/downloads/connector/j/) (if you want to use database)
-* [optional] [PostgreSQL Connector](https://jdbc.postgresql.org/download.html) (if you want to use database)
-* [optional] [Jaspersoft Studio](http://community.jaspersoft.com/project/jaspersoft-studio) (to draw and compile your reports)
-
-
-##Installation
-
-###Java
-
-Check if you already have Java installed:
-
-```
-$ java -version
-java version "1.8.0_65"
-Java(TM) SE Runtime Environment (build 1.8.0_65-b17)
-Java HotSpot(TM)  Client VM (build 25.65-b01, mixed mode, sharing)
-```
-
-If you get:
-
-	command not found: java
-
-Then install it with: (Ubuntu/Debian)
-
-	$ sudo apt-get install default-jdk
-
-Now run the `java -version` again and check if the output is ok.
 
 ###Using in Laravel 5.1!
+
+1. Install [Composer](http://getcomposer.org) if you don't have it.
+```
+composer require lavela/phpjasper
+```
+Or in your 'composer.json' file add:
+
+```javascript
+{
+    "require": {
+		"lavela/phpjasper": "1.0",
+    }
+}
+```
+2. And the just run:
+
+	composer update
+
+3. Add to your config/app.php providers array:
+
+	'JasperPHP\JasperPHPServiceProvider',
+
+and thats it.
 
 ```php
 use JasperPHP\JasperPHP as JasperPHP;
 
 Route::get('/', function () {
 	
-	$input = __DIR__ . '/vendor/lavela/phpjasper/examples/hello_world.jrxml';	
-	$output = __DIR__;	
-	
-    $jasper = new JasperPHP;
-
-	// Process a Jasper file to PDF and RTF (you can use directly the .jrxml)
-    $jasper->process(
-        $input,
-        $output,
-        array("pdf", "rtf")
-    )->execute();
-
-    return view('index');
+    $output = public_path() . '/report/'.time().'_report.pdf';
+    $report = new JasperPHP;
+    $report->process(
+    	public_path() . '/report/report.jrxml', 
+        $output, 
+        array('pdf'),
+        array(),
+        array(
+            'driver' => 'postgres',
+            'username' => 'username',
+            'password' => 'password',
+            'host' => 'localhost',
+            'database' => 'database',
+            'port' => '5432',
+            )  
+        )->execute();
 });
+```
+
 
 ###MySQL
 
@@ -229,8 +255,9 @@ Thanks to [Cenote GmbH](http://www.cenote.de/) for the [JasperStarter](http://ja
 
 ##Questions?
 
-Drop me a line on Skype [leandro.bittencourt16]
-Drop me a line on Skype [danielrodrigueslima] 
+Drop me a line on Skype [leandro.bittencourt16] or E-Mail [leandrocintrabitencourt@gmail.com]
+Drop me a line on Skype [danielrodrigueslima] or E-Mail [danielrodrigues-ti@hotmail.com]
+Drop me a line on E-Mail [jefferson.barreto@outlook.com]
 
 ##License
 
