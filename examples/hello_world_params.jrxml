@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="noDB-i18n" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="33ec6fa7-42eb-4c22-a271-c60f94052b5c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="myString" class="java.lang.String"/>
+	<parameter name="myInt" class="java.lang.Integer"/>
+	<parameter name="myDate" class="java.util.Date"/>
+	<parameter name="myImage" class="java.awt.Image">
+		<parameterDescription><![CDATA[This is the description of parameter myImage]]></parameterDescription>
+	</parameter>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement uuid="5347bff5-dbb0-4672-b148-036cdd75c8c7" mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699"/>
+				<staticText>
+					<reportElement uuid="8b0fa6d5-c0c6-4530-95bb-93c3b34d2fca" x="20" y="20" width="234" height="43" forecolor="#FFFFFF"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[JasperStarter]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="84c20b7b-2750-44e1-8f6e-87cc755158c2" x="298" y="43" width="277" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Report with parameters]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement uuid="f7dc2f7c-871e-4a62-9130-9cfaaba2b639" x="-20" y="20" width="595" height="1" forecolor="#666666"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="500">
+			<staticText>
+				<reportElement uuid="e6737d61-6294-4baa-b692-6d65c3881bd6" x="0" y="11" width="146" height="15"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="12"/>
+				</textElement>
+				<text><![CDATA[Parameter: myString =]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="1762deaa-f37f-41ee-80b4-b65ce300eb41" x="146" y="11" width="369" height="15"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{myString}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="415b7c15-6fae-4253-9bc3-a03cd13817b3" x="0" y="26" width="146" height="15"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="12"/>
+				</textElement>
+				<text><![CDATA[Parameter: myInt =]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="240b0c09-54f7-40f8-9c9a-3c118f0621d1" x="0" y="41" width="146" height="15"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="12"/>
+				</textElement>
+				<text><![CDATA[Parameter: myDate =]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="809b5d74-cc3c-4229-9af7-ba0e6b0e16b0" x="0" y="56" width="146" height="15"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="12"/>
+				</textElement>
+				<text><![CDATA[Parameter: myImage =]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="758f320b-112d-412b-87de-be25db76a975" x="146" y="26" width="369" height="15"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{myInt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="38085873-26de-4bbb-a544-08768ed79691" x="146" y="41" width="369" height="15"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{myDate}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="RetainShape" isUsingCache="true" isLazy="true">
+				<reportElement uuid="dcbbf2b6-aa5a-49e6-b0b8-95bf113a9be2" x="151" y="62" width="364" height="382"/>
+				<imageExpression><![CDATA[$P{myImage}]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement uuid="3e0da48c-d85f-4011-a737-6a49a9ef86f1" mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="96c0ab5f-b8a9-415b-aade-97320ec772fd" mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="4cfc06da-023b-4c24-9b5e-b8e3a65cdc5a" x="0" y="4" width="100" height="13"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
