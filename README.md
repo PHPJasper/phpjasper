@@ -23,7 +23,6 @@ And the just run:
 	composer install
 
 and thats it.
-```
 
 ##Introduction
 
