@@ -202,37 +202,41 @@ Or in your 'composer.json' file add:
 ```
 2. And the just run:
 
-	composer update
+	**composer update**
 
 3. Add to your config/app.php providers array:
 
 	'JasperPHP\JasperPHPServiceProvider',
 
-and thats it.
+4. Create a folder **/report** on **/public directory**
+
+5. Copy the file **hello_world.jrxml** in **/vendor/lavela/phpjasper/examples** from directory: **/public/report**
+
+6. Run **php artisan serve**
+
+7. Access **localhost:8000/reports**
+
+8. Check the directory **/public/report**. You now have 3 files, `hello_world.pdf`, `hello_world.rtf` and `hello_world.xml`.
+
+**Below the code you will use in your route.php**
 
 ```php
 use JasperPHP\JasperPHP as JasperPHP;
 
-Route::get('/', function () {
+Route::get('/reports', function () {
 	
-    $output = public_path() . '/report/'.time().'_report.pdf';
+    $output = public_path() . '/report/'.time().'_hello_world';
     $report = new JasperPHP;
     $report->process(
-    	public_path() . '/report/report.jrxml', 
+    	public_path() . '/report/hello_world.jrxml', 
         $output, 
-        array('pdf'),
+        array('pdf', 'rtf', 'xml'),
         array(),
-        array(
-            'driver' => 'postgres',
-            'username' => 'username',
-            'password' => 'password',
-            'host' => 'localhost',
-            'database' => 'database',
-            'port' => '5432',
-            )  
+        array()  
         )->execute();
 });
 ```
+In this example we generate reports pdf, rtf and xml.
 
 
 ###MySQL
