@@ -1,4 +1,8 @@
-# JasperReports for PHP
+# JasperReports for PHP v1.0
+
+**Is using Linux servers?**
+
+Do not forget to grant permission 777 for the directory **/vendor/lavela/phpjasper/src/JasperStarter/bin** and the file binary **jasperstarter**
 
 ##Introduction
 
@@ -72,7 +76,7 @@ Or in your 'composer.json' file add:
 ```javascript
 {
     "require": {
-		"lavela/phpjasper": "1.0",
+		"lavela/phpjasper": "1.*"
     }
 }
 ```
@@ -196,7 +200,7 @@ Or in your 'composer.json' file add:
 ```javascript
 {
     "require": {
-		"lavela/phpjasper": "1.0",
+		"lavela/phpjasper": "1.*"
     }
 }
 ```
