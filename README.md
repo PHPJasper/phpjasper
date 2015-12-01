@@ -1,6 +1,6 @@
 # JasperReports for PHP v1.0
 
-***Is using Linux servers?*
+***Is using Linux servers?**
 
 Do not forget to grant permission 777 for the directory **/vendor/lavela/phpjasper/src/JasperStarter/bin** and the file binary **jasperstarter**
 
