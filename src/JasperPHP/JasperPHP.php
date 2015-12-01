@@ -5,7 +5,7 @@ namespace JasperPHP;
 class JasperPHP
 {
     protected $executable = "jasperstarter"; //executable jasperstarter
-    protected $path_executable = __DIR__ . '\..\JasperStarter\bin\\'; //Path to executable
+    protected $path_executable = __DIR__ . '/../JasperStarter/bin/'; //Path to executable
     protected $the_command;
     protected $redirect_output;
     protected $background;
@@ -20,7 +20,7 @@ class JasperPHP
            $this->windows = true;
 
         if (!$resource_dir) {
-            $this->resource_directory = __DIR__ . "\..\..\..\\vendor\cossou\jasperphp\src\JasperStarter\bin\\";
+            $this->resource_directory = __DIR__ . "/../../../vendor/cossou/jasperphp/src/JasperStarter/bin";
         } else {
             if (!file_exists($resource_dir))
                 throw new \Exception("Invalid resource directory.", 1);
@@ -43,7 +43,7 @@ class JasperPHP
         if(is_null($input_file) || empty($input_file))
             throw new \Exception("No input file", 1);
 
-        $command = $this->executable;
+        $command = ($this->windows) ? $this->executable : './' . $this->executable;
 
         $command .= " compile ";
 
@@ -76,7 +76,7 @@ class JasperPHP
                     throw new \Exception("Invalid format!", 1);
         }
 
-        $command = $this->executable;
+        $command = ($this->windows) ? $this->executable : './' . $this->executable;
 
         $command .= " process ";
 
@@ -145,7 +145,7 @@ class JasperPHP
         if(is_null($input_file) || empty($input_file))
             throw new \Exception("No input file", 1);
 
-        $command = $this->executable;
+        $command = ($this->windows) ? $this->executable : './' . $this->executable;
 
         $command .= " list_parameters ";
 
@@ -163,11 +163,6 @@ class JasperPHP
 
     public function execute($run_as_user = false)
     {
-        if( $this->redirect_output && !$this->windows)
-            $this->the_command .= " > /dev/null 2>&1";
-
-        if( $this->background && !$this->windows )
-            $this->the_command .= " &";
 
         if( $run_as_user !== false && strlen($run_as_user > 0) && !$this->windows )
             $this->the_command = "su -u " . $run_as_user . " -c \"" . $this->the_command . "\"";
@@ -176,7 +171,6 @@ class JasperPHP
         $return_var = 0;
 
         if (is_dir($this->path_executable)){
-
             chdir($this->path_executable);
             exec($this->the_command, $output, $return_var);
         } else {
@@ -185,7 +179,7 @@ class JasperPHP
 
         if($return_var != 0)
             throw new \Exception("Your report has an error and couldn't be processed! Try to output the command using the function `output();` and run it manually in the console.", 1);
-
+	
         return $output;
     }
 }
