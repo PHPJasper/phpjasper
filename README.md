@@ -183,7 +183,7 @@ $jasper->process(
 		'username' => 'vagrant',
 		'host' => 'localhost',
 		'database' => 'samples',
-		'port' => '5433',
+		'port' => '5432',
 	)						
 )->execute();
 ```
