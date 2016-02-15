@@ -191,7 +191,7 @@ $jasper->process(
 ```
 
 
-###Using in Laravel 5.1!
+###Using JasperPHP with Laravel 5.2!
 
 1. Install [Composer](http://getcomposer.org) if you don't have it.
 ```
@@ -212,7 +212,7 @@ Or in your 'composer.json' file add:
 
 3. Add to your config/app.php providers array:
 
-	'JasperPHP\JasperPHPServiceProvider',
+	**JasperPHP\JasperPHPServiceProvider::class,**
 
 4. Create a folder **/report** on **/public directory**
 
@@ -227,7 +227,7 @@ Or in your 'composer.json' file add:
 **Below the code you will use in your route.php**
 
 ```php
-use JasperPHP\JasperPHP as JasperPHP;
+use JasperPHP\JasperPHP;
 
 Route::get('/reports', function () {
 	
