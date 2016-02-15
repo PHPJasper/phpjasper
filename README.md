@@ -212,7 +212,7 @@ Or in your 'composer.json' file add:
 
 3. Add to your config/app.php providers array:
 
-	JasperPHP\JasperPHPServiceProvider::class,
+	**JasperPHP\JasperPHPServiceProvider::class,**
 
 4. Create a folder **/report** on **/public directory**
 
