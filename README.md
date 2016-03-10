@@ -161,7 +161,7 @@ foreach($output as $parameter_description)
     print $parameter_description . '<pre>';
 ```
 
-###Advanced example 1 
+###Advanced example - using a database
 
 We can also specify parameters for connecting to database:
 
@@ -280,7 +280,7 @@ public function xmlToPdf()
         header('Content-Length: ' . filesize($output.'.'.$ext));
         flush();
         readfile($output.'.'.$ext);
-        unlink($output.'.'.$ext); // exclui o arquivo temporário 
+        unlink($output.'.'.$ext);
 
     }
 ```
