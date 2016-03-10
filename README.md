@@ -1,4 +1,4 @@
-# JasperReports for PHP v1.0
+# JasperReports for PHP and Laravel Framework - v1.1
 
 [![Latest Stable Version](https://poser.pugx.org/lavela/phpjasper/v/stable)](https://packagist.org/packages/lavela/phpjasper)  [![Latest Unstable Version](https://poser.pugx.org/lavela/phpjasper/v/unstable)](https://packagist.org/packages/lavela/phpjasper) [![License](https://poser.pugx.org/lavela/phpjasper/license)](https://packagist.org/packages/lavela/phpjasper) [![Total Downloads](https://poser.pugx.org/lavela/phpjasper/downloads)](https://packagist.org/packages/lavela/phpjasper)
 
