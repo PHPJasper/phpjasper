@@ -161,7 +161,7 @@ foreach($output as $parameter_description)
     print $parameter_description . '<pre>';
 ```
 
-###Advanced example
+###Advanced example 1 
 
 We can also specify parameters for connecting to database:
 
@@ -189,7 +189,6 @@ $jasper->process(
 	)						
 )->execute();
 ```
-
 
 ###Using JasperPHP with Laravel 5.2!
 
@@ -243,6 +242,54 @@ Route::get('/reports', function () {
 });
 ```
 In this example we generate reports pdf, rtf and xml.
+
+
+###Additional Information - Reports from a xml in Laravel 5.2
+
+See how easy it is to generate a report with a source an xml file:
+
+```php
+
+use JasperPHP\JasperPHP;
+
+public function xmlToPdf()
+    {
+        $output = public_path() . '/report/'.time().'_CancelAck';
+        $output = public_path() . '/report/'.time().'_CancelAck';
+        $ext = "pdf";
+        
+        \JasperPHP::process(
+            public_path() . '/report/CancelAck.jrxml', 
+            $output, 
+            array($ext),
+            array(),
+            array('data_file' => public_path() . '/report/CancelAck.xml', 'driver' => 'xml', 'xml_xpath' => '/CancelResponse/CancelResult/ID'),                   
+            false,
+            false
+        )->execute();
+        
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename='.time().'_CancelAck.'.$ext);
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Content-Length: ' . filesize($output.'.'.$ext));
+        flush();
+        readfile($output.'.'.$ext);
+        unlink($output.'.'.$ext); 
+
+    }
+```
+**Note:** 
+
+To use the example above you must copy the sample files located at:
+
+**\vendor\lavela\phpjasper\src\JasperStarter\examples\CancelAck.jrxml** 
+and
+**\vendor\lavela\phpjasper\src\JasperStarter\examples\CancelAck.xml** 
+to folder:
+**\public\report** 
 
 
 ###MySQL
