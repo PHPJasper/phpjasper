@@ -105,7 +105,9 @@ class JasperPHP
         if( count($db_connection) > 0 )
         {
             $command .= " -t " . $db_connection['driver'];
-            $command .= " -u " . $db_connection['username'];
+
+            if(isset($db_connection['username']))
+                $command .= " -u " . $db_connection['username'];
 
             if( isset($db_connection['password']) && !empty($db_connection['password']) )
                 $command .= " -p " . $db_connection['password'];
@@ -130,6 +132,12 @@ class JasperPHP
 
             if ( isset($db_connection['db_sid']) && !empty($db_connection['db_sid']) )
                 $command .= ' --db-sid ' . $db_connection['db_sid'];
+
+            if ( isset($db_connection['xml_xpath']) )
+                $command .= ' --xml-xpath ' . $db_connection['xml_xpath'];
+
+			if ( isset($db_connection['data_file']) )
+                $command .= ' --data-file ' . "\"".$db_connection['data_file']."\"";
 
         }
 
