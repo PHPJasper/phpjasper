@@ -257,13 +257,16 @@ public function xmlToPdf()
         $output = public_path() . '/report/'.time().'_CancelAck';
         $output = public_path() . '/report/'.time().'_CancelAck';
         $ext = "pdf";
-        
+        $data_file = public_path() . '/report/CancelAck.xml';
+        $driver = 'xml';
+        $xml_xpath = '/CancelResponse/CancelResult/ID';
+          
         \JasperPHP::process(
             public_path() . '/report/CancelAck.jrxml', 
             $output, 
             array($ext),
             array(),
-            array('data_file' => public_path() . '/report/CancelAck.xml', 'driver' => 'xml', 'xml_xpath' => '/CancelResponse/CancelResult/ID'),                   
+            array('data_file' => $data_file, 'driver' => $driver, 'xml_xpath' => $xml_xpath),                   
             false,
             false
         )->execute();
@@ -277,7 +280,7 @@ public function xmlToPdf()
         header('Content-Length: ' . filesize($output.'.'.$ext));
         flush();
         readfile($output.'.'.$ext);
-        unlink($output.'.'.$ext); 
+        unlink($output.'.'.$ext); // exclui o arquivo temporário 
 
     }
 ```
