@@ -134,7 +134,10 @@ class JasperPHP
             if ( isset($db_connection['db_sid']) && !empty($db_connection['db_sid']) )
                 $command .= ' --db-sid ' . $db_connection['db_sid'];
 
-			 if ( isset($db_connection['data_file']) )
+            if ( isset($db_connection['xml_xpath']) )
+                $command .= ' --xml-xpath ' . $db_connection['xml_xpath'];
+
+			if ( isset($db_connection['data_file']) )
                 $command .= ' --data-file ' . $db_connection['data_file'];
 
         }
