@@ -85,7 +85,7 @@ class JasperPHP
         if( $output_file !== false )
             $command .= ' -o ' . "\"$output_file\"";
 
-       if( is_array($format) )
+        if( is_array($format) )
             $command .= ' -f ' . join(' ', $format);
         else
             $command .= ' -f ' . $format;
@@ -96,11 +96,13 @@ class JasperPHP
         if( count($parameters) > 0 )
         {
             $command .= ' -P ';
+
             foreach ($parameters as $key => $value)
             {
-				$param = $key . '=' . $value . ' ';
-                $command .= "\"$param\"";
+                $param = $key . '="' . $value . '" ';
+                $command .= " " .$param. " ";
             }
+
         }
 
         if( count($db_connection) > 0 )
@@ -128,13 +130,16 @@ class JasperPHP
             if( isset($db_connection['jdbc_url']) && !empty($db_connection['jdbc_url']) )
                 $command .= ' --db-url ' . $db_connection['jdbc_url'];
 
-            if ( isset($db_connection['jdbc_dir']) && !empty($db_connection['jdbc_dir']) ) 
+            if ( isset($db_connection['jdbc_dir']) && !empty($db_connection['jdbc_dir']) )
                 $command .= ' --jdbc-dir ' . $db_connection['jdbc_dir'];
 
             if ( isset($db_connection['db_sid']) && !empty($db_connection['db_sid']) )
                 $command .= ' --db-sid ' . $db_connection['db_sid'];
 
-			 if ( isset($db_connection['data_file']) )
+            if ( isset($db_connection['xml_xpath']) )
+                $command .= ' --xml-xpath ' . $db_connection['xml_xpath'];
+
+            if ( isset($db_connection['data_file']) )
                 $command .= ' --data-file ' . $db_connection['data_file'];
 
         }
@@ -185,7 +190,7 @@ class JasperPHP
 
         if($return_var != 0)
             throw new \Exception('Your report has an error and couldn \'t be processed!\ Try to output the command using the function `output();` and run it manually in the console.', 1);
-	
+    
         return $output;
     }
 }
