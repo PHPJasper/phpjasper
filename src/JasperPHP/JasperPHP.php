@@ -190,7 +190,7 @@ class JasperPHP
 
         if($return_var != 0)
             throw new \Exception('Your report has an error and couldn \'t be processed!\ Try to output the command using the function `output();` and run it manually in the console.', 1);
-	
+    
         return $output;
     }
 }
