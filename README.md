@@ -34,7 +34,7 @@ I recommend using [Jaspersoft Studio](http://community.jaspersoft.com/project/ja
 * Reports
 * Listings
 
-Package to generate reports with [JasperReports 6](http://community.jaspersoft.com/project/jasperreports-library) library through [JasperStarter v3](http://jasperstarter.sourceforge.net/) command-line tool.
+Package to generate reports with [JasperReports 6.3.0](http://community.jaspersoft.com/project/jaspersoft-studio/releases) library through [JasperStarter v3](http://jasperstarter.sourceforge.net/) command-line tool.
 
 ##Requirements
 
@@ -52,18 +52,20 @@ Check if you already have Java installed:
 
 ```
 $ java -version
-java version "1.8.0_65"
-Java(TM) SE Runtime Environment (build 1.8.0_65-b17)
-Java HotSpot(TM)  Client VM (build 25.65-b01, mixed mode, sharing)
+java version "1.8.0_101"
+Java(TM) SE Runtime Environment (build 1.8.0_101-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 25.101-b13, mixed mode)
 ```
 
 If you get:
 
-	command not found: java
+    command not found: java
 
 Then install it with: (Ubuntu/Debian)
 
-	$ sudo apt-get install default-jdk
+    $ sudo apt-get install default-jdk
+
+To install on windows visit the link-> [JDK](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) and look for the most appropriate version for your system.
 
 Now run the `java -version` again and check if the output is ok.
 
@@ -78,14 +80,14 @@ Or in your 'composer.json' file add:
 ```javascript
 {
     "require": {
-		"lavela/phpjasper": "1.*"
+        "lavela/phpjasper": "1.*"
     }
 }
 ```
 
 And the just run:
 
-	composer install
+    composer install
 
 and thats it.
 
@@ -94,7 +96,7 @@ and thats it.
 ###The *Hello World* example.
 
 Go to the examples directory in the root of the repository (`vendor/lavela/phpjasper/examples`).
-Open the `hello_world.jrxml` file with iReport or with your favorite text editor and take a look at the source code.
+Open the `hello_world.jrxml` file with Jaspersoft Studio or with your favorite text editor and take a look at the source code.
 
 #### Compiling
 
@@ -108,7 +110,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 use JasperPHP\JasperPHP;
 
-$input = __DIR__ . '/vendor/lavela/phpjasper/examples/hello_world.jrxml';	
+$input = __DIR__ . '/vendor/lavela/phpjasper/examples/hello_world.jrxml';   
 
 $jasper = new JasperPHP;
 $jasper->compile($input)->execute();
@@ -126,15 +128,15 @@ require __DIR__ . '/vendor/autoload.php';
 
 use JasperPHP\JasperPHP;
 
-$input = __DIR__ . '/vendor/lavela/phpjasper/examples/hello_world.jasper';	
-$output = __DIR__;	
+$input = __DIR__ . '/vendor/lavela/phpjasper/examples/hello_world.jasper';  
+$output = __DIR__ . '/vendor/lavela/phpjasper/examples';    
 
 $jasper = new JasperPHP;
 
 $jasper->process(
-	$input,
-	$output,
-	array("pdf", "rtf")
+    $input,
+    $output,
+    array("pdf", "rtf")
 )->execute();
 ```
 
@@ -169,24 +171,24 @@ We can also specify parameters for connecting to database:
 
 require __DIR__ . '/vendor/autoload.php';
 
-use JasperPHP\JasperPHP;	
+use JasperPHP\JasperPHP;    
 
-$input = __DIR__ . '/vendor/lavela/phpjasper/examples/hello_world.jrxml';	
-$output = __DIR__;	
+$input = __DIR__ . '/vendor/lavela/phpjasper/examples/hello_world.jrxml';   
+$output = __DIR__ . '/vendor/lavela/phpjasper/examples';    
 
 $jasper = new JasperPHP;
 $jasper->process(
-	$input,
-	$output,
-	array("pdf", "rtf"),
-	array("php_version" => phpversion()),
-	array(
-		'driver' => 'postgres',
-		'username' => 'vagrant',
-		'host' => 'localhost',
-		'database' => 'samples',
-		'port' => '5432',
-	)						
+    $input,
+    $output,
+    array("pdf", "rtf"),
+    array("php_version" => phpversion()),
+    array(
+        'driver' => 'postgres',
+        'username' => 'vagrant',
+        'host' => 'localhost',
+        'database' => 'samples',
+        'port' => '5432',
+    )                       
 )->execute();
 ```
 
@@ -201,17 +203,17 @@ Or in your 'composer.json' file add:
 ```javascript
 {
     "require": {
-		"lavela/phpjasper": "1.*"
+        "lavela/phpjasper": "1.*"
     }
 }
 ```
 2. And the just run:
 
-	**composer update**
+    **composer update**
 
 3. Add to your config/app.php providers array:
 
-	**JasperPHP\JasperPHPServiceProvider::class,**
+    **JasperPHP\JasperPHPServiceProvider::class,**
 
 4. Create a folder **/report** on **/public directory**
 
@@ -229,11 +231,11 @@ Or in your 'composer.json' file add:
 use JasperPHP\JasperPHP;
 
 Route::get('/reports', function () {
-	
+    
     $output = public_path() . '/report/'.time().'_hello_world';
     $report = new JasperPHP;
     $report->process(
-    	public_path() . '/report/hello_world.jrxml', 
+        public_path() . '/report/hello_world.jrxml', 
         $output, 
         array('pdf', 'rtf', 'xml'),
         array(),
@@ -297,7 +299,7 @@ to folder:
 
 ###MySQL
 
-We ship the [MySQL connector](http://dev.mysql.com/downloads/connector/j/) (v5.1.34) in the `/src/JasperStarter/jdbc/` directory.
+We ship the [MySQL connector](http://dev.mysql.com/downloads/connector/j/) (v5.1.39) in the `/src/JasperStarter/jdbc/` directory.
 
 ###PostgreSQL
 
