@@ -1,4 +1,4 @@
-# JasperReports for PHP and Laravel Framework
+# JasperReports for PHP and Laravel 5.1, 5.2 and 5.3
 
 [![Latest Stable Version](https://poser.pugx.org/lavela/phpjasper/v/stable)](https://packagist.org/packages/lavela/phpjasper)  [![Latest Unstable Version](https://poser.pugx.org/lavela/phpjasper/v/unstable)](https://packagist.org/packages/lavela/phpjasper) [![License](https://poser.pugx.org/lavela/phpjasper/license)](https://packagist.org/packages/lavela/phpjasper) [![Total Downloads](https://poser.pugx.org/lavela/phpjasper/downloads)](https://packagist.org/packages/lavela/phpjasper)
 
@@ -192,7 +192,7 @@ $jasper->process(
 )->execute();
 ```
 
-###Using JasperPHP with Laravel 5.2!
+###Using JasperPHP with Laravel 5.1, 5.2, 5.3
 
 1. Install [Composer](http://getcomposer.org) if you don't have it.
 ```
@@ -246,7 +246,7 @@ Route::get('/reports', function () {
 In this example we generate reports pdf, rtf and xml.
 
 
-###Additional Information - Reports from a xml in Laravel 5.2
+###Additional Information - Reports from a xml in Laravel 5.1, 5.2, 5.3
 
 See how easy it is to generate a report with a source an xml file:
 
@@ -317,12 +317,12 @@ Thanks to [Cenote GmbH](http://www.cenote.de/) for the [JasperStarter](http://ja
 
 ##Questions?
 
-Drop me a line on Skype [leandro.bittencourt16] or E-Mail [leandrocintrabitencourt@gmail.com]
-
-Drop me a line on Skype [danielrodrigueslima] or E-Mail [danielrodrigues-ti@hotmail.com]
-
-Drop me a line on E-Mail [jefferson.barreto@outlook.com]
+Open a [Issue](https://github.com/geekcom/phpjasper/issues) 
 
 ##License
 
 MIT
+
+##Contribute
+
+Contribute to the community PHP and Laravel, feel free to contribute, make a fork!!
