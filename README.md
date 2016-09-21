@@ -65,6 +65,10 @@ Then install it with: (Ubuntu/Debian)
 
     $ sudo apt-get install default-jdk
 
+To install on: (centOS/Fedora)
+
+    # yum install java-1.8.0-openjdk.x86_64
+
 To install on windows visit the link-> [JDK](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) and look for the most appropriate version for your system.
 
 Now run the `java -version` again and check if the output is ok.
