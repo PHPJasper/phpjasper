@@ -1,6 +1,16 @@
-# JasperReports for PHP and Laravel 5.1, 5.2 and 5.3
+# JasperReports for PHP and Laravel 5.*
 
 [![Latest Stable Version](https://poser.pugx.org/lavela/phpjasper/v/stable)](https://packagist.org/packages/lavela/phpjasper)  [![Latest Unstable Version](https://poser.pugx.org/lavela/phpjasper/v/unstable)](https://packagist.org/packages/lavela/phpjasper) [![License](https://poser.pugx.org/lavela/phpjasper/license)](https://packagist.org/packages/lavela/phpjasper) [![Total Downloads](https://poser.pugx.org/lavela/phpjasper/downloads)](https://packagist.org/packages/lavela/phpjasper)
+
+##If you like the library, please pay me a juice! 
+
+![logo btc](http://beatsandsamples.com/wp-content/uploads/2016/04/bitcoin-accepted-here.png)
+&nbsp;&nbsp;&nbsp;
+![Donations](https://uploaddeimagens.com.br/images/000/726/306/original/qr.png?1474640552)
+
+Or help us with any value:
+
+**1LqwqcMfNuNzq6S671z1HjM61MpBuFCGqg**
 
 **Is using Linux servers?**
 
@@ -196,7 +206,7 @@ $jasper->process(
 )->execute();
 ```
 
-###Using JasperPHP with Laravel 5.1, 5.2, 5.3
+###Using JasperPHP with Laravel 5.*
 
 1. Install [Composer](http://getcomposer.org) if you don't have it.
 ```
@@ -250,7 +260,7 @@ Route::get('/reports', function () {
 In this example we generate reports pdf, rtf and xml.
 
 
-###Additional Information - Reports from a xml in Laravel 5.1, 5.2, 5.3
+###Additional Information - Reports from a xml in Laravel 5.*
 
 See how easy it is to generate a report with a source an xml file:
 
@@ -330,9 +340,3 @@ MIT
 ##Contribute
 
 Contribute to the community PHP and Laravel, feel free to contribute, make a fork!!
-
-##If you like the library, pay me a juice ![Donations](https://uploaddeimagens.com.br/images/000/726/306/original/qr.png?1474640552)
-
-Or help us with any value:
-
-1LqwqcMfNuNzq6S671z1HjM61MpBuFCGqg
