@@ -331,8 +331,8 @@ MIT
 
 Contribute to the community PHP and Laravel, feel free to contribute, make a fork!!
 
-##If you like the library, pay me a juice [Donations](https://uploaddeimagens.com.br/images/000/726/306/original/qr.png?1474640552) 
+##If you like the library, pay me a juice ![Donations](https://uploaddeimagens.com.br/images/000/726/306/original/qr.png?1474640552)
 
-Or:
+Or help us with any value:
 
 1LqwqcMfNuNzq6S671z1HjM61MpBuFCGqg
