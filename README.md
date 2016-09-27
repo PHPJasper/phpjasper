@@ -83,9 +83,16 @@ To install on windows visit the link-> [JDK](http://www.oracle.com/technetwork/p
 
 Now run the `java -version` again and check if the output is ok.
 
-##Install
+##Installation Methods
 
-Install [Composer](http://getcomposer.org) if you don't have it.
+1. Download repository:
+
+   [Lastest Release 1.4 in zip file:](https://github.com/geekcom/phpjasper/archive/v1.4.zip)
+
+   [Lastest Release 1.4 in tar.gz file:](https://github.com/geekcom/phpjasper/archive/v1.4.zip)
+
+
+2. Install [Composer](http://getcomposer.org) if you don't have it.
 ```
 composer require lavela/phpjasper
 ```
