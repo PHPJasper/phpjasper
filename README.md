@@ -272,17 +272,16 @@ public function xmlToPdf()
         $data_file = public_path() . '/report/CancelAck.xml';
         $driver = 'xml';
         $xml_xpath = '/CancelResponse/CancelResult/ID';
-          
-        \JasperPHP::process(
-            public_path() . '/report/CancelAck.jrxml', 
-            $output, 
+        
+        $php_jasper = new JasperPHP;
+        
+        $php_jasper->process(
+            public_path() . '/report/CancelAck.jrxml',
+            $output,
             array($ext),
             array(),
-            array('data_file' => $data_file, 'driver' => $driver, 'xml_xpath' => $xml_xpath),                   
-            false,
-            false
-        )->execute();
-        
+            array('data_file' => $data_file, 'driver' => $driver, 'xml_xpath' => $xml_xpath))->execute();
+    
         header('Content-Description: File Transfer');
         header('Content-Type: application/octet-stream');
         header('Content-Disposition: attachment; filename='.time().'_CancelAck.'.$ext);
@@ -293,16 +292,15 @@ public function xmlToPdf()
         flush();
         readfile($output.'.'.$ext);
         unlink($output.'.'.$ext);
-
     }
 ```
 **Note:** 
 
 To use the example above you must copy the sample files located at:
 
-**\vendor\lavela\phpjasper\src\JasperStarter\examples\CancelAck.jrxml** 
+**\vendor\lavela\phpjasper\examples\CancelAck.jrxml** 
 and
-**\vendor\lavela\phpjasper\src\JasperStarter\examples\CancelAck.xml** 
+**\vendor\lavela\phpjasper\examples\CancelAck.xml** 
 to folder:
 **\public\report** 
 
@@ -322,15 +320,16 @@ public function jsonToPdf()
         $driver = 'json';
         $json_query= "contacts.person";
         $data_file = public_path() . '/report/contacts.json';
-
-        \JasperPHP::process(
+            
+        $php_jasper = new JasperPHP;
+        
+        $php_jasper->process(
             public_path() . '/report/json.jrxml',
             $output,
             array($ext),
             array(),
-            array('data_file' => $data_file, 'driver' => $driver, 'json_query' => $json_query
-        )->execute();
-
+            array('data_file' => $data_file, 'driver' => $driver, 'json_query' => $json_query))->execute();
+    
         header('Content-Description: File Transfer');
         header('Content-Type: application/octet-stream');
         header('Content-Disposition: attachment; filename='.time().'_Contacts.'.$ext);
@@ -341,16 +340,15 @@ public function jsonToPdf()
         flush();
         readfile($output.'.'.$ext);
         unlink($output.'.'.$ext);
-
     }
 ```
 **Note:**
 
 To use the example above you must copy the sample files located at:
 
-**\vendor\lavela\phpjasper\src\JasperStarter\examples\json.jrxml**
+**\vendor\lavela\phpjasper\examples\json.jrxml**
 and
-**\vendor\lavela\phpjasper\src\JasperStarter\examples\contacts.json**
+**\vendor\lavela\phpjasper\examples\contacts.json**
 to folder:
 **\public\report**
 
