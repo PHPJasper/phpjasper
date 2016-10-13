@@ -268,7 +268,6 @@ use JasperPHP\JasperPHP;
 public function xmlToPdf()
     {
         $output = public_path() . '/report/'.time().'_CancelAck';
-        $output = public_path() . '/report/'.time().'_CancelAck';
         $ext = "pdf";
         $data_file = public_path() . '/report/CancelAck.xml';
         $driver = 'xml';
