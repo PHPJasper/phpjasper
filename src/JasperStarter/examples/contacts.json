@@ -1,0 +1,24 @@
+{
+  "contacts": {
+    "person": [
+      {
+        "name": "ETHAN",
+        "street": "Street 1",
+        "city": "Fairfax",
+        "phone": "+1 (415) 111-1111"
+      },
+      {
+        "name": "CALEB",
+        "street": "Street 2",
+        "city": "San Francisco",
+        "phone": "+1 (415) 222-2222"
+      },
+      {
+        "name": "WILLIAM",
+        "street": "Street 2",
+        "city": "Paradise City",
+        "phone": "+1 (415) 333-3333"
+      }
+    ]
+  }
+}

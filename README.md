@@ -257,7 +257,7 @@ Route::get('/reports', function () {
 In this example we generate reports pdf, rtf and xml.
 
 
-###Additional Information - Reports from a xml in Laravel 5.*
+###Additional Information - Reports from a xml in PHP/Laravel 5.*
 
 See how easy it is to generate a report with a source an xml file:
 
@@ -306,6 +306,54 @@ and
 **\vendor\lavela\phpjasper\src\JasperStarter\examples\CancelAck.xml** 
 to folder:
 **\public\report** 
+
+
+###Reports from a JSON File in PHP/Laravel 5.*
+
+See how easy it is to generate a report with a source an json file:
+
+```php
+
+use JasperPHP\JasperPHP;
+
+public function jsonToPdf()
+    {
+        $output = public_path() . '/report/'.time().'_Contacts';
+        $ext = "pdf";
+        $driver = 'json';
+        $json_query= "contacts.person";
+        $data_file = public_path() . '/report/contacts.json';
+
+        \JasperPHP::process(
+            public_path() . '/report/json.jrxml',
+            $output,
+            array($ext),
+            array(),
+            array('data_file' => $data_file, 'driver' => $driver, 'json_query' => $json_query
+        )->execute();
+
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename='.time().'_Contacts.'.$ext);
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Content-Length: ' . filesize($output.'.'.$ext));
+        flush();
+        readfile($output.'.'.$ext);
+        unlink($output.'.'.$ext);
+
+    }
+```
+**Note:**
+
+To use the example above you must copy the sample files located at:
+
+**\vendor\lavela\phpjasper\src\JasperStarter\examples\json.jrxml**
+and
+**\vendor\lavela\phpjasper\src\JasperStarter\examples\contacts.json**
+to folder:
+**\public\report**
 
 
 ###MySQL

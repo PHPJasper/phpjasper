@@ -5,10 +5,13 @@ JasperStarter - Running JasperReports from command line
 JasperStarter is an opensource command line launcher and batch compiler for
 [JasperReports][].
 
+The official homepage is [jasperstater.cenote.de][].
+
 It has the following features:
 
-  * Run any JasperReport that needs a jdbc, csv, xml or empty datasource
+  * Run any JasperReport that needs a jdbc, csv, xml, json or empty datasource
   * Use with any database for which a jdbc driver is available
+  * Run reports with subreports
   * Execute reports that need runtime parameters. Any parameter whose class has
     a string constructor is accepted. Additionally the following types are
     supported or have special handlers:
@@ -20,27 +23,25 @@ It has the following features:
   * Export to file in the following formats:
     * pdf, rtf, xls, xlsMeta, xlsx, docx, odt, ods, pptx, csv, csvMeta, html, xhtml, xml, jrprint
   * Export multiple formats in one commanding call
-  * Compile, Print and export in one commanding call
+  * Compile, print and export in one commanding call
   * View, print or export previously filled reports (use jrprint file as input)
   * Can compile a whole directory of .jrxml files.
   * Integrate in non Java applications (for example PHP, Python)
   * Binary executable on Windows
   * Includes JasperReports so this is the only tool you need to install
 
-Requirements
+Requirements:
 
-  * Java 1.6 or higher.
+  * Java 1.6 or higher
   * A JDBC 2.1 driver for your database
 
 
 ### Quickstart
 
-  * Download JasperStarter from [Sourceforge][]
+  * Download JasperStarter from [Sourceforge][].
   * Extract the distribution archive to any directory on your system.
-  * Add the _./bin_ directoy of your installation to your searchpath.
-
-  * or just invoke _setup.exe_ on Windows
-
+  * Add the _./bin_ directory of your installation to your searchpath (on
+    Windows: invoke setup.exe).
   * Put your jdbc drivers in the _./jdbc_ directory of your installation or
     use _\--jdbc-dir_ to point to a different directory.
 
@@ -69,7 +70,7 @@ archive or read the [Usage][] page online.
 
 ### Release Notes
 
-See CHANGES file for a history of changes.
+See [Changes] for a history of changes.
 
 
 #### Known Bugs
@@ -98,16 +99,27 @@ Unfortunately one dependency (jasperreports-functions) is not provided
 in a public maven repository so you must add it to your local maven
 repo:
 
-    # Download jasperreports-functions-6.0.4.jar from
+    # Download jasperreports-functions-6.1.0.jar from
     # https://sourceforge.net/projects/jasperreports/files/jasperreports/
-    $ jar xvf jasperreports-functions-6.0.4.jar META-INF/maven/net.sf.jasperreports/jasperreports-functions/pom.xml
-    $ mvn install:install-file -Dfile=jasperreports-functions-6.0.4.jar -DpomFile=META-INF/maven/net.sf.jasperreports/jasperreports-functions/pom.xml
+    $ jar xvf jasperreports-functions-6.1.0.jar META-INF/maven/net.sf.jasperreports/jasperreports-functions/pom.xml
+    $ mvn install:install-file -Dfile=jasperreports-functions-6.1.0.jar -DpomFile=META-INF/maven/net.sf.jasperreports/jasperreports-functions/pom.xml
 
 See https://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html
 
 It is possible to compile JasperStarter without this dependency but users
 will run into errors if they use specific functions in their reports.
 So there is a test that fails if jasperreports-functions is not available.
+
+On Linux 64 bit the launch4j-maven-plugin may fail. You need the folloing libs in a 32 bit version:
+
+  * z1
+  * ncurses5
+  * bz2-1.0
+
+On Ubuntu 14.04 for example use this command:
+
+    $ sudo apt-get install lib32z1 lib32ncurses5 lib32bz2-1.0
+
 
 To get a distribution package run:
 
@@ -148,11 +160,11 @@ or
 During development you might want not to be annoyed by tests. So the following
 options are useful:
 
-    $ package -P dev -D skipTests
+    $ mvn package -P dev -D skipTests
 
 or
 
-    $ package -P dev -D maven.test.failure.ignore=true
+    $ mvn package -P dev -D maven.test.failure.ignore=true
 
 To run JasperStarter from within your IDE add _\--jdbc-dir jdbc_ to the argument
 list of your run configuration. Otherwise you will get an error:
@@ -179,6 +191,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
+[jasperstater.cenote.de]:http://jasperstarter.cenote.de/
 [JasperReports]:http://community.jaspersoft.com/project/jasperreports-library
 [Maven]:http://maven.apache.org/
 [Sourceforge]:http://sourceforge.net/projects/jasperstarter/
@@ -188,3 +201,4 @@ limitations under the License.
 [Issuetracker]:https://cenote-issues.atlassian.net/browse/JAS
 [Usage]:http://jasperstarter.sourceforge.net/usage.html
 [Issues]:https://cenote-issues.atlassian.net/browse/JAS
+[Changes]:changes.html

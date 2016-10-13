@@ -9,7 +9,8 @@
         "pdf",
 		"xml",
 		"PHP",
-        "java"
+        "java",
+        "json"
       ],
     "homepage": "https://github.com/lavela/phpjasper",
 	"authors": [
