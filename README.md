@@ -77,9 +77,9 @@ Now run the `java -version` again and check if the output is ok.
 
 1. Download repository:
 
-   [Lastest Release 1.4 in zip file:](https://github.com/geekcom/phpjasper/archive/v1.4.zip)
+   [Lastest Release 1.5 in zip file:](https://github.com/geekcom/phpjasper/archive/v1.5.zip)
 
-   [Lastest Release 1.4 in tar.gz file:](https://github.com/geekcom/phpjasper/archive/v1.4.zip)
+   [Lastest Release 1.5 in tar.gz file:](https://github.com/geekcom/phpjasper/archive/v1.5.tar.gz)
 
 
 2. Install [Composer](http://getcomposer.org) if you don't have it.
@@ -257,9 +257,9 @@ Route::get('/reports', function () {
 In this example we generate reports pdf, rtf and xml.
 
 
-###Additional Information - Reports from a xml in PHP/Laravel 5.*
+###Reports from a xml in PHP/Laravel 5.*
 
-See how easy it is to generate a report with a source an xml file:
+See how easy it is to generate a report with a source an XML file:
 
 ```php
 
@@ -310,7 +310,7 @@ to folder:
 
 ###Reports from a JSON File in PHP/Laravel 5.*
 
-See how easy it is to generate a report with a source an json file:
+See how easy it is to generate a report with a source an JSON file:
 
 ```php
 
