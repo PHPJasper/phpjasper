@@ -1,5 +1,5 @@
 {
-    "name": "lavela/phpjasper",
+    "name": "geekcom/phpjasper",
     "description": "Create Reports in PHP/Laravel with JasperReports",
     "license": "MIT",
     "keywords": [
@@ -12,7 +12,7 @@
         "java",
         "json"
       ],
-    "homepage": "https://github.com/lavela/phpjasper",
+    "homepage": "https://github.com/geekcom/phpjasper",
 	"authors": [
         {
             "name": "Leandro Bitencourt",

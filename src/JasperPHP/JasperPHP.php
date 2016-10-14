@@ -60,7 +60,7 @@ class JasperPHP
         return $this;
     }
 
-    public function process($input_file, $output_file = false, $format = array('pdf'), $parameters = array(), $db_connection = array(), $background = true, $redirect_output = true)
+    public function process($input_file, $output_file = false, $format = array('pdf'), $parameters = array(), $db_connection = array(), $background = true, $redirect_output = true, $locale = false )
     {
         if(is_null($input_file) || empty($input_file))
             throw new \Exception('No input file', 1);
@@ -78,6 +78,8 @@ class JasperPHP
         }
 
         $command = ($this->windows) ? $this->executable : './' . $this->executable;
+
+        $command .= ($locale) ? " --locale $locale" : '';
 
         $command .= ' process ';
 

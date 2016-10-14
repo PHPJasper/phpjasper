@@ -1,10 +1,11 @@
 # Reports for PHP and Laravel 5.*, with JasperReports.
 
-[![License](https://poser.pugx.org/lavela/phpjasper/license)](https://packagist.org/packages/lavela/phpjasper) [![Total Downloads](https://poser.pugx.org/lavela/phpjasper/downloads)](https://packagist.org/packages/lavela/phpjasper)
+[![Latest Stable Version](https://poser.pugx.org/geekcom/phpjasper/v/stable)](https://packagist.org/packages/geekcom/phpjasper)
+[![License](https://poser.pugx.org/geekcom/phpjasper/license)](https://packagist.org/packages/geekcom/phpjasper) [![Total Downloads](https://poser.pugx.org/geekcom/phpjasper/downloads)](https://packagist.org/packages/geekcom/phpjasper)
 
 **Is using Linux servers?**
 
-Do not forget to grant permission 777 for the directory **/vendor/lavela/phpjasper/src/JasperStarter/bin** and the file binary **jasperstarter**
+Do not forget to grant permission 777 for the directory **/vendor/geekcom/phpjasper/src/JasperStarter/bin** and the file binary **jasperstarter**
 
 ##Introduction
 
@@ -84,14 +85,14 @@ Now run the `java -version` again and check if the output is ok.
 
 2. Install [Composer](http://getcomposer.org) if you don't have it.
 ```
-composer require lavela/phpjasper
+composer require geekcom/phpjasper
 ```
 Or in your 'composer.json' file add:
 
 ```javascript
 {
     "require": {
-        "lavela/phpjasper": "1.*"
+        "geekcom/phpjasper": "1.*"
     }
 }
 ```
@@ -106,7 +107,7 @@ and thats it.
 
 ###The *Hello World* example.
 
-Go to the examples directory in the root of the repository (`vendor/lavela/phpjasper/examples`).
+Go to the examples directory in the root of the repository (`vendor/geekcom/phpjasper/examples`).
 Open the `hello_world.jrxml` file with Jaspersoft Studio or with your favorite text editor and take a look at the source code.
 
 #### Compiling
@@ -121,7 +122,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 use JasperPHP\JasperPHP;
 
-$input = __DIR__ . '/vendor/lavela/phpjasper/examples/hello_world.jrxml';   
+$input = __DIR__ . '/vendor/geekcom/phpjasper/examples/hello_world.jrxml';   
 
 $jasper = new JasperPHP;
 $jasper->compile($input)->execute();
@@ -139,8 +140,8 @@ require __DIR__ . '/vendor/autoload.php';
 
 use JasperPHP\JasperPHP;
 
-$input = __DIR__ . '/vendor/lavela/phpjasper/examples/hello_world.jasper';  
-$output = __DIR__ . '/vendor/lavela/phpjasper/examples';    
+$input = __DIR__ . '/vendor/geekcom/phpjasper/examples/hello_world.jasper';  
+$output = __DIR__ . '/vendor/geekcom/phpjasper/examples';    
 
 $jasper = new JasperPHP;
 
@@ -165,7 +166,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 use JasperPHP\JasperPHP;
 
-$input = __DIR__ . '/vendor/lavela/phpjasper/examples/hello_world_params.jrxml';
+$input = __DIR__ . '/vendor/geekcom/phpjasper/examples/hello_world_params.jrxml';
 
 $jasper = new JasperPHP;
 $output = $jasper->list_parameters($input)->execute();
@@ -184,22 +185,35 @@ require __DIR__ . '/vendor/autoload.php';
 
 use JasperPHP\JasperPHP;    
 
-$input = __DIR__ . '/vendor/lavela/phpjasper/examples/hello_world.jrxml';   
-$output = __DIR__ . '/vendor/lavela/phpjasper/examples';    
+$input = __DIR__ . '/vendor/geekcom/phpjasper/examples/hello_world.jrxml';   
+$output = __DIR__ . '/vendor/geekcom/phpjasper/examples';    
+
+private $conn;
+
+public function __construct()
+{
+    $this->conn = [
+        'driver' => 'postgres',
+        'username' => 'DB_USERNAME',
+        'password' => 'DB_PASSWORD',
+        'host' => 'DB_HOST',
+        'database' => 'DB_DATABASE',
+        'schema' => 'DB_SCHEMA',
+        'port' => '5432'
+    ];
+}    
 
 $jasper = new JasperPHP;
+
 $jasper->process(
-    $input,
-    $output,
-    array("pdf", "rtf"),
-    array("php_version" => phpversion()),
-    array(
-        'driver' => 'postgres',
-        'username' => 'vagrant',
-        'host' => 'localhost',
-        'database' => 'samples',
-        'port' => '5432',
-    )                       
+        $input,
+        $output,
+        array("pdf", "rtf"),
+        array("php_version" => phpversion()),
+        $this->conn, 
+        true, 
+        true, 
+        'pt_BR' //LOCALE
 )->execute();
 ```
 
@@ -207,14 +221,14 @@ $jasper->process(
 
 1. Install [Composer](http://getcomposer.org) if you don't have it.
 ```
-composer require lavela/phpjasper
+composer require geekcom/phpjasper
 ```
 Or in your 'composer.json' file add:
 
 ```javascript
 {
     "require": {
-        "lavela/phpjasper": "1.*"
+        "geekcom/phpjasper": "1.*"
     }
 }
 ```
@@ -228,7 +242,7 @@ Or in your 'composer.json' file add:
 
 4. Create a folder **/report** on **/public directory**
 
-5. Copy the file **hello_world.jrxml** in **/vendor/lavela/phpjasper/examples** from directory: **/public/report**
+5. Copy the file **hello_world.jrxml** in **/vendor/geekcom/phpjasper/examples** from directory: **/public/report**
 
 6. Run **php artisan serve**
 
@@ -298,9 +312,9 @@ public function xmlToPdf()
 
 To use the example above you must copy the sample files located at:
 
-**\vendor\lavela\phpjasper\examples\CancelAck.jrxml** 
+**\vendor\geekcom\phpjasper\examples\CancelAck.jrxml** 
 and
-**\vendor\lavela\phpjasper\examples\CancelAck.xml** 
+**\vendor\geekcom\phpjasper\examples\CancelAck.xml** 
 to folder:
 **\public\report** 
 
@@ -346,9 +360,9 @@ public function jsonToPdf()
 
 To use the example above you must copy the sample files located at:
 
-**\vendor\lavela\phpjasper\examples\json.jrxml**
+**\vendor\geekcom\phpjasper\examples\json.jrxml**
 and
-**\vendor\lavela\phpjasper\examples\contacts.json**
+**\vendor\geekcom\phpjasper\examples\contacts.json**
 to folder:
 **\public\report**
 
