@@ -219,7 +219,7 @@ $jasper->process(
 
 **Note 2:**
 
-For a complete list of locales see [Supported Locales](http://getcomposer.org)
+For a complete list of locales see [Supported Locales](http://www.oracle.com/technetwork/java/javase/java8locales-2095355.html)
 
 ###Using JasperPHP with Laravel 5.*
 
