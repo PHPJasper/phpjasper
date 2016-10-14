@@ -45,8 +45,6 @@ Package to generate reports with [JasperReports 6.3.1](http://community.jasperso
 * [optional] [PostgreSQL Connector](https://jdbc.postgresql.org/download.html) (if you want to use database)
 * [optional] [Jaspersoft Studio](http://community.jaspersoft.com/project/jaspersoft-studio) (to draw and compile your reports)
 
-##Installation
-
 ###Java
 
 Check if you already have Java installed:
@@ -74,20 +72,13 @@ To install on windows visit the link-> [JDK](http://www.oracle.com/technetwork/p
 
 Now run the `java -version` again and check if the output is ok.
 
-##Installation Methods
+##Installation
 
-1. Download repository:
-
-   [Lastest Release 1.5 in zip file:](https://github.com/geekcom/phpjasper/archive/1.6.zip)
-
-   [Lastest Release 1.5 in tar.gz file:](https://github.com/geekcom/phpjasper/archive/1.6.tar.gz)
-
-
-2. Install [Composer](http://getcomposer.org) if you don't have it.
+Install [Composer](http://getcomposer.org) if you don't have it.
 ```
 composer require geekcom/phpjasper
 ```
-Or in your 'composer.json' file add:
+Or in your file'composer.json' add:
 
 ```javascript
 {
