@@ -176,8 +176,8 @@ require __DIR__ . '/vendor/autoload.php';
 
 use JasperPHP\JasperPHP;    
 
-$input = __DIR__ . '/vendor/geekcom/phpjasper/examples/hello_world.jrxml';   
-$output = __DIR__ . '/vendor/geekcom/phpjasper/examples';    
+$input = __DIR__ . '/vendor/dericktan/phpjasper/examples/hello_world.jrxml';   
+$output = __DIR__ . '/vendor/dericktan/phpjasper/examples';    
 
 private $conn;
 
