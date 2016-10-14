@@ -15,14 +15,15 @@
     "homepage": "https://github.com/geekcom/phpjasper",
 	"authors": [
         {
-            "name": "Leandro Bitencourt",
-            "email": "leandrocintrabitencourt@gmail.com",
+            "name": "Daniel Rodrigues",
+            "email": "danielrodrigues-ti@hotmail.com",
             "homepage": "http://www.leandrobitencourt.zz.mu",
             "role": "Developer"
         },
         {
-            "name": "Daniel Rodrigues",
-            "email": "danielrodrigues-ti@hotmail.com",
+            "name": "Leandro Bitencourt",
+            "email": "leandrocintrabitencourt@gmail.com",
+            "homepage": "http://www.leandrobitencourt.zz.mu",
             "role": "Developer"
         }
 

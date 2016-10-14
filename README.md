@@ -78,9 +78,9 @@ Now run the `java -version` again and check if the output is ok.
 
 1. Download repository:
 
-   [Lastest Release 1.5 in zip file:](https://github.com/geekcom/phpjasper/archive/v1.5.zip)
+   [Lastest Release 1.5 in zip file:](https://github.com/geekcom/phpjasper/archive/1.6.zip)
 
-   [Lastest Release 1.5 in tar.gz file:](https://github.com/geekcom/phpjasper/archive/v1.5.tar.gz)
+   [Lastest Release 1.5 in tar.gz file:](https://github.com/geekcom/phpjasper/archive/1.6.tar.gz)
 
 
 2. Install [Composer](http://getcomposer.org) if you don't have it.
