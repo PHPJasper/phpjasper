@@ -114,7 +114,7 @@ Open the `hello_world.jrxml` file with Jaspersoft Studio or with your favorite t
 
 First we need to compile our `JRXML` file into a `JASPER` binary file. We just have to do this one time.
 
-**Note:** You don't need to do this step if you are using *Jaspersoft Studio*. You can compile directly within the program.
+**Note 1:** You don't need to do this step if you are using *Jaspersoft Studio*. You can compile directly within the program.
 
 ```php
 
@@ -213,9 +213,13 @@ $jasper->process(
         $this->conn, 
         true, 
         true, 
-        'pt_BR' //LOCALE
+        'pt_BR' //LOCALE *note 2
 )->execute();
 ```
+
+**Note 2:**
+
+For a complete list of locales see [Supported Locales](http://getcomposer.org)
 
 ###Using JasperPHP with Laravel 5.*
 
@@ -308,7 +312,7 @@ public function xmlToPdf()
         unlink($output.'.'.$ext);
     }
 ```
-**Note:** 
+**Note 3:** 
 
 To use the example above you must copy the sample files located at:
 
@@ -356,7 +360,7 @@ public function jsonToPdf()
         unlink($output.'.'.$ext);
     }
 ```
-**Note:**
+**Note 4:**
 
 To use the example above you must copy the sample files located at:
 
