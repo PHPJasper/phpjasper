@@ -4,8 +4,7 @@ namespace JasperPHP;
 
 use Illuminate\Support\ServiceProvider;
 
-class JasperPHPServiceProvider extends ServiceProvider
-{
+class JasperPHPServiceProvider extends ServiceProvider {
 
     const SESSION_HASH = '_JasperPHP';
 
@@ -14,10 +13,10 @@ class JasperPHPServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
-    {
+    public function register() {
 
-        $this->app['jasperphp'] = $this->app->share(function () {
+        $this->app['jasperphp'] = $this->app->share(function()
+        {
             return new JasperPHP;
         });
 
@@ -25,7 +24,8 @@ class JasperPHPServiceProvider extends ServiceProvider
         /**
          * Register the alias.
          */
-        $this->app->booting(function () {
+        $this->app->booting(function()
+        {
             $loader = \Illuminate\Foundation\AliasLoader::getInstance();
             $loader->alias('JasperPHP', 'JasperPHP\Facades\JasperPHP');
         });

@@ -1,32 +1,36 @@
 {
-    "name": "geekcom/phpjasper",
-    "description": "Create Reports in PHP/Laravel with JasperReports",
+    "name": "dericktan/phpjasper",
+    "description": "Create Reports in PHP with JasperReports",
     "license": "MIT",
     "keywords": [
         "reports",
         "jasper",
         "jasperreports",
+        "reports",
         "pdf",
-		"xml",
-		"PHP",
+        "xml",
+        "PHP",
         "java",
         "json"
       ],
-    "homepage": "https://github.com/geekcom/phpjasper",
+    "homepage": "https://github.com/Dericktan/phpjasper",
 	"authors": [
-        {
-            "name": "Daniel Rodrigues",
-            "email": "danielrodrigues-ti@hotmail.com",
-            "homepage": "https://olamundophp.wordpress.com/",
-            "role": "Developer"
-        },
         {
             "name": "Leandro Bitencourt",
             "email": "leandrocintrabitencourt@gmail.com",
             "homepage": "http://www.leandrobitencourt.zz.mu",
             "role": "Developer"
+        },
+        {
+            "name": "Daniel Rodrigues",
+            "email": "danielrodrigues-ti@hotmail.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Derick Tan",
+            "email": "derick.tan988@gmail.com",
+            "role": "Developer"
         }
-
     ],
     "minimum-stability": "dev",
     "require": {

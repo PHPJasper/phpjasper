@@ -21,7 +21,7 @@ class JasperPHP
            $this->windows = true;
 
         if (!$resource_dir) {
-            $this->resource_directory = __DIR__ . '/../../../vendor/cossou/jasperphp/src/JasperStarter/bin';
+            $this->resource_directory = __DIR__ . '/../../../vendor/dericktan/jasperphp/src/JasperStarter/bin';
         } else {
             if (!file_exists($resource_dir))
                 throw new \Exception('Invalid resource directory.', 1);
@@ -60,7 +60,7 @@ class JasperPHP
         return $this;
     }
 
-    public function process($input_file, $output_file = false, $format = array('pdf'), $parameters = array(), $db_connection = array(), $background = true, $redirect_output = true, $locale = false )
+    public function process($input_file, $output_file = false, $format = array('pdf'), $parameters = array(), $db_connection = array(), $background = true, $redirect_output = true, $locale = false)
     {
         if(is_null($input_file) || empty($input_file))
             throw new \Exception('No input file', 1);
@@ -80,7 +80,7 @@ class JasperPHP
         $command = ($this->windows) ? $this->executable : './' . $this->executable;
 
         $command .= ($locale) ? " --locale $locale" : '';
-
+        
         $command .= ' process ';
 
         $command .= "\"$input_file\"";

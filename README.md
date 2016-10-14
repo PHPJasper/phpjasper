@@ -1,11 +1,13 @@
-# Reports for PHP and Laravel 5.*, with JasperReports.
+# JasperReports for PHP and Laravel Framework
 
-[![Latest Stable Version](https://poser.pugx.org/geekcom/phpjasper/v/stable)](https://packagist.org/packages/geekcom/phpjasper)
-[![License](https://poser.pugx.org/geekcom/phpjasper/license)](https://packagist.org/packages/geekcom/phpjasper) [![Total Downloads](https://poser.pugx.org/geekcom/phpjasper/downloads)](https://packagist.org/packages/geekcom/phpjasper)
+[![Latest Stable Version](https://poser.pugx.org/dericktan/phpjasper/v/stable)](https://packagist.org/packages/dericktan/phpjasper)
+[![License](https://poser.pugx.org/dericktan/phpjasper/license)](https://packagist.org/packages/dericktan/phpjasper)
+[![Monthly Downloads](https://poser.pugx.org/dericktan/phpjasper/d/monthly)](https://packagist.org/packages/dericktan/phpjasper)
+[![Total Downloads](https://poser.pugx.org/dericktan/phpjasper/downloads)](https://packagist.org/packages/dericktan/phpjasper)
 
 **Is using Linux servers?**
 
-Do not forget to grant permission 777 for the directory **/vendor/geekcom/phpjasper/src/JasperStarter/bin** and the file binary **jasperstarter**
+Do not forget to grant permission 777 for the directory **/vendor/dericktan/phpjasper/src/JasperStarter/bin** and the file binary **jasperstarter**
 
 ##Introduction
 
@@ -27,7 +29,7 @@ Well, everything. JasperReports is a powerful tool for **reporting** and **BI**.
 
 > The JasperReports Library is the world's most popular open source reporting engine. It is entirely written in Java and it is able to use data coming from any kind of data source and produce pixel-perfect documents that can be viewed, printed or exported in a variety of document formats including HTML, PDF, Excel, OpenOffice and Word.
 
-It is recommended using [Jaspersoft Studio](http://community.jaspersoft.com/project/jaspersoft-studio) to build your reports, connect it to your datasource (ex: MySQL, POSTGRES), loop thru the results and output it to PDF, XLS, DOC, RTF, ODF, etc.
+I recommend using [Jaspersoft Studio](http://community.jaspersoft.com/project/jaspersoft-studio) to build your reports, connect it to your datasource (ex: MySQL, POSTGRES), loop thru the results and output it to PDF, XLS, DOC, RTF, ODF, etc.
 
 *Some examples of what you can do:*
 
@@ -35,7 +37,7 @@ It is recommended using [Jaspersoft Studio](http://community.jaspersoft.com/proj
 * Reports
 * Listings
 
-Package to generate reports with [JasperReports 6.3.1](http://community.jaspersoft.com/project/jaspersoft-studio/releases) library through [JasperStarter v3](http://jasperstarter.sourceforge.net/) command-line tool.
+Package to generate reports with [JasperReports 6](http://community.jaspersoft.com/project/jasperreports-library) library through [JasperStarter v3](http://jasperstarter.sourceforge.net/) command-line tool.
 
 ##Requirements
 
@@ -45,52 +47,48 @@ Package to generate reports with [JasperReports 6.3.1](http://community.jasperso
 * [optional] [PostgreSQL Connector](https://jdbc.postgresql.org/download.html) (if you want to use database)
 * [optional] [Jaspersoft Studio](http://community.jaspersoft.com/project/jaspersoft-studio) (to draw and compile your reports)
 
+##Installation
+
 ###Java
 
 Check if you already have Java installed:
 
 ```
 $ java -version
-java version "1.8.0_101"
-Java(TM) SE Runtime Environment (build 1.8.0_101-b13)
-Java HotSpot(TM) 64-Bit Server VM (build 25.101-b13, mixed mode)
+java version "1.8.0_65"
+Java(TM) SE Runtime Environment (build 1.8.0_65-b17)
+Java HotSpot(TM)  Client VM (build 25.65-b01, mixed mode, sharing)
 ```
 
 If you get:
 
-    command not found: java
+	command not found: java
 
 Then install it with: (Ubuntu/Debian)
 
-    $ sudo apt-get install default-jdk
-
-To install on: (centOS/Fedora)
-
-    # yum install java-1.8.0-openjdk.x86_64
-
-To install on windows visit the link-> [JDK](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) and look for the most appropriate version for your system.
+	$ sudo apt-get install default-jdk
 
 Now run the `java -version` again and check if the output is ok.
 
-##Installation
+##Install
 
 Install [Composer](http://getcomposer.org) if you don't have it.
 ```
-composer require geekcom/phpjasper
+composer require dericktan/phpjasper
 ```
-Or in your file'composer.json' add:
+Or in your 'composer.json' file add:
 
 ```javascript
 {
     "require": {
-        "geekcom/phpjasper": "1.*"
+		"dericktan/phpjasper": "1.*"
     }
 }
 ```
 
 And the just run:
 
-    composer install
+	composer install
 
 and thats it.
 
@@ -98,14 +96,14 @@ and thats it.
 
 ###The *Hello World* example.
 
-Go to the examples directory in the root of the repository (`vendor/geekcom/phpjasper/examples`).
-Open the `hello_world.jrxml` file with Jaspersoft Studio or with your favorite text editor and take a look at the source code.
+Go to the examples directory in the root of the repository (`vendor/dericktan/phpjasper/examples`).
+Open the `hello_world.jrxml` file with iReport or with your favorite text editor and take a look at the source code.
 
 #### Compiling
 
 First we need to compile our `JRXML` file into a `JASPER` binary file. We just have to do this one time.
 
-**Note 1:** You don't need to do this step if you are using *Jaspersoft Studio*. You can compile directly within the program.
+**Note:** You don't need to do this step if you are using *Jaspersoft Studio*. You can compile directly within the program.
 
 ```php
 
@@ -113,7 +111,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 use JasperPHP\JasperPHP;
 
-$input = __DIR__ . '/vendor/geekcom/phpjasper/examples/hello_world.jrxml';   
+$input = __DIR__ . '/vendor/dericktan/phpjasper/examples/hello_world.jrxml';
 
 $jasper = new JasperPHP;
 $jasper->compile($input)->execute();
@@ -131,15 +129,15 @@ require __DIR__ . '/vendor/autoload.php';
 
 use JasperPHP\JasperPHP;
 
-$input = __DIR__ . '/vendor/geekcom/phpjasper/examples/hello_world.jasper';  
-$output = __DIR__ . '/vendor/geekcom/phpjasper/examples';    
+$input = __DIR__ . '/vendor/dericktan/phpjasper/examples/hello_world.jasper';
+$output = __DIR__;
 
 $jasper = new JasperPHP;
 
 $jasper->process(
-    $input,
-    $output,
-    array("pdf", "rtf")
+	$input,
+	$output,
+	array("pdf", "rtf")
 )->execute();
 ```
 
@@ -157,7 +155,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 use JasperPHP\JasperPHP;
 
-$input = __DIR__ . '/vendor/geekcom/phpjasper/examples/hello_world_params.jrxml';
+$input = __DIR__ . '/vendor/dericktan/phpjasper/examples/hello_world_params.jrxml';
 
 $jasper = new JasperPHP;
 $output = $jasper->list_parameters($input)->execute();
@@ -176,8 +174,8 @@ require __DIR__ . '/vendor/autoload.php';
 
 use JasperPHP\JasperPHP;    
 
-$input = __DIR__ . '/vendor/geekcom/phpjasper/examples/hello_world.jrxml';   
-$output = __DIR__ . '/vendor/geekcom/phpjasper/examples';    
+$input = __DIR__ . '/vendor/dericktan/phpjasper/examples/hello_world.jrxml';   
+$output = __DIR__ . '/vendor/dericktan/phpjasper/examples';    
 
 private $conn;
 
@@ -204,11 +202,10 @@ $jasper->process(
         $this->conn, 
         true, 
         true, 
-        'pt_BR' //LOCALE *note 2
+        'in-ID' //LOCALE *note 2
 )->execute();
 ```
-
-**Note 2:**
+**Note**
 
 For a complete list of locales see [Supported Locales](http://www.oracle.com/technetwork/java/javase/java8locales-2095355.html)
 
@@ -216,28 +213,28 @@ For a complete list of locales see [Supported Locales](http://www.oracle.com/tec
 
 1. Install [Composer](http://getcomposer.org) if you don't have it.
 ```
-composer require geekcom/phpjasper
+composer require dericktan/phpjasper
 ```
 Or in your 'composer.json' file add:
 
 ```javascript
 {
     "require": {
-        "geekcom/phpjasper": "1.*"
+		"dericktan/phpjasper": "1.*"
     }
 }
 ```
 2. And the just run:
 
-    **composer update**
+	**composer update**
 
 3. Add to your config/app.php providers array:
 
-    **JasperPHP\JasperPHPServiceProvider::class,**
+	**JasperPHP\JasperPHPServiceProvider::class,**
 
 4. Create a folder **/report** on **/public directory**
 
-5. Copy the file **hello_world.jrxml** in **/vendor/geekcom/phpjasper/examples** from directory: **/public/report**
+5. Copy the file **hello_world.jrxml** in **/vendor/dericktan/phpjasper/examples** from directory: **/public/report**
 
 6. Run **php artisan serve**
 
@@ -251,12 +248,12 @@ Or in your 'composer.json' file add:
 use JasperPHP\JasperPHP;
 
 Route::get('/reports', function () {
-    
+
     $output = public_path() . '/report/'.time().'_hello_world';
     $report = new JasperPHP;
     $report->process(
-        public_path() . '/report/hello_world.jrxml', 
-        $output, 
+    	public_path() . '/report/hello_world.jrxml',
+        $output,
         array('pdf', 'rtf', 'xml'),
         array(),
         array()  
@@ -281,16 +278,19 @@ public function xmlToPdf()
         $data_file = public_path() . '/report/CancelAck.xml';
         $driver = 'xml';
         $xml_xpath = '/CancelResponse/CancelResult/ID';
+		
+        $jasper = new JasperPHP;
         
-        $php_jasper = new JasperPHP;
-        
-        $php_jasper->process(
+        $jasper->process(
             public_path() . '/report/CancelAck.jrxml',
             $output,
             array($ext),
             array(),
-            array('data_file' => $data_file, 'driver' => $driver, 'xml_xpath' => $xml_xpath))->execute();
-    
+            array('data_file' => $data_file, 'driver' => $driver, 'xml_xpath' => $xml_xpath),                   
+            false,
+            false
+        )->execute();
+
         header('Content-Description: File Transfer');
         header('Content-Type: application/octet-stream');
         header('Content-Disposition: attachment; filename='.time().'_CancelAck.'.$ext);
@@ -301,17 +301,18 @@ public function xmlToPdf()
         flush();
         readfile($output.'.'.$ext);
         unlink($output.'.'.$ext);
+
     }
 ```
-**Note 3:** 
+**Note:**
 
 To use the example above you must copy the sample files located at:
 
-**\vendor\geekcom\phpjasper\examples\CancelAck.jrxml** 
+**\vendor\dericktan\phpjasper\examples\CancelAck.jrxml**
 and
-**\vendor\geekcom\phpjasper\examples\CancelAck.xml** 
+**\vendor\dericktan\phpjasper\examples\CancelAck.xml**
 to folder:
-**\public\report** 
+**\public\report**
 
 
 ###Reports from a JSON File in PHP/Laravel 5.*
@@ -329,16 +330,17 @@ public function jsonToPdf()
         $driver = 'json';
         $json_query= "contacts.person";
         $data_file = public_path() . '/report/contacts.json';
-            
-        $php_jasper = new JasperPHP;
-        
-        $php_jasper->process(
+
+        $jasper = new JasperPHP;
+
+        $jasper->process(
             public_path() . '/report/json.jrxml',
             $output,
             array($ext),
             array(),
-            array('data_file' => $data_file, 'driver' => $driver, 'json_query' => $json_query))->execute();
-    
+            array('data_file' => $data_file, 'driver' => $driver, 'json_query' => $json_query
+        )->execute();
+
         header('Content-Description: File Transfer');
         header('Content-Type: application/octet-stream');
         header('Content-Disposition: attachment; filename='.time().'_Contacts.'.$ext);
@@ -349,18 +351,19 @@ public function jsonToPdf()
         flush();
         readfile($output.'.'.$ext);
         unlink($output.'.'.$ext);
+
     }
 ```
-**Note 4:**
+
+**Note:**
 
 To use the example above you must copy the sample files located at:
 
-**\vendor\geekcom\phpjasper\examples\json.jrxml**
+**\vendor\dericktan\phpjasper\examples\json.jrxml**
 and
-**\vendor\geekcom\phpjasper\examples\contacts.json**
+**\vendor\dericktan\phpjasper\examples\contacts.json**
 to folder:
 **\public\report**
-
 
 ###MySQL
 
@@ -382,12 +385,12 @@ Thanks to [Cenote GmbH](http://www.cenote.de/) for the [JasperStarter](http://ja
 
 ##Questions?
 
-Open a [Issue](https://github.com/geekcom/phpjasper/issues) 
+Drop me a line on Skype [leandro.bittencourt16] or E-Mail [leandrocintrabitencourt@gmail.com]
+
+Drop me a line on Skype [danielrodrigueslima] or E-Mail [danielrodrigues-ti@hotmail.com]
+
+Drop me a line on E-Mail [derick.tan988@gmail.com]
 
 ##License
 
 MIT
-
-##Contribute
-
-Contribute to the community PHP and Laravel, feel free to contribute, make a fork!!
