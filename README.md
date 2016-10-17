@@ -303,6 +303,14 @@ public function xmlToPdf()
         unlink($output.'.'.$ext);
     }
 ```
+
+
+**Do not forget to write your route**
+
+```php
+Route::get('xml', 'ReportsController@xmlToPdf');
+```
+
 **Note 3:** 
 
 To use the example above you must copy the sample files located at:
@@ -351,6 +359,13 @@ public function jsonToPdf()
         unlink($output.'.'.$ext);
     }
 ```
+
+**Do not forget to write your route**
+
+```php
+Route::get('json', 'ReportsController@jsonToPdf');
+```
+
 **Note 4:**
 
 To use the example above you must copy the sample files located at:
