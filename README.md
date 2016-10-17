@@ -310,7 +310,7 @@ public function xmlToPdf()
 ```php
 Route::get('reports/xml', 'ReportsController@xmlToPdf');
 ```
-and just run:
+**and just go to**:
 
 http://localhost:8000/reports/json
 
@@ -369,7 +369,7 @@ public function jsonToPdf()
 Route::get('reports/json', 'ReportsController@jsonToPdf');
 ```
 
-and just run:
+**and just go to**:
 
 http://localhost:8000/reports/json
 
