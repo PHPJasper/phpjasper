@@ -312,7 +312,7 @@ Route::get('reports/xml', 'ReportsController@xmlToPdf');
 ```
 **and just go to**:
 
-http://localhost:8000/reports/json
+http://localhost:8000/reports/xml
 
 **Note 3:** 
 
