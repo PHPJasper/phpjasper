@@ -7,7 +7,7 @@
 [![Bitcoin Donations](https://img.shields.io/badge/bitcoin-donation-orange.svg
 )](https://blockchain.info/address/1LqwqcMfNuNzq6S671z1HjM61MpBuFCGqg)
 
-**Is using Linux servers?**
+**Is using Linux servers?**sss
 
 Do not forget to grant permission 777 for the directory **/vendor/geekcom/phpjasper/src/JasperStarter/bin** and the file binary **jasperstarter**
 
