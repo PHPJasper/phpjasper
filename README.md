@@ -49,7 +49,7 @@ Package to generate reports with [JasperReports 6.3.1](http://community.jasperso
 * [optional] [PostgreSQL Connector](https://jdbc.postgresql.org/download.html) (if you want to use database)
 * [optional] [Jaspersoft Studio](http://community.jaspersoft.com/project/jaspersoft-studio) (to draw and compile your reports)
 
-###Java(JDK)s
+###Java(JDK)
 
 Check if you already have Java installed:
 
