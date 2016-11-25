@@ -21,7 +21,7 @@ class JasperPHP
            $this->windows = true;
 
         if (!$resource_dir) {
-            $this->resource_directory = __DIR__ . '/../../../vendor/geekcom/jasperphp/src/JasperStarter/bin';
+            $this->resource_directory = __DIR__ . '/../../../vendor/lavela/jasperphp/src/JasperStarter/bin';
         } else {
             if (!file_exists($resource_dir))
                 throw new \Exception('Invalid resource directory.', 1);
