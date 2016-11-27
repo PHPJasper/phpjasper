@@ -231,6 +231,7 @@ Or in your 'composer.json' file add:
     }
 }
 ```
+
 2. And the just run:
 
     **composer update**
@@ -243,13 +244,9 @@ Or in your 'composer.json' file add:
 
 5. Copy the file **hello_world.jrxml** in **/vendor/geekcom/phpjasper/examples** from directory: **/public/report**
 
-6. Run **php artisan serve**
+6. Copy and paste the code below to your **route.php** file
 
-7. Access **localhost:8000/reports**
-
-8. Check the directory **/public/report**. You now have 3 files, `hello_world.pdf`, `hello_world.rtf` and `hello_world.xml`.
-
-**Below the code you will use in your route.php**
+**Note 3:** In laravel 5.3 your routes files it's located on directory /routes
 
 ```php
 use JasperPHP\JasperPHP;
@@ -267,8 +264,14 @@ Route::get('/reports', function () {
         )->execute();
 });
 ```
-In this example we generate reports pdf, rtf and xml.
 
+7. Run **php artisan serve**
+
+8. Access **localhost:8000/reports**
+
+9. Check the directory **/public/report**. You now have 3 files, `hello_world.pdf`, `hello_world.rtf` and `hello_world.xml`.
+
+In this example we generate reports pdf, rtf and xml.
 
 ###Reports from a xml in PHP/Laravel 5.*
 
