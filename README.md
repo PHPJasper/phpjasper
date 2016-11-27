@@ -76,6 +76,8 @@ To install on windows visit the link-> [JDK](http://www.oracle.com/technetwork/p
 
 Now run the `java -version` again and check if the output is ok.
 
+---------------------------------------------------------------------------------------------------------------------------
+
 ##Installation
 
 Install [Composer](http://getcomposer.org) if you don't have it.
@@ -97,6 +99,8 @@ And the just run:
     composer install
 
 and thats it.
+
+----------------------------------------------------------------------------------------------------------------------------
 
 ##Examples
 
@@ -218,7 +222,7 @@ For a complete list of locales see [Supported Locales](http://www.oracle.com/tec
 
 ###Using JasperPHP with Laravel 5.*
 
-1. Install [Composer](http://getcomposer.org) if you don't have it.
+* Install [Composer](http://getcomposer.org) if you don't have it.
 ```
 composer require geekcom/phpjasper
 ```
@@ -232,19 +236,19 @@ Or in your 'composer.json' file add:
 }
 ```
 
-2. And the just run:
+* Just run:
 
     **composer update**
 
-3. Add to your config/app.php providers array:
+* Add to your config/app.php providers array:
 
     **JasperPHP\JasperPHPServiceProvider::class,**
 
-4. Create a folder **/report** on **/public directory**
+* Create a folder **/report** on **/public directory**
 
-5. Copy the file **hello_world.jrxml** in **/vendor/geekcom/phpjasper/examples** from directory: **/public/report**
+* Copy the file **hello_world.jrxml** in **/vendor/geekcom/phpjasper/examples** from directory: **/public/report**
 
-6. Copy and paste the code below to your **route.php** file
+* Copy and paste the code below to your **route.php** file
 
 **Note 3:** In laravel 5.3 your routes files it's located on directory /routes
 
@@ -265,13 +269,14 @@ Route::get('/reports', function () {
 });
 ```
 
-7. Run **php artisan serve**
+* Run **php artisan serve**
 
-8. Access **localhost:8000/reports**
+* Access **localhost:8000/reports**
 
-9. Check the directory **/public/report**. You now have 3 files, `hello_world.pdf`, `hello_world.rtf` and `hello_world.xml`.
+* Check the directory **/public/report**. You now have 3 files, `hello_world.pdf`, `hello_world.rtf` and `hello_world.xml`.
 
 In this example we generate reports pdf, rtf and xml.
+
 
 ###Reports from a xml in PHP/Laravel 5.*
 
