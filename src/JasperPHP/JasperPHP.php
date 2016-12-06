@@ -60,7 +60,7 @@ class JasperPHP
         return $this;
     }
 
-    public function process($input_file, $output_file = false, $format = array('pdf'), $parameters = array(), $db_connection = array(), $background = true, $redirect_output = true, $locale = false )
+    public function process($input_file, $output_file = false, $format = array('pdf'), $parameters = array(), $db_connection = array(), $locale = false, $background = true, $redirect_output = true)
     {
         if(is_null($input_file) || empty($input_file))
             throw new \Exception('No input file', 1);
