@@ -92,10 +92,8 @@ class JasperPHP
             $command .= ' -f ' . join(' ', $format);
         else
             $command .= ' -f ' . $format;
-        /*
-                // Resources dir
-                $command .= " -r " . $this->resource_directory;
-        */
+        
+        
         if( count($parameters) > 0 )
         {
             $command .= ' -P ';
