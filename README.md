@@ -293,6 +293,7 @@ public function xmlToPdf()
         $data_file = public_path() . '/report/CancelAck.xml';
         $driver = 'xml';
         $xml_xpath = '/CancelResponse/CancelResult/ID';
+        $locale = 'en';
         
         $php_jasper = new JasperPHP;
         
@@ -301,7 +302,9 @@ public function xmlToPdf()
             $output,
             array($ext),
             array(),
-            array('data_file' => $data_file, 'driver' => $driver, 'xml_xpath' => $xml_xpath))->execute();
+            array('data_file' => $data_file, 'driver' => $driver, 'xml_xpath' => $xml_xpath),
+            $locale
+            )->execute();
     
         header('Content-Description: File Transfer');
         header('Content-Type: application/octet-stream');
@@ -352,6 +355,7 @@ public function jsonToPdf()
         $driver = 'json';
         $json_query= "contacts.person";
         $data_file = public_path() . '/report/contacts.json';
+        $locale = 'en';
             
         $php_jasper = new JasperPHP;
         
@@ -360,7 +364,9 @@ public function jsonToPdf()
             $output,
             array($ext),
             array(),
-            array('data_file' => $data_file, 'driver' => $driver, 'json_query' => $json_query))->execute();
+            array('data_file' => $data_file, 'driver' => $driver, 'json_query' => $json_query),
+            $locale
+        )->execute();
     
         header('Content-Description: File Transfer');
         header('Content-Type: application/octet-stream');
