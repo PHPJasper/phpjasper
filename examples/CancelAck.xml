@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CancelResponse>
+    <CancelResult DateCancel="2014-11-12T09:45:47.6816495" VAT="ECI101217TZ4">
+        <ID><UUID>1361E3F3-B493-4F5C-9A2D-67C7CC151907</UUID><StatusUUID>201</StatusUUID></ID>
+        <ID><UUID>136F0E14-3C92-4506-991D-0DB2FB45E0A9</UUID><StatusUUID>201</StatusUUID></ID>
+        <ID><UUID>13741D6D-574A-458E-8112-4943929D3DFA</UUID><StatusUUID>201</StatusUUID></ID>
+        <ID><UUID>137A252B-4F8B-48CB-A5FE-219FE149CC1F</UUID><StatusUUID>201</StatusUUID></ID>
+        <ID><UUID>138665F0-3935-4880-B125-3C0D03218CA8</UUID><StatusUUID>201</StatusUUID></ID>
+    </CancelResult>
+    <SignatureValue>cqOD3A20ku9vHI3MGI18HkSsljYcURr6fSjyk9I+MRghG9T2/EXpiqZahCSYCBr0JwFV/rCWbP6kvdk7eYGerg==</SignatureValue>
+</CancelResponse>
