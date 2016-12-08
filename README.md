@@ -184,35 +184,28 @@ require __DIR__ . '/vendor/autoload.php';
 
 use JasperPHP\JasperPHP;    
 
-$input = __DIR__ . '/vendor/geekcom/phpjasper/examples/hello_world.jrxml';   
-$output = __DIR__ . '/vendor/geekcom/phpjasper/examples';    
-
-private $conn;
-
-public function __construct()
-{
-    $this->conn = [
-        'driver' => 'postgres',
-        'username' => 'DB_USERNAME',
-        'password' => 'DB_PASSWORD',
-        'host' => 'DB_HOST',
-        'database' => 'DB_DATABASE',
-        'schema' => 'DB_SCHEMA',
-        'port' => '5432'
-    ];
-}    
+$input = '/your_input_path/your_report.jasper';   
+$output = '/your_output_path';
+$format = 'pdf';
+$locale = 'en';
 
 $jasper = new JasperPHP;
 
 $jasper->process(
         $input,
         $output,
-        array("pdf", "rtf"),
-        array("php_version" => phpversion()),
-        $this->conn, 
-        true, 
-        true, 
-        'pt_BR' //LOCALE *note 2
+        $format,
+        [],
+        [
+            'driver' => 'postgres',
+            'username' => 'DB_USERNAME',
+            'password' => 'DB_PASSWORD',
+            'host' => 'DB_HOST',
+            'database' => 'DB_DATABASE',
+            'schema' => 'DB_SCHEMA',
+            'port' => '5432'
+		],
+        $locale
 )->execute();
 ```
 
