@@ -213,6 +213,39 @@ $jasper->process(
 
 For a complete list of locales see [Supported Locales](http://www.oracle.com/technetwork/java/javase/java8locales-2095355.html)
 
+###Using MSSQL DataBase
+
+```php
+
+$input = '/your_input_path/your_report.jasper or .jrxml';   
+$output = '/your_output_path';
+$format = 'pdf';
+$locale = 'en';
+
+$jdbc_dir = __DIR__ . '/vendor/geekcom/phpjasper/src/JasperStarter/jdbc/';
+
+$jasper = new JasperPHP;
+
+$jasper->process(
+        $input,
+        $output,
+        $format,
+        [],
+        [
+            'driver' => 'generic',
+            'host' => '127.0.0.1',
+            'port' => '1433',
+            'database' => 'DataBaseName',
+            'username' => 'UserName',
+            'password' => 'password',
+            'jdbc_driver' => 'com.microsoft.sqlserver.jdbc.SQLServerDriver',
+            'jdbc_url' => 'jdbc:sqlserver://127.0.0.1:1433;databaseName=Teste',
+            'jdbc_dir' => $jdbc_dir
+        ],
+        $locale
+    )->execute();
+```
+
 ###Using JasperPHP with Laravel 5.*
 
 * Install [Composer](http://getcomposer.org) if you don't have it.
