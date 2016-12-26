@@ -1,4 +1,4 @@
-# Reports for PHP and Laravel 5.*, with JasperReports.
+# PHP  reports with Jasper Reports, [optional] Laravel 5.*
 
 [![StyleCI](https://styleci.io/repos/46984485/shield?branch=master)](https://styleci.io/repos/46984485)
 [![CircleCI](https://circleci.com/gh/geekcom/phpjasper/tree/master.svg?style=shield)](https://circleci.com/gh/geekcom/phpjasper/tree/master)
@@ -47,6 +47,7 @@ Package to generate reports with [JasperReports 6.3.1](http://community.jasperso
 * PHP [exec()](http://php.net/manual/function.exec.php) function
 * [optional] [Mysql Connector](http://dev.mysql.com/downloads/connector/j/) (if you want to use database)
 * [optional] [PostgreSQL Connector](https://jdbc.postgresql.org/download.html) (if you want to use database)
+* [optional] [Microsoft JDBC Drivers](https://www.microsoft.com/en-US/download/details.aspx?id=11774) (if you want to use database)
 * [optional] [Jaspersoft Studio](http://community.jaspersoft.com/project/jaspersoft-studio) (to draw and compile your reports)
 
 ###Java(JDK)
@@ -449,16 +450,20 @@ I have a report that generates a *Invoice* with a DB connection, images and mult
 
 ##Thanks
 
-Thanks to [Cenote GmbH](http://www.cenote.de/) for the [JasperStarter](http://jasperstarter.sourceforge.net/) tool.
+[Cenote GmbH](http://www.cenote.de/) for the [JasperStarter](http://jasperstarter.sourceforge.net/) tool.
 
-##Questions?
+[JetBrains](https://www.jetbrains.com/) for the [PhpStorm](PhpStorm) and all great tools.
 
-Open a [Issue](https://github.com/geekcom/phpjasper/issues) 
 
-##License
+##[Questions?](https://github.com/geekcom/phpjasper/issues)
+
+Open a new [Issue](https://github.com/geekcom/phpjasper/issues) or look for a closed issue
+
+
+##[License](https://github.com/geekcom/phpjasper/blob/master/LICENSE)
 
 MIT
 
-##Contribute
+##[Contribute](https://github.com/geekcom/phpjasper/blob/master/CONTRIBUTING.md)
 
 Contribute to the community PHP and Laravel, feel free to contribute, make a fork!!

@@ -1,40 +1,39 @@
 {
-    "name": "geekcom/phpjasper",
-    "description": "Create Reports in PHP/Laravel with JasperReports",
-    "license": "MIT",
-    "keywords": [
-        "reports",
-        "jasper",
-        "jasperreports",
-        "pdf",
-		"xml",
-		"PHP",
-        "java",
-        "json"
-      ],
-    "homepage": "https://github.com/geekcom/phpjasper",
-	"authors": [
-        {
-            "name": "Daniel Rodrigues",
-            "email": "danielrodrigues-ti@hotmail.com",
-            "homepage": "https://olamundophp.wordpress.com/",
-            "role": "Developer"
-        },
-        {
-            "name": "Leandro Bitencourt",
-            "email": "leandrocintrabitencourt@gmail.com",
-            "homepage": "http://www.leandrobitencourt.zz.mu",
-            "role": "Developer"
-        }
-
-    ],
-    "minimum-stability": "dev",
-    "require": {
-        "php": ">=5.4.0"
+  "name": "geekcom/phpjasper",
+  "description": "Create Reports in PHP/Laravel with JasperReports",
+  "license": "MIT",
+  "keywords": [
+    "reports",
+    "jasper",
+    "jasperreports",
+    "pdf",
+    "xml",
+    "PHP",
+    "java",
+    "json"
+  ],
+  "homepage": "http://geekcom.github.io/phpjasper/",
+  "authors": [
+    {
+      "name": "Daniel Rodrigues Lima",
+      "email": "danielrodrigues-ti@hotmail.com",
+      "homepage": "https://olamundophp.wordpress.com/",
+      "role": "Owner/Developer"
     },
-    "autoload": {
-        "psr-0": {
-            "JasperPHP": "src/"
-        }
+    {
+      "name": "Leandro Bitencourt",
+      "email": "leandrocintrabitencourt@gmail.com",
+      "homepage": "http://www.leandrobitencourt.zz.mu",
+      "role": "Developer"
     }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.4.0"
+  },
+  "autoload": {
+    "psr-0": {
+      "JasperPHP": "src/"
+    }
+  }
 }
