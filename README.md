@@ -9,8 +9,13 @@
 
 **Is using Linux servers?**
 
-Do not forget to grant permission 777 for the directory **/vendor/geekcom/phpjasper/src/JasperStarter/bin** and the file binary **jasperstarter**
+Do not forget to grant permission 777 for the directory 
+**/vendor/geekcom/phpjasper/src/JasperStarter/bin** and the file binary **jasperstarter**
 
+**Do you need to generate reports with Python?**
+
+Meet the **[pyreport](https://github.com/jadsonbr/pyreport)**
+ 
 ##Introduction
 
 This package aims to be a solution to compile and process JasperReports (.jrxml & .jasper files).
@@ -247,7 +252,7 @@ $jasper->process(
     )->execute();
 ```
 
-###Using JasperPHP with Laravel 5.*
+###How to use JasperPHP with Laravel 5.*
 
 * Install [Composer](http://getcomposer.org) if you don't have it.
 ```
