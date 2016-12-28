@@ -18,14 +18,14 @@ class JasperPHP
     {
         $this->path_executable = __DIR__ . '/../JasperStarter/bin'; //Path to executable
         if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-                    $this->windows = true;
+            $this->windows = true;
         }
 
         if (!$resource_dir) {
             $this->resource_directory = __DIR__ . '/../../../vendor/geekcom/jasperphp/src/JasperStarter/bin';
         } else {
             if (!file_exists($resource_dir)) {
-                            throw new \Exception('Invalid resource directory.', 1);
+                throw new \Exception('Invalid resource directory.', 1);
             }
 
             $this->resource_directory = $resource_dir;
@@ -44,7 +44,7 @@ class JasperPHP
     public function compile($input_file, $output_file = false, $background = true, $redirect_output = true)
     {
         if (is_null($input_file) || empty($input_file)) {
-                    throw new \Exception('No input file', 1);
+            throw new \Exception('No input file', 1);
         }
 
         $command = ($this->windows) ? $this->executable : './' . $this->executable;
@@ -54,7 +54,7 @@ class JasperPHP
         $command .= "\"$input_file\"";
 
         if ($output_file !== false) {
-                    $command .= ' -o ' . "\"$output_file\"";
+            $command .= ' -o ' . "\"$output_file\"";
         }
 
         $this->redirect_output = $redirect_output;
@@ -67,18 +67,18 @@ class JasperPHP
     public function process($input_file, $output_file = false, $format = array('pdf'), $parameters = array(), $db_connection = array(), $locale = false, $background = true, $redirect_output = true)
     {
         if (is_null($input_file) || empty($input_file)) {
-                    throw new \Exception('No input file', 1);
+            throw new \Exception('No input file', 1);
         }
 
         if (is_array($format)) {
             foreach ($format as $key) {
                 if (!in_array($key, $this->formats)) {
-                                    throw new \Exception('Invalid format!', 1);
+                    throw new \Exception('Invalid format!', 1);
                 }
             }
         } else {
             if (!in_array($format, $this->formats)) {
-                            throw new \Exception('Invalid format!', 1);
+                throw new \Exception('Invalid format!', 1);
             }
         }
 
@@ -91,13 +91,13 @@ class JasperPHP
         $command .= "\"$input_file\"";
 
         if ($output_file !== false) {
-                    $command .= ' -o ' . "\"$output_file\"";
+            $command .= ' -o ' . "\"$output_file\"";
         }
 
         if (is_array($format)) {
-                    $command .= ' -f ' . join(' ', $format);
+            $command .= ' -f ' . join(' ', $format);
         } else {
-                    $command .= ' -f ' . $format;
+            $command .= ' -f ' . $format;
         }
 
 
@@ -115,51 +115,51 @@ class JasperPHP
             $command .= ' -t ' . $db_connection['driver'];
 
             if (isset($db_connection['username'])) {
-                            $command .= " -u " . $db_connection['username'];
+                $command .= " -u " . $db_connection['username'];
             }
 
             if (isset($db_connection['password']) && !empty($db_connection['password'])) {
-                            $command .= ' -p ' . $db_connection['password'];
+                $command .= ' -p ' . $db_connection['password'];
             }
 
             if (isset($db_connection['host']) && !empty($db_connection['host'])) {
-                            $command .= ' -H ' . $db_connection['host'];
+                $command .= ' -H ' . $db_connection['host'];
             }
 
             if (isset($db_connection['database']) && !empty($db_connection['database'])) {
-                            $command .= ' -n ' . $db_connection['database'];
+                $command .= ' -n ' . $db_connection['database'];
             }
 
             if (isset($db_connection['port']) && !empty($db_connection['port'])) {
-                            $command .= ' --db-port ' . $db_connection['port'];
+                $command .= ' --db-port ' . $db_connection['port'];
             }
 
             if (isset($db_connection['jdbc_driver']) && !empty($db_connection['jdbc_driver'])) {
-                            $command .= ' --db-driver ' . $db_connection['jdbc_driver'];
+                $command .= ' --db-driver ' . $db_connection['jdbc_driver'];
             }
 
             if (isset($db_connection['jdbc_url']) && !empty($db_connection['jdbc_url'])) {
-                            $command .= ' --db-url ' . $db_connection['jdbc_url'];
+                $command .= ' --db-url ' . $db_connection['jdbc_url'];
             }
 
             if (isset($db_connection['jdbc_dir']) && !empty($db_connection['jdbc_dir'])) {
-                            $command .= ' --jdbc-dir ' . $db_connection['jdbc_dir'];
+                $command .= ' --jdbc-dir ' . $db_connection['jdbc_dir'];
             }
 
             if (isset($db_connection['db_sid']) && !empty($db_connection['db_sid'])) {
-                            $command .= ' --db-sid ' . $db_connection['db_sid'];
+                $command .= ' --db-sid ' . $db_connection['db_sid'];
             }
 
             if (isset($db_connection['xml_xpath'])) {
-                            $command .= ' --xml-xpath ' . $db_connection['xml_xpath'];
+                $command .= ' --xml-xpath ' . $db_connection['xml_xpath'];
             }
 
             if (isset($db_connection['data_file'])) {
-                            $command .= ' --data-file ' . $db_connection['data_file'];
+                $command .= ' --data-file ' . $db_connection['data_file'];
             }
 
             if (isset($db_connection['json_query'])) {
-                            $command .= ' --json-query ' . $db_connection['json_query'];
+                $command .= ' --json-query ' . $db_connection['json_query'];
             }
         }
 
@@ -173,7 +173,7 @@ class JasperPHP
     public function list_parameters($input_file)
     {
         if (is_null($input_file) || empty($input_file)) {
-                    throw new \Exception('No input file', 1);
+            throw new \Exception('No input file', 1);
         }
 
         $command = ($this->windows) ? $this->executable : './' . $this->executable;
@@ -196,7 +196,7 @@ class JasperPHP
     {
 
         if ($run_as_user !== false && strlen($run_as_user > 0) && !$this->windows) {
-                    $this->the_command = 'su -u ' . $run_as_user . " -c \"" . $this->the_command . "\"";
+            $this->the_command = 'su -u ' . $run_as_user . " -c \"" . $this->the_command . "\"";
         }
 
         $output = array();
@@ -210,7 +210,7 @@ class JasperPHP
         }
 
         if ($return_var != 0) {
-                    throw new \Exception('Your report has an error and couldn \'t be processed!\ Try to output the command using the function `output();` and run it manually in the console.', 1);
+            throw new \Exception('Your report has an error and couldn \'t be processed!\ Try to output the command using the function `output();` and run it manually in the console.', 1);
         }
 
         return $output;
