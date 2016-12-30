@@ -6,7 +6,7 @@
 [![License](https://poser.pugx.org/geekcom/phpjasper/license)](https://packagist.org/packages/geekcom/phpjasper) [![Total Downloads](https://poser.pugx.org/geekcom/phpjasper/downloads)](https://packagist.org/packages/geekcom/phpjasper)
 [![Bitcoin Donations](https://img.shields.io/badge/bitcoin-donation-orange.svg
 )](https://blockchain.info/address/1LqwqcMfNuNzq6S671z1HjM61MpBuFCGqg)
-<a href="https://www.patreon.com/geekcom">![patreon.png](https://static1.squarespace.com/static/5364364ce4b074a18d791a81/t/56802d150ab37790ca597800/1451240726157/?format=300w)</a>
+<a href="https://www.patreon.com/bePatron?u=4731720">![patreon.png](https://static1.squarespace.com/static/5364364ce4b074a18d791a81/t/56802d150ab37790ca597800/1451240726157/?format=300w)</a>
 
 **Is using Linux servers?**
 
