@@ -1,4 +1,4 @@
-# PHP  reports with Jasper Reports, [optional] Laravel 5.*
+# PHPJasper
 
 [![StyleCI](https://styleci.io/repos/46984485/shield?branch=master)](https://styleci.io/repos/46984485)
 [![CircleCI](https://circleci.com/gh/geekcom/phpjasper/tree/master.svg?style=shield)](https://circleci.com/gh/geekcom/phpjasper/tree/master)
@@ -6,7 +6,6 @@
 [![License](https://poser.pugx.org/geekcom/phpjasper/license)](https://packagist.org/packages/geekcom/phpjasper) [![Total Downloads](https://poser.pugx.org/geekcom/phpjasper/downloads)](https://packagist.org/packages/geekcom/phpjasper)
 [![Bitcoin Donations](https://img.shields.io/badge/bitcoin-donation-orange.svg
 )](https://blockchain.info/address/1LqwqcMfNuNzq6S671z1HjM61MpBuFCGqg)
-<a href="https://www.patreon.com/bePatron?u=4731720">![patreon.png](https://static1.squarespace.com/static/5364364ce4b074a18d791a81/t/56802d150ab37790ca597800/1451240726157/?format=300w)</a>
 
 **Is using Linux servers?**
 
@@ -253,7 +252,7 @@ $jasper->process(
     )->execute();
 ```
 
-###How to use JasperPHP with Laravel 5.*
+###[optional] How to use JasperPHP with Laravel 5.*
 
 * Install [Composer](http://getcomposer.org) if you don't have it.
 ```
@@ -311,7 +310,7 @@ Route::get('/reports', function () {
 In this example we generate reports pdf, rtf and xml.
 
 
-###Reports from a xml in PHP/Laravel 5.*
+###[optional] Reports from a xml in PHP/Laravel 5.*
 
 See how easy it is to generate a report with a source an XML file:
 
@@ -373,7 +372,7 @@ to folder:
 **\public\report** 
 
 
-###Reports from a JSON File in PHP/Laravel 5.*
+###[optional] Reports from a JSON File in PHP/Laravel 5.*
 
 See how easy it is to generate a report with a source an JSON file:
 
