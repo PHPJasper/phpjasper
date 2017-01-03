@@ -6,8 +6,14 @@
 [![License](https://poser.pugx.org/geekcom/phpjasper/license)](https://packagist.org/packages/geekcom/phpjasper) [![Total Downloads](https://poser.pugx.org/geekcom/phpjasper/downloads)](https://packagist.org/packages/geekcom/phpjasper)
 [![Bitcoin Donations](https://img.shields.io/badge/bitcoin-donation-orange.svg
 )](https://blockchain.info/address/1LqwqcMfNuNzq6S671z1HjM61MpBuFCGqg)
+ 
 
-**Is using Linux servers?**
+
+###About
+
+This package aims to be a solution to compile and process JasperReports (.jrxml & .jasper files) just using PHP.
+
+**Note for Linux servers?**
 
 Do not forget to grant permission 777 for the directory 
 **/vendor/geekcom/phpjasper/src/JasperStarter/bin** and the file binary **jasperstarter**
@@ -15,12 +21,8 @@ Do not forget to grant permission 777 for the directory
 **Do you need to generate reports with Python?**
 
 Meet the **[pyreport](https://github.com/jadsonbr/pyreport)**
- 
-##Introduction
 
-This package aims to be a solution to compile and process JasperReports (.jrxml & .jasper files).
-
-###Why?
+###Why PHPJasper?
 
 Did you ever had to create a good looking Invoice with a lot of fields for your great web app?
 
