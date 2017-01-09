@@ -225,6 +225,10 @@ For a complete list of locales see [Supported Locales](http://www.oracle.com/tec
 
 ```php
 
+require __DIR__ . '/vendor/autoload.php';
+
+use JasperPHP\JasperPHP;
+
 $input = '/your_input_path/your_report.jasper or .jrxml';   
 $output = '/your_output_path';
 $format = 'pdf';
