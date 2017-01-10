@@ -7,11 +7,9 @@ class JasperPHP
     protected $executable = 'jasperstarter'; //executable jasperstarter
     protected $path_executable;
     protected $the_command;
-    protected $redirect_output;
-    protected $background;
     protected $windows = false;
 
-    protected $formats = array('pdf', 'rtf', 'xls', 'xlsx', 'docx', 'odt', 'ods', 'pptx', 'csv', 'html', 'xhtml', 'xml', 'jrprint');
+    protected $formats = ['pdf', 'rtf', 'xls', 'xlsx', 'docx', 'odt', 'ods', 'pptx', 'csv', 'html', 'xhtml', 'xml', 'jrprint'];
     protected $resource_directory; //Path to report resource dir or jar file
 
     function __construct($resource_dir = false)
@@ -41,7 +39,7 @@ class JasperPHP
         return call_user_func_array(array(new $model, $method), $parameters);
     }
 
-    public function compile($input_file, $output_file = false, $background = true, $redirect_output = true)
+    public function compile($input_file, $output_file = false)
     {
         if (is_null($input_file) || empty($input_file)) {
             throw new \Exception('No input file', 1);
@@ -57,14 +55,12 @@ class JasperPHP
             $command .= ' -o ' . "\"$output_file\"";
         }
 
-        $this->redirect_output = $redirect_output;
-        $this->background = $background;
         $this->the_command = $command;
 
         return $this;
     }
 
-    public function process($input_file, $output_file = false, $format = array('pdf'), $parameters = array(), $db_connection = array(), $locale = false, $background = true, $redirect_output = true)
+    public function process($input_file, $output_file = false, $format = ['pdf'], $parameters = [], $db_connection = [], $locale = false)
     {
         if (is_null($input_file) || empty($input_file)) {
             throw new \Exception('No input file', 1);
@@ -99,7 +95,6 @@ class JasperPHP
         } else {
             $command .= ' -f ' . $format;
         }
-
 
         if (count($parameters) > 0) {
             $command .= ' -P ';
@@ -163,8 +158,6 @@ class JasperPHP
             }
         }
 
-        $this->redirect_output = $redirect_output;
-        $this->background = $background;
         $this->the_command = $command;
 
         return $this;
@@ -194,12 +187,11 @@ class JasperPHP
 
     public function execute($run_as_user = false)
     {
-
         if ($run_as_user !== false && strlen($run_as_user > 0) && !$this->windows) {
             $this->the_command = 'su -u ' . $run_as_user . " -c \"" . $this->the_command . "\"";
         }
 
-        $output = array();
+        $output = [];
         $return_var = 0;
 
         if (is_dir($this->path_executable)) {

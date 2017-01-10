@@ -153,9 +153,12 @@ $output = __DIR__ . '/vendor/geekcom/phpjasper/examples';
 $jasper = new JasperPHP;
 
 $jasper->process(
-    $input,
-    $output,
-    array("pdf", "rtf")
+    $input, //input
+    $output, //output
+	['pdf', 'rtf'], //formats
+	[],    //parameters
+	[],    //data_source
+	'en'   //locale
 )->execute();
 ```
 
@@ -187,7 +190,6 @@ foreach($output as $parameter_description)
 We can also specify parameters for connecting to database:
 
 ```php
-
 require __DIR__ . '/vendor/autoload.php';
 
 use JasperPHP\JasperPHP;    
@@ -203,7 +205,7 @@ $jasper->process(
         $input,
         $output,
         $format,
-        [],
+        [], //parameters
         [
             'driver' => 'postgres',
             'username' => 'DB_USERNAME',
@@ -212,7 +214,7 @@ $jasper->process(
             'database' => 'DB_DATABASE',
             'schema' => 'DB_SCHEMA',
             'port' => '5432'
-		],
+	 ],
         $locale
 )->execute();
 ```
@@ -242,7 +244,7 @@ $jasper->process(
         $input,
         $output,
         $format,
-        [],
+        [], //parameters
         [
             'driver' => 'generic',
             'host' => '127.0.0.1',
@@ -295,14 +297,15 @@ use JasperPHP\JasperPHP;
 
 Route::get('/reports', function () {
     
-    $output = public_path() . '/report/'.time().'_hello_world';
     $report = new JasperPHP;
+    
     $report->process(
-        public_path() . '/report/hello_world.jrxml', 
-        $output, 
-        array('pdf', 'rtf', 'xml'),
-        array(),
-        array()  
+        public_path() . '/report/hello_world.jrxml', //input 
+        public_path() . '/report/'.time().'_hello_world', //output
+        ['pdf', 'rtf', 'xml'], //formats
+        [], //parameters
+        [],  //data_source
+        '', //locale
         )->execute();
 });
 ```
@@ -336,12 +339,12 @@ public function xmlToPdf()
         $php_jasper = new JasperPHP;
         
         $php_jasper->process(
-            public_path() . '/report/CancelAck.jrxml',
-            $output,
-            array($ext),
-            array(),
-            array('data_file' => $data_file, 'driver' => $driver, 'xml_xpath' => $xml_xpath),
-            $locale
+            public_path() . '/report/CancelAck.jrxml', //input
+            $output, //output
+            [$ext], //formats
+            [], //parameters
+            ['data_file' => $data_file, 'driver' => $driver, 'xml_xpath' => $xml_xpath], //data_source
+            $locale //locale
             )->execute();
     
         header('Content-Description: File Transfer');
@@ -398,11 +401,11 @@ public function jsonToPdf()
         $php_jasper = new JasperPHP;
         
         $php_jasper->process(
-            public_path() . '/report/json.jrxml',
-            $output,
-            array($ext),
-            array(),
-            array('data_file' => $data_file, 'driver' => $driver, 'json_query' => $json_query),
+            public_path() . '/report/json.jrxml', //input
+            $output, //output
+            [$ext], //formats
+            [], //parameters
+            ['data_file' => $data_file, 'driver' => $driver, 'json_query' => $json_query],
             $locale
         )->execute();
     
