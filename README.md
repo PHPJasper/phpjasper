@@ -1,24 +1,29 @@
 # PHPJasper
 
-[![StyleCI](https://styleci.io/repos/46984485/shield?branch=master)](https://styleci.io/repos/46984485)
+[![Build Status](https://travis-ci.org/geekcom/phpjasper.svg?branch=master)](https://travis-ci.org/geekcom/phpjasper)
 [![CircleCI](https://circleci.com/gh/geekcom/phpjasper/tree/master.svg?style=shield)](https://circleci.com/gh/geekcom/phpjasper/tree/master)
+[![StyleCI](https://styleci.io/repos/46984485/shield?branch=master)](https://styleci.io/repos/46984485)
 [![Latest Stable Version](https://poser.pugx.org/geekcom/phpjasper/v/stable)](https://packagist.org/packages/geekcom/phpjasper)
-[![License](https://poser.pugx.org/geekcom/phpjasper/license)](https://packagist.org/packages/geekcom/phpjasper) [![Total Downloads](https://poser.pugx.org/geekcom/phpjasper/downloads)](https://packagist.org/packages/geekcom/phpjasper)
-[![Bitcoin Donations](https://img.shields.io/badge/bitcoin-donation-orange.svg
-)](https://blockchain.info/address/1LqwqcMfNuNzq6S671z1HjM61MpBuFCGqg)
- 
+[![Total Downloads](https://poser.pugx.org/geekcom/phpjasper/downloads)](https://packagist.org/packages/geekcom/phpjasper)
+[![Latest Unstable Version](https://poser.pugx.org/geekcom/phpjasper/v/unstable)](https://packagist.org/packages/geekcom/phpjasper)
+[![License](https://poser.pugx.org/geekcom/phpjasper/license)](https://packagist.org/packages/geekcom/phpjasper) 
+[![Bitcoin Donations](https://img.shields.io/badge/bitcoin-donation-orange.svg)](https://blockchain.info/address/1LqwqcMfNuNzq6S671z1HjM61MpBuFCGqg)
+
+###Docs
+[![Language-en_US](https://img.shields.io/badge/en__US-100%25-green.svg)](https://github.com/geekcom/phpjasper/blob/master/README.md)
+[![Language-pt_BR](https://img.shields.io/badge/pt__BR-0%25-red.svg)](#)
 
 
 ###About
 
-This package aims to be a solution to compile and process JasperReports (.jrxml & .jasper files) just using PHP.
+This package is the solution to compile and process JasperReports (.jrxml & .jasper files) just using PHP.
 
 **Note for Linux servers?**
 
 Do not forget to grant permission 777 for the directory 
 **/vendor/geekcom/phpjasper/src/JasperStarter/bin** and the file binary **jasperstarter**
 
-**Do you need to generate reports with Python?**
+**Do you need to generate Python reports?**
 
 Meet the **[pyreport](https://github.com/jadsonbr/pyreport)**
 
@@ -466,7 +471,7 @@ I have a report that generates a *Invoice* with a DB connection, images and mult
 
 [Cenote GmbH](http://www.cenote.de/) for the [JasperStarter](http://jasperstarter.sourceforge.net/) tool.
 
-[JetBrains](https://www.jetbrains.com/) for the [PhpStorm](PhpStorm) and all great tools.
+[JetBrains](https://www.jetbrains.com/) for the [PhpStorm](https://www.jetbrains.com/phpstorm/) and all great tools.
 
 
 ##[Questions?](https://github.com/geekcom/phpjasper/issues)
