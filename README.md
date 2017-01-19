@@ -52,25 +52,26 @@ Package to generate reports with [JasperReports 6.3.1](http://community.jasperso
 
 * Java JDK 1.8
 * PHP [exec()](http://php.net/manual/function.exec.php) function
-* [optional] [Mysql Connector](http://dev.mysql.com/downloads/connector/j/) (if you want to use database)
-* [optional] [PostgreSQL Connector](https://jdbc.postgresql.org/download.html) (if you want to use database)
-* [optional] [Microsoft JDBC Drivers](https://www.microsoft.com/en-US/download/details.aspx?id=11774) (if you want to use database)
-* [optional] [Jaspersoft Studio](http://community.jaspersoft.com/project/jaspersoft-studio) (to draw and compile your reports)
+
+##Optional
+
+* [Mysql JDBC Driver](http://dev.mysql.com/downloads/connector/j/) (If you want to use a database)
+* [PostgreSQL JDBC Driver](https://jdbc.postgresql.org/download.html) (If you want to use a database)
+* [Microsoft JDBC Drivers](https://www.microsoft.com/en-US/download/details.aspx?id=11774) (If you want to use a database)
+* [Jaspersoft Studio](http://community.jaspersoft.com/project/jaspersoft-studio) (to draw and compile your reports)
 
 ###Java(JDK)
 
 Check if you already have Java installed:
 
 ```
-$ java -version
-java version "1.8.0_101"
-Java(TM) SE Runtime Environment (build 1.8.0_101-b13)
-Java HotSpot(TM) 64-Bit Server VM (build 25.101-b13, mixed mode)
+$ javac -version
+javac version 1.8.0_101
 ```
 
 If you get:
 
-    command not found: java
+    command not found: javac
 
 Then install it with: (Ubuntu/Debian)
 
@@ -82,7 +83,7 @@ To install on: (centOS/Fedora)
 
 To install on windows visit the link-> [JDK](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) and look for the most appropriate version for your system.
 
-Now run the `java -version` again and check if the output is ok.
+Now run the `javac -version` again and check if the output is ok.
 
 ---------------------------------------------------------------------------------------------------------------------------
 
