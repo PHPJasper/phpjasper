@@ -11,7 +11,7 @@
 
 ###Documentação
 [![Language-en_US](https://img.shields.io/badge/en__US-100%25-green.svg)](https://github.com/geekcom/phpjasper/blob/master/README.md)
-[![Language-pt_BR](https://img.shields.io/badge/pt__BR-0%25-red.svg)](https://github.com/geekcom/phpjasper/blob/master/docs/pt_BR/LEIA-ME_pt_BR.md)
+[![Language-pt_BR](https://img.shields.io/badge/pt__BR-98%25-green.svg)](https://github.com/geekcom/phpjasper/blob/master/docs/pt_BR/LEIA-ME_pt_BR.md)
 
 
 ###Sobre a biblioteca
