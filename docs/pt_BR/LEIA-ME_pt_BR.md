@@ -11,7 +11,8 @@
 
 ###Documentação
 [![Language-en_US](https://img.shields.io/badge/en__US-100%25-green.svg)](https://github.com/geekcom/phpjasper/blob/master/README.md)
-[![Language-pt_BR](https://img.shields.io/badge/pt__BR-98%25-green.svg)](https://github.com/geekcom/phpjasper/blob/master/docs/pt_BR/LEIA-ME_pt_BR.md)
+[![Language-pt_BR](https://img.shields.io/badge/pt__BR-100%25-green.svg)](https://github.com/geekcom/phpjasper/blob/master/docs/pt_BR/LEIA-ME_pt_BR.md)
+[![Language-de_DE](https://img.shields.io/badge/de__DE-10%25-red.svg)](https://github.com/geekcom/phpjasper/blob/master/docs/pt_BR/LEIA-ME_pt_BR.md)
 
 
 ###Sobre a biblioteca
@@ -37,7 +38,7 @@ Apresento para vocês **JasperReports** a melhor solução open source que exist
 
 ###O que eu posso fazer com isso?
 
-**Texto tirado do site JasperSoft:**
+**Texto extraido do site JasperSoft:**
 
 > A biblioteca JasperReports é o mecanismo de geração de relatórios de código aberto mais popular do mundo. É inteiramente escrito em Java e é capaz de usar dados provenientes de qualquer tipo de fonte de dados e gerar documentos perfeitos que podem ser visualizado, impressom ou exportadom em uma variedade de formatos de documentos, incluindo HTML, PDF, Excel, OpenOffice e Word .
 
@@ -168,8 +169,6 @@ $jasper->process(
 ```
 
 Agora olhe a pasta **/examples** :) Ótimo trabalho? Você tem  2 arquivos, `hello_world.pdf` e `hello_world.rtf`.
-
-Check the *API* of the  `compile` and `process` functions in the file `src/JasperPHP/JasperPHP.php` file.
 
 ####Listando parâmetros
 
@@ -324,7 +323,7 @@ Route::get('/reports', function () {
 Neste exemplo nós geramos relatórios com as seguintes extensões pdf, rtf and xml.
 
 
-###[Opcional] Relatórios a pasrti de um arquivo xml em PHP/Laravel 5 em diante
+###[Opcional] Relatórios a partir de um arquivo xml em PHP/Laravel 5 em diante
 
 Veja como é fácil gerar um relatório com uma fonte de um arquivo JSON:
 
@@ -451,11 +450,11 @@ Para:
 
 ###MySQL
 
-We ship the [MySQL connector](http://dev.mysql.com/downloads/connector/j/) (v5.1.39) in the `/src/JasperStarter/jdbc/` directory.
+Incluímos o [MySQL connector](http://dev.mysql.com/downloads/connector/j/) (v5.1.39) na pasta `/src/JasperStarter/jdbc/`
 
 ###PostgreSQL
 
-We ship the [PostgreSQL](https://jdbc.postgresql.org/) (v9.4-1203) in the `/src/JasperStarter/jdbc/` directory.
+Incluímos também o [PostgreSQL](https://jdbc.postgresql.org/) (v9.4-1203) na pasta `/src/JasperStarter/jdbc/`
 
 ###MSSQL
 

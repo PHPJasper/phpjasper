@@ -9,44 +9,42 @@
 [![License](https://poser.pugx.org/geekcom/phpjasper/license)](https://packagist.org/packages/geekcom/phpjasper) 
 [![Bitcoin Donations](https://img.shields.io/badge/bitcoin-donation-orange.svg)](https://blockchain.info/address/1LqwqcMfNuNzq6S671z1HjM61MpBuFCGqg)
 
-###Docs
+###Dokumentation
 [![Language-en_US](https://img.shields.io/badge/en__US-100%25-green.svg)](https://github.com/geekcom/phpjasper/blob/master/README.md)
 [![Language-pt_BR](https://img.shields.io/badge/pt__BR-98%25-green.svg)](https://github.com/geekcom/phpjasper/blob/master/docs/pt_BR/LEIA-ME_pt_BR.md)
 [![Language-de_DE](https://img.shields.io/badge/de__DE-10%25-red.svg)](https://github.com/geekcom/phpjasper/blob/master/docs/pt_BR/LEIA-ME_pt_BR.md)
 
 
-###About
+###Etwa
 
-This package is the solution to compile and process JasperReports (.jrxml & .jasper files) just using PHP.
+Dieses Paket ist die Lösung zum Kompilieren und Verarbeiten von JasperReports (.jrxml & .jasper-Dateien) mit PHP.
 
-**Note for Linux servers?**
+**Hinweis für Linux-Server?**
 
-Do not forget to grant permission 777 for the directory 
-**/vendor/geekcom/phpjasper/src/JasperStarter/bin** and the file binary **jasperstarter**
+Vergessen Sie nicht, die Berechtigung 777 für das Verzeichnis zu erteilen
+**/vendor/geekcom/phpjasper/src/JasperStarter/bin** Und die Datei binär **jasperstarter**
 
-**Do you need to generate Python reports?**
+**Müssen Sie Python-Berichte generieren?**
 
-Meet the **[pyreport](https://github.com/jadsonbr/pyreport)**
+Treffe den **[pyreport](https://github.com/jadsonbr/pyreport)**
 
-###Why PHPJasper?
+###Warum PHPJasper?
 
-Did you ever had to create a good looking Invoice with a lot of fields for your great web app?
+Haben Sie schon einmal eine gut aussehende Rechnung mit vielen Feldern für Ihre große Web-app zu erstellen?
 
-I had to, and the solutions out there were not perfect. Generating *HTML* + *CSS* to make a *PDF*? WTF? That doesn't make any sense! :)
+Ich musste, und die Lösungen da draußen waren nicht perfekt. Generieren *HTML* + *CSS*, um ein *PDF*? WTF & le; Das macht keinen Sinn! Aufrechtzuerhalten.
 
-Then I found **JasperReports** the best open source solution for reporting.
+Dann fand ich **JasperReports** die beste Open-Source-Lösung für das Reporting.
 
-###What can I do with this?
+###Was kann ich damit machen?
 
-Well, everything. JasperReports is a powerful tool for **reporting** and **BI**.
-
-**From their website:**
+**Von ihrer Website:**
 
 > The JasperReports Library is the world's most popular open source reporting engine. It is entirely written in Java and it is able to use data coming from any kind of data source and produce pixel-perfect documents that can be viewed, printed or exported in a variety of document formats including HTML, PDF, Excel, OpenOffice and Word.
 
-It is recommended using [Jaspersoft Studio](http://community.jaspersoft.com/project/jaspersoft-studio) to build your reports, connect it to your datasource (ex: MySQL, POSTGRES), loop thru the results and output it to PDF, XLS, DOC, RTF, ODF, etc.
+Es wird empfohlen, zu verwenden [Jaspersoft Studio](http://community.jaspersoft.com/project/jaspersoft-studio) Um Ihre Berichte zu erstellen, verbinden Sie sie mit Ihrer Datenquelle (ex: MySQL, POSTGRES), Schleife durch die Ergebnisse und geben sie an PDF, XLS, DOC, RTF, ODF, etc.
 
-*Some examples of what you can do:*
+*Einige Beispiele, was Sie tun können:*
 
 * Invoices
 * Reports
