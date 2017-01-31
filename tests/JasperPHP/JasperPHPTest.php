@@ -2,12 +2,21 @@
 class JasperPHPTest extends PHPUnit_Framework_TestCase
 {
 
-	/**
+    /**
 	 *
 	 */
-	public function testCompile()
+	public function testCompileWithWrongArgs()
 	{
-		$this->assertTrue(false);
+        $this->setExpectedException('Exception', 'No input file');
+
+        $jasper = new \JasperPHP\JasperPHP();
+        $jasper->compile(null);
+        $jasper->compile('');
 	}
+
+	public function testCompile()
+    {
+        
+    }
 
 }
