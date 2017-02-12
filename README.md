@@ -267,6 +267,7 @@ $jasper->process(
 ```
 
 ###[optional] How to use JasperPHP with Laravel 5.*
+**This library yet not supported in Laravel 5.4**
 
 * Install [Composer](http://getcomposer.org) if you don't have it.
 ```
@@ -310,8 +311,8 @@ Route::get('/reports', function () {
         public_path() . '/report/'.time().'_hello_world', //output
         ['pdf', 'rtf', 'xml'], //formats
         [], //parameters
-        [],  //data_source
-        '', //locale
+        [], //data_source
+        ''  //locale
         )->execute();
 });
 ```
