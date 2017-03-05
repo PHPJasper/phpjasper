@@ -65,122 +65,92 @@ class JasperPHP
         return $this;
     }
 
-    public function process($input_file, $output_file = false, $format = ['pdf'], $parameters = [], $db_connection = [], $locale = false)
+
+    /**
+     * @param $input_file
+     * @param bool $output_file
+     * @param array $options
+     * @return $this
+     * @throws Exception\InvalidInputFile
+     * @throws Exception\InvalidFormat
+     */
+    public function process($input_file, $output_file = false, $options = [])
     {
-        if (is_null($input_file) || empty($input_file)) {
-            throw new \Exception('No input file', 1);
+        $options = $this->parseProcessOptions($options);
+        if (!$input_file) {
+            throw new \JasperPHP\Exception\InvalidInputFile();
+        }
+        $this->validateFormat($options['format']);
+
+        $this->command = $this->windows ? $this->executable : './' . $this->executable;
+        if ($options['locale']) {
+            $this->command .= " --locale {$options['locale']}";
         }
 
-        if (is_array($format)) {
-            foreach ($format as $key) {
-                if (!in_array($key, $this->formats)) {
-                    throw new \Exception('Invalid format!', 1);
-                }
-            }
-        } else {
-            if (!in_array($format, $this->formats)) {
-                throw new \Exception('Invalid format!', 1);
-            }
-        }
-
-        $command = ($this->windows) ? $this->executable : './' . $this->executable;
-
-        $command .= ($locale) ? " --locale $locale" : '';
-
-        $command .= ' process ';
-
-        $command .= "\"$input_file\"";
-
+        $this->command .= ' process ';
+        $this->command .= "\"$input_file\"";
         if ($output_file !== false) {
-            $command .= ' -o ' . "\"$output_file\"";
+            $this->command .= ' -o ' . "\"$output_file\"";
         }
 
-        if (is_array($format)) {
-            $command .= ' -f ' . join(' ', $format);
-        } else {
-            $command .= ' -f ' . $format;
-        }
-
-        if (count($parameters) > 0) {
-            $command .= ' -P ';
-
-            foreach ($parameters as $key => $value) {
-                $param = $key . '="' . $value . '" ';
-                $command .= " " . $param . " ";
-            }
-
-        }
-
-        if (count($db_connection) > 0) {
-            $command .= ' -t ' . $db_connection['driver'];
-
-            if (isset($db_connection['username'])) {
-                $command .= " -u " . $db_connection['username'];
-            }
-
-            if (isset($db_connection['password']) && !empty($db_connection['password'])) {
-                $command .= ' -p ' . $db_connection['password'];
-            }
-
-            if (isset($db_connection['host']) && !empty($db_connection['host'])) {
-                $command .= ' -H ' . $db_connection['host'];
-            }
-
-            if (isset($db_connection['database']) && !empty($db_connection['database'])) {
-                $command .= ' -n ' . $db_connection['database'];
-            }
-
-            if (isset($db_connection['port']) && !empty($db_connection['port'])) {
-                $command .= ' --db-port ' . $db_connection['port'];
-            }
-
-            if (isset($db_connection['jdbc_driver']) && !empty($db_connection['jdbc_driver'])) {
-                $command .= ' --db-driver ' . $db_connection['jdbc_driver'];
-            }
-
-            if (isset($db_connection['jdbc_url']) && !empty($db_connection['jdbc_url'])) {
-                $command .= ' --db-url ' . $db_connection['jdbc_url'];
-            }
-
-            if (isset($db_connection['jdbc_dir']) && !empty($db_connection['jdbc_dir'])) {
-                $command .= ' --jdbc-dir ' . $db_connection['jdbc_dir'];
-            }
-
-            if (isset($db_connection['db_sid']) && !empty($db_connection['db_sid'])) {
-                $command .= ' --db-sid ' . $db_connection['db_sid'];
-            }
-
-            if (isset($db_connection['xml_xpath'])) {
-                $command .= ' --xml-xpath ' . $db_connection['xml_xpath'];
-            }
-
-            if (isset($db_connection['data_file'])) {
-                $command .= ' --data-file ' . $db_connection['data_file'];
-            }
-
-            if (isset($db_connection['json_query'])) {
-                $command .= ' --json-query ' . $db_connection['json_query'];
+        $this->command .= ' -f ' . join(' ', $options['format']);
+        if ($options['params']) {
+            $this->command .= ' -P ';
+            foreach ($options['params'] as $key => $value) {
+                $this->command .= " " . $key . '="' . $value . '" ' . " ";
             }
         }
-
-        $this->command = $command;
 
         return $this;
     }
 
-    public function list_parameters($input_file)
+    /**
+     *
+     * @param $options
+     * @return array
+     */
+    protected function parseProcessOptions($options)
     {
-        if (is_null($input_file) || empty($input_file)) {
-            throw new \Exception('No input file', 1);
+        $defaultOptions = [
+            'format' => ['pdf'],
+            'params' => [],
+            'locale' => false,
+            'db_connection' => []
+        ];
+
+        return array_merge($defaultOptions, $options);
+    }
+
+    /**
+     * @param $format
+     * @throws Exception\InvalidFormat
+     */
+    protected function validateFormat($format)
+    {
+        if (!is_array($format)) {
+            $format = [$format];
+        }
+        foreach ($format as $value) {
+            if (!in_array($value, $this->formats)) {
+                throw new \JasperPHP\Exception\InvalidFormat();
+            }
+        }
+    }
+
+    /**
+     * @param $input_file
+     * @return $this
+     * @throws \Exception
+     */
+    public function listParameters($input_file)
+    {
+        if (!$input_file) {
+            throw new \JasperPHP\Exception\InvalidInputFile();
         }
 
-        $command = ($this->windows) ? $this->executable : './' . $this->executable;
-
-        $command .= ' list_parameters ';
-
-        $command .= "\"$input_file\"";
-
-        $this->command = $command;
+        $this->command = $this->windows ? $this->executable : './' . $this->executable;
+        $this->command .= ' list_parameters ';
+        $this->command .= "\"$input_file\"";
 
         return $this;
     }

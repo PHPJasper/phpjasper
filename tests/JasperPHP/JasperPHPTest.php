@@ -62,5 +62,60 @@ class JasperPHPTest extends \PHPUnit_Framework_TestCase
         $jasper->compile('hello_world.jrxml')->execute();
     }
 
+    /**
+     *
+     */
+    public function testListParametersWithWrongInput()
+    {
+        $this->setExpectedException(\JasperPHP\Exception\InvalidInputFile::class);
+
+        $jasper = new JasperPHP();
+        $jasper->listParameters('');
+    }
+
+    /**
+     *
+     */
+    public function testListParameters()
+    {
+        $jasper = new JasperPHP();
+        $result = $jasper->listParameters('hello_world.jrxml');
+
+        $this->assertInstanceOf(JasperPHP::class, $result);
+        $this->assertEquals('./jasperstarter list_parameters "hello_world.jrxml"', $result->output());
+    }
+
+    /**
+     *
+     */
+    public function testProcessWithWrongInput()
+    {
+        $this->setExpectedException(\JasperPHP\Exception\InvalidInputFile::class);
+
+        $jasper = new JasperPHP();
+        $jasper->process(0);
+    }
+
+    /**
+     *
+     */
+    public function testProcessWithWrongFormat()
+    {
+        $this->setExpectedException(\JasperPHP\Exception\InvalidFormat::class);
+
+        $jasper = new JasperPHP();
+        $jasper->process('hello_world.jrxml', false, [
+            'format' => 'mp3'
+        ]);
+    }
+
+    /**
+     *
+     */
+    public function testProcess()
+    {
+        $jasper = new JasperPHP();
+        $this->assertInstanceOf(JasperPHP::class, $jasper->process('hello_world.jrxml'));
+    }
 
 }
