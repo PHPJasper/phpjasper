@@ -38,15 +38,6 @@ class JasperPHP
         $this->windows = strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ? true : false;
     }
 
-    public static function __callStatic($method, $parameters)
-    {
-        // Create a new instance of the called class, in this case it is Post
-        $model = get_called_class();
-
-        // Call the requested method on the newly created object
-        return call_user_func_array(array(new $model, $method), $parameters);
-    }
-
     /**
      * @param $input_file
      * @param bool $output_file
