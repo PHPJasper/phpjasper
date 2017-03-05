@@ -37,6 +37,7 @@ class JasperPHPTest extends \PHPUnit_Framework_TestCase
         $result = $jasper->compile('hello_world.jrxml');
 
         $this->assertInstanceOf(JasperPHP::class, $result);
+        $this->assertEquals('./jasperstarter compile "hello_world.jrxml"', $result->output());
     }
 
     /**
@@ -60,5 +61,6 @@ class JasperPHPTest extends \PHPUnit_Framework_TestCase
         $jasper = new JasperPHP();
         $jasper->compile('hello_world.jrxml')->execute();
     }
+
 
 }
