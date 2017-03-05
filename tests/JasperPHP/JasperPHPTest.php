@@ -1,18 +1,20 @@
 <?php
-class JasperPHPTest extends PHPUnit_Framework_TestCase
+namespace JasperPHP;
+/**
+ * Class JasperPHPTest
+ *
+ * @author Rafael Queiroz <rafaelfqf@gmail.com>
+ * @package JasperPHP
+ */
+class JasperPHPTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
-	 *
-	 */
-	public function testCompileWithWrongArgs()
-	{
-
-	}
-
-	public function testCompile()
+     * @return JasperPHP
+     */
+    public function testConstructor()
     {
-        
+        $this->assertInstanceOf(JasperPHP::class, new JasperPHP());
     }
 
 }

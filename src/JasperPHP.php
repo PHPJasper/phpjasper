@@ -1,33 +1,40 @@
 <?php
-
 namespace JasperPHP;
-
+/**
+ * Class JasperPHP
+ *
+ * @package JasperPHP
+ */
 class JasperPHP
 {
-    protected $executable = 'jasperstarter'; //executable jasperstarter
+
+    /**
+     * @var string
+     */
+    protected $executable;
+
+    /**
+     * @var string
+     */
     protected $path_executable;
+
+    /**
+     * @var bool
+     */
+    protected $windows;
+
     protected $the_command;
-    protected $windows = false;
 
     protected $formats = ['pdf', 'rtf', 'xls', 'xlsx', 'docx', 'odt', 'ods', 'pptx', 'csv', 'html', 'xhtml', 'xml', 'jrprint'];
-    protected $resource_directory; //Path to report resource dir or jar file
 
-    function __construct($resource_dir = false)
+    /**
+     * JasperPHP constructor
+     */
+    public function __construct()
     {
-        $this->path_executable = __DIR__ . '/../JasperStarter/bin'; //Path to executable
-        if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-            $this->windows = true;
-        }
-
-        if (!$resource_dir) {
-            $this->resource_directory = __DIR__ . '/../../../vendor/geekcom/jasperphp/src/JasperStarter/bin';
-        } else {
-            if (!file_exists($resource_dir)) {
-                throw new \Exception('Invalid resource directory.', 1);
-            }
-
-            $this->resource_directory = $resource_dir;
-        }
+        $this->executable = 'jasperstarter';
+        $this->path_executable = __DIR__ . '/../bin/jasperstarter/bin';
+        $this->windows = strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ? true : false;
     }
 
     public static function __callStatic($method, $parameters)
