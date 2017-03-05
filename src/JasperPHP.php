@@ -1,5 +1,6 @@
 <?php
 namespace JasperPHP;
+
 /**
  * Class JasperPHP
  *
@@ -192,26 +193,54 @@ class JasperPHP
         return $this->the_command;
     }
 
-    public function execute($run_as_user = false)
+    /**
+     * @param bool $user
+     * @return mixed
+     * @throws Exception\InvalidCommandExecutable
+     * @throws Exception\InvalidResourceDirectory
+     * @throws Exception\ErrorCommandExecutable
+     */
+    public function execute($user = false)
     {
-        if ($run_as_user !== false && strlen($run_as_user > 0) && !$this->windows) {
-            $this->the_command = 'su -u ' . $run_as_user . " -c \"" . $this->the_command . "\"";
-        }
+        $this->validateExecute();
+        $this->addUserToCommand($user);
 
+        $command = $this->the_command;
         $output = [];
         $return_var = 0;
 
-        if (is_dir($this->path_executable)) {
-            chdir($this->path_executable);
-            exec($this->the_command, $output, $return_var);
-        } else {
-            throw new \Exception('Invalid resource directory.', 1);
-        }
-
-        if ($return_var != 0) {
-            throw new \Exception('Your report has an error and couldn \'t be processed!\ Try to output the command using the function `output();` and run it manually in the console.', 1);
+        chdir($this->path_executable);
+        exec($command, $output, $return_var);
+        if ($return_var !== 0) {
+            throw new \JasperPHP\Exception\ErrorCommandExecutable();
         }
 
         return $output;
     }
+
+    /**
+     * @param $user
+     */
+    protected function addUserToCommand($user)
+    {
+        if ($user && !$this->windows) {
+            $this->the_command = 'su -u ' . $user . " -c \"" . $this->the_command . "\"";
+        }
+    }
+
+    /**
+     * @throws Exception\InvalidCommandExecutable
+     * @throws Exception\InvalidResourceDirectory
+     */
+    protected function validateExecute()
+    {
+        if (!$this->the_command) {
+            throw new \JasperPHP\Exception\InvalidCommandExecutable();
+        }
+        if (!is_dir ($this->path_executable)) {
+            throw new \JasperPHP\Exception\InvalidResourceDirectory();
+        }
+
+    }
+
 }
