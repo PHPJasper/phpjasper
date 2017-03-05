@@ -10,11 +10,33 @@ class JasperPHPTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
-     * @return JasperPHP
+     *
      */
     public function testConstructor()
     {
         $this->assertInstanceOf(JasperPHP::class, new JasperPHP());
+    }
+
+    /**
+     *
+     */
+    public function testCompileWithWrongInput()
+    {
+        $this->setExpectedException(\JasperPHP\Exception\InvalidInputFile::class);
+
+        $jasper = new JasperPHP();
+        $jasper->compile(null);
+    }
+
+    /**
+     *
+     */
+    public function testCompile()
+    {
+        $jasper = new JasperPHP();
+        $result = $jasper->compile('hello_world.jrxml');
+
+        $this->assertInstanceOf(JasperPHP::class, $result);
     }
 
     /**
@@ -31,7 +53,7 @@ class JasperPHPTest extends \PHPUnit_Framework_TestCase
     /**
      *
      */
-    public function testExecuteWithCompileAndWrongInput()
+    public function testExecuteWithCompile()
     {
         $this->setExpectedException(\JasperPHP\Exception\ErrorCommandExecutable::class);
 

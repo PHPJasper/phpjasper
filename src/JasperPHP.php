@@ -47,23 +47,25 @@ class JasperPHP
         return call_user_func_array(array(new $model, $method), $parameters);
     }
 
+    /**
+     * @param $input_file
+     * @param bool $output_file
+     * @return $this
+     * @throws Exception\InvalidInputFile
+     */
     public function compile($input_file, $output_file = false)
     {
-        if (is_null($input_file) || empty($input_file)) {
-            throw new \Exception('No input file', 1);
+        if (!$input_file) {
+            throw new \JasperPHP\Exception\InvalidInputFile();
         }
 
-        $command = ($this->windows) ? $this->executable : './' . $this->executable;
-
-        $command .= ' compile ';
-
-        $command .= "\"$input_file\"";
+        $this->the_command = $this->windows ? $this->executable : './' . $this->executable;
+        $this->the_command .= ' compile ';
+        $this->the_command .= "\"$input_file\"";
 
         if ($output_file !== false) {
-            $command .= ' -o ' . "\"$output_file\"";
+            $this->the_command .= ' -o ' . "\"$output_file\"";
         }
-
-        $this->the_command = $command;
 
         return $this;
     }
