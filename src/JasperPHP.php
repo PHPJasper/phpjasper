@@ -1,13 +1,16 @@
 <?php
 namespace JasperPHP;
-
 /**
  * Class JasperPHP
- *
  * @package JasperPHP
  */
 class JasperPHP
 {
+
+    /**
+     * @var string
+     */
+    protected $command;
 
     /**
      * @var string
@@ -24,8 +27,9 @@ class JasperPHP
      */
     protected $windows;
 
-    protected $the_command;
-
+    /**
+     * @var array
+     */
     protected $formats = ['pdf', 'rtf', 'xls', 'xlsx', 'docx', 'odt', 'ods', 'pptx', 'csv', 'html', 'xhtml', 'xml', 'jrprint'];
 
     /**
@@ -50,12 +54,12 @@ class JasperPHP
             throw new \JasperPHP\Exception\InvalidInputFile();
         }
 
-        $this->the_command = $this->windows ? $this->executable : './' . $this->executable;
-        $this->the_command .= ' compile ';
-        $this->the_command .= "\"$input_file\"";
+        $this->command = $this->windows ? $this->executable : './' . $this->executable;
+        $this->command .= ' compile ';
+        $this->command .= "\"$input_file\"";
 
         if ($output_file !== false) {
-            $this->the_command .= ' -o ' . "\"$output_file\"";
+            $this->command .= ' -o ' . "\"$output_file\"";
         }
 
         return $this;
@@ -159,7 +163,7 @@ class JasperPHP
             }
         }
 
-        $this->the_command = $command;
+        $this->command = $command;
 
         return $this;
     }
@@ -176,14 +180,9 @@ class JasperPHP
 
         $command .= "\"$input_file\"";
 
-        $this->the_command = $command;
+        $this->command = $command;
 
         return $this;
-    }
-
-    public function output()
-    {
-        return $this->the_command;
     }
 
     /**
@@ -198,12 +197,11 @@ class JasperPHP
         $this->validateExecute();
         $this->addUserToCommand($user);
 
-        $command = $this->the_command;
         $output = [];
         $return_var = 0;
 
         chdir($this->path_executable);
-        exec($command, $output, $return_var);
+        exec($this->command, $output, $return_var);
         if ($return_var !== 0) {
             throw new \JasperPHP\Exception\ErrorCommandExecutable();
         }
@@ -212,12 +210,20 @@ class JasperPHP
     }
 
     /**
+     * @return string
+     */
+    public function output()
+    {
+        return $this->command;
+    }
+
+    /**
      * @param $user
      */
     protected function addUserToCommand($user)
     {
         if ($user && !$this->windows) {
-            $this->the_command = 'su -u ' . $user . " -c \"" . $this->the_command . "\"";
+            $this->command = 'su -u ' . $user . " -c \"" . $this->command . "\"";
         }
     }
 
@@ -227,7 +233,7 @@ class JasperPHP
      */
     protected function validateExecute()
     {
-        if (!$this->the_command) {
+        if (!$this->command) {
             throw new \JasperPHP\Exception\InvalidCommandExecutable();
         }
         if (!is_dir ($this->path_executable)) {
