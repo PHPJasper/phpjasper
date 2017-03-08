@@ -182,7 +182,7 @@ use JasperPHP\JasperPHP;
 $input = __DIR__ . '/vendor/geekcom/phpjasper/examples/hello_world_params.jrxml';
 
 $jasper = new JasperPHP;
-$output = $jasper->list_parameters($input)->execute();
+$output = $jasper->listParameters($input)->execute();
 
 foreach($output as $parameter_description)
     print $parameter_description . '<pre>';

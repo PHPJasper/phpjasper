@@ -19,7 +19,7 @@ $jasper->process(
 )->execute();
 
 // Listing Parameters of jasper file
-$jasperParameters = $jasper->list_parameters($jrxmlParamsFile)->execute();
+$jasperParameters = $jasper->listParameters($jrxmlParamsFile)->execute();
 print "<h2>Listing Parameters of jasper file</h2>\n";
 foreach($jasperParameters as $parameter_description) {
     print "<pre>" . $parameter_description . "</pre>\n";
