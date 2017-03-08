@@ -1,5 +1,9 @@
 <?php
 namespace JasperPHP;
+
+use PHPUnit_Framework_TestCase;
+
+class JasperPHPTest extends PHPUnit_Framework_TestCase
 /**
  * Class JasperPHPTest
  *
@@ -7,6 +11,7 @@ namespace JasperPHP;
  * @package JasperPHP
  */
 class JasperPHPTest extends \PHPUnit_Framework_TestCase
+
 {
 
     /**
@@ -62,9 +67,6 @@ class JasperPHPTest extends \PHPUnit_Framework_TestCase
         $jasper->compile('hello_world.jrxml')->execute();
     }
 
-    /**
-     *
-     */
     public function testListParametersWithWrongInput()
     {
         $this->setExpectedException(\JasperPHP\Exception\InvalidInputFile::class);
