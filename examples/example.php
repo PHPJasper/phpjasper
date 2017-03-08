@@ -1,6 +1,5 @@
 <?php
-
-require __DIR__ . '/../src/JasperPHP/JasperPHP.php';
+ require __DIR__ . '/../vendor/autoload.php';
 
 $outputPdfRtf = __DIR__;
 $jasperFile = __DIR__ . '/hello_world.jasper';
