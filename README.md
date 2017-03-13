@@ -9,12 +9,11 @@
 
 ###Docs
 [![Language-pt_BR](https://img.shields.io/badge/pt__BR-100%25-green.svg)](https://github.com/geekcom/phpjasper/blob/master/docs/pt_BR/LEIA-ME_pt_BR.md)
-[![Language-de_DE](https://img.shields.io/badge/de__DE-10%25-red.svg)](https://github.com/geekcom/phpjasper/blob/master/docs/de_DE/LESEN-MICH.md)
-
 
 ###About
-
 This package is the solution to compile and process JasperReports (.jrxml & .jasper files) just using PHP.
+
+**Note:** PHPJasper Can be used regardless of your PHP Framework
 
 **Note for Linux servers?**
 
@@ -153,16 +152,16 @@ use JasperPHP\JasperPHP;
 
 $input = __DIR__ . '/vendor/geekcom/phpjasper/examples/hello_world.jasper';  
 $output = __DIR__ . '/vendor/geekcom/phpjasper/examples';    
+$options = [ 
+    'format' => ['pdf', 'rtf'] 
+];
 
 $jasper = new JasperPHP;
 
 $jasper->process(
-    $input, //input
-    $output, //output
-	['pdf', 'rtf'], //formats
-	[],    //parameters
-	[],    //data_source
-	'en'   //locale
+    $input,
+    $output,
+    $options
 )->execute();
 ```
 
@@ -200,26 +199,27 @@ use JasperPHP\JasperPHP;
 
 $input = '/your_input_path/your_report.jasper';   
 $output = '/your_output_path';
-$format = 'pdf';
-$locale = 'en';
+$options = [
+    'format' => ['pdf'],
+    'locale' => 'en',
+    'params' => [],
+    'db_connection' => [
+        'driver' => 'postgres',
+        'username' => 'DB_USERNAME',
+        'password' => 'DB_PASSWORD',
+        'host' => 'DB_HOST',
+        'database' => 'DB_DATABASE',
+        'schema' => 'DB_SCHEMA',
+        'port' => '5432'
+    ]
+];
 
 $jasper = new JasperPHP;
 
 $jasper->process(
         $input,
         $output,
-        $format,
-        [], //parameters
-        [
-            'driver' => 'postgres',
-            'username' => 'DB_USERNAME',
-            'password' => 'DB_PASSWORD',
-            'host' => 'DB_HOST',
-            'database' => 'DB_DATABASE',
-            'schema' => 'DB_SCHEMA',
-            'port' => '5432'
-	 ],
-        $locale
+        $options
 )->execute();
 ```
 
@@ -230,37 +230,36 @@ For a complete list of locales see [Supported Locales](http://www.oracle.com/tec
 ###Using MSSQL DataBase
 
 ```php
-
 require __DIR__ . '/vendor/autoload.php';
 
 use JasperPHP\JasperPHP;
 
 $input = '/your_input_path/your_report.jasper or .jrxml';   
 $output = '/your_output_path';
-$format = 'pdf';
-$locale = 'en';
-
-$jdbc_dir = __DIR__ . '/vendor/geekcom/phpjasper/src/JasperStarter/jdbc/';
+$jdbc_dir = __DIR__ . '/vendor/geekcom/phpjasper/bin/jaspertarter/jdbc';
+$options = [
+    'format' => ['pdf'],
+    'locale' => 'en',
+    'params' => [],
+    'db_connection' => [
+        'driver' => 'generic',
+        'host' => '127.0.0.1',
+        'port' => '1433',
+        'database' => 'DataBaseName',
+        'username' => 'UserName',
+        'password' => 'password',
+        'jdbc_driver' => 'com.microsoft.sqlserver.jdbc.SQLServerDriver',
+        'jdbc_url' => 'jdbc:sqlserver://127.0.0.1:1433;databaseName=Teste',
+        'jdbc_dir' => $jdbc_dir
+    ]
+];
 
 $jasper = new JasperPHP;
 
 $jasper->process(
         $input,
         $output,
-        $format,
-        [], //parameters
-        [
-            'driver' => 'generic',
-            'host' => '127.0.0.1',
-            'port' => '1433',
-            'database' => 'DataBaseName',
-            'username' => 'UserName',
-            'password' => 'password',
-            'jdbc_driver' => 'com.microsoft.sqlserver.jdbc.SQLServerDriver',
-            'jdbc_url' => 'jdbc:sqlserver://127.0.0.1:1433;databaseName=Teste',
-            'jdbc_dir' => $jdbc_dir
-        ],
-        $locale
+        $options
     )->execute();
 ```
 
@@ -307,10 +306,12 @@ Route::get('/reports', function () {
     $report->process(
         public_path() . '/report/hello_world.jrxml', //input 
         public_path() . '/report/'.time().'_hello_world', //output
-        ['pdf', 'rtf', 'xml'], //formats
-        [], //parameters
-        [], //data_source
-        ''  //locale
+        [
+            'format' => ['pdf', 'rtf', 'xml'],
+            'locale' => 'en',
+            'params' => [],
+            'db_connection' => []
+        ];
         )->execute();
 });
 ```
@@ -322,131 +323,6 @@ Route::get('/reports', function () {
 * Check the directory **/public/report**. You now have 3 files, `hello_world.pdf`, `hello_world.rtf` and `hello_world.xml`.
 
 In this example we generate reports pdf, rtf and xml.
-
-
-###[optional] Reports from a xml in PHP/Laravel 5.*
-
-See how easy it is to generate a report with a source an XML file:
-
-```php
-
-use JasperPHP\JasperPHP;
-
-public function xmlToPdf()
-    {
-        $output = public_path() . '/report/'.time().'_CancelAck';
-        $ext = "pdf";
-        $data_file = public_path() . '/report/CancelAck.xml';
-        $driver = 'xml';
-        $xml_xpath = '/CancelResponse/CancelResult/ID';
-        $locale = 'en';
-        
-        $php_jasper = new JasperPHP;
-        
-        $php_jasper->process(
-            public_path() . '/report/CancelAck.jrxml', //input
-            $output, //output
-            [$ext], //formats
-            [], //parameters
-            ['data_file' => $data_file, 'driver' => $driver, 'xml_xpath' => $xml_xpath], //data_source
-            $locale //locale
-            )->execute();
-    
-        header('Content-Description: File Transfer');
-        header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename='.time().'_CancelAck.'.$ext);
-        header('Content-Transfer-Encoding: binary');
-        header('Expires: 0');
-        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-        header('Content-Length: ' . filesize($output.'.'.$ext));
-        flush();
-        readfile($output.'.'.$ext);
-        unlink($output.'.'.$ext);
-    }
-```
-
-
-**Do not forget to write your route**
-
-```php
-Route::get('reports/xml', 'ReportsController@xmlToPdf');
-```
-**and just go to**:
-
-http://localhost:8000/reports/xml
-
-**Note 3:** 
-
-To use the example above you must copy the sample files located at:
-
-**\vendor\geekcom\phpjasper\examples\CancelAck.jrxml** 
-and
-**\vendor\geekcom\phpjasper\examples\CancelAck.xml** 
-to folder:
-**\public\report** 
-
-
-###[optional] Reports from a JSON File in PHP/Laravel 5.*
-
-See how easy it is to generate a report with a source an JSON file:
-
-```php
-
-use JasperPHP\JasperPHP;
-
-public function jsonToPdf()
-    {
-        $output = public_path() . '/report/'.time().'_Contacts';
-        $ext = "pdf";
-        $driver = 'json';
-        $json_query= "contacts.person";
-        $data_file = public_path() . '/report/contacts.json';
-        $locale = 'en';
-            
-        $php_jasper = new JasperPHP;
-        
-        $php_jasper->process(
-            public_path() . '/report/json.jrxml', //input
-            $output, //output
-            [$ext], //formats
-            [], //parameters
-            ['data_file' => $data_file, 'driver' => $driver, 'json_query' => $json_query],
-            $locale
-        )->execute();
-    
-        header('Content-Description: File Transfer');
-        header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename='.time().'_Contacts.'.$ext);
-        header('Content-Transfer-Encoding: binary');
-        header('Expires: 0');
-        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-        header('Content-Length: ' . filesize($output.'.'.$ext));
-        flush();
-        readfile($output.'.'.$ext);
-        unlink($output.'.'.$ext);
-    }
-```
-
-**Do not forget to write your route**
-
-```php
-Route::get('reports/json', 'ReportsController@jsonToPdf');
-```
-
-**and just go to**:
-
-http://localhost:8000/reports/json
-
-**Note 4:**
-
-To use the example above you must copy the sample files located at:
-
-**\vendor\geekcom\phpjasper\examples\json.jrxml**
-and
-**\vendor\geekcom\phpjasper\examples\contacts.json**
-to folder:
-**\public\report**
-
 
 ###MySQL
 
@@ -485,4 +361,4 @@ MIT
 
 ##[Contribute](https://github.com/geekcom/phpjasper/blob/master/CONTRIBUTING.md)
 
-Contribute to the community PHP and Laravel, feel free to contribute, make a fork!!
+Contribute to the community PHP, make a fork!!

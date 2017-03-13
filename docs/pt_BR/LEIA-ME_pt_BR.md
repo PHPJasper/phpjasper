@@ -10,12 +10,12 @@
 
 ###Documentação
 [![Language-en_US](https://img.shields.io/badge/en__US-100%25-green.svg)](https://github.com/geekcom/phpjasper/blob/master/README.md)
-[![Language-de_DE](https://img.shields.io/badge/de__DE-10%25-red.svg)](https://github.com/geekcom/phpjasper/blob/master/docs/de_DE/LESEN-MICH.md)
-
 
 ###Sobre a biblioteca
 
 Este pacote é a solução perfeita para compilar e processar relatórios Jasper (.jrxml & .jasper) com PHP puro ou através do Laravel Framework.
+
+**Nota:** PHPJasper pode ser usado independente de seu PHP Framework
 
 **Seu servidor é Linux?**
 
@@ -121,8 +121,6 @@ Abra o arquivo `hello_world.jrxml` com o JasperStudio ou seu editor favorito  e 
 
 #### Compilando
 
-#### Compilando
-
 Primeiro precisamos compilar o arquivo com a extensão `.JRXML` em um arquivo binário do tipo `.JASPER`
 
 **Nota 1:** Caso você não queira usar o *Jaspersoft Studio*. É possivel compilar o seu arquivo .jrxml da seguinte forma:
@@ -146,23 +144,22 @@ Esse comando compila o arquivo fonte `hello_world.jrxml` em um arquivo binário 
 Agora vamos processar o nosso relatório que foi compilado acima:
 
 ```php
-
 require __DIR__ . '/vendor/autoload.php';
 
 use JasperPHP\JasperPHP;
 
 $input = __DIR__ . '/vendor/geekcom/phpjasper/examples/hello_world.jasper';  
 $output = __DIR__ . '/vendor/geekcom/phpjasper/examples';    
+$options = [ 
+    'format' => ['pdf', 'rtf'] 
+];
 
 $jasper = new JasperPHP;
 
 $jasper->process(
-    $input, //input
-    $output, //output
-	['pdf', 'rtf'], //formats
-	[],    //parameters
-	[],    //data_source
-	'en'   //locale
+    $input,
+    $output,
+    $options
 )->execute();
 ```
 
@@ -196,28 +193,29 @@ require __DIR__ . '/vendor/autoload.php';
 
 use JasperPHP\JasperPHP;    
 
-$input = '/pasta_de_entrada/seu_relatorio.jasper';   
-$output = '/pasta_de_saida';
-$format = 'pdf'; //formato do relatorio
-$locale = 'pt_BR'; //idioma do relatorio
+$input = '/your_input_path/your_report.jasper';   
+$output = '/your_output_path';
+$options = [
+    'format' => ['pdf'],
+    'locale' => 'en',
+    'params' => [],
+    'db_connection' => [
+        'driver' => 'postgres',
+        'username' => 'DB_USERNAME',
+        'password' => 'DB_PASSWORD',
+        'host' => 'DB_HOST',
+        'database' => 'DB_DATABASE',
+        'schema' => 'DB_SCHEMA',
+        'port' => '5432'
+    ]
+];
 
 $jasper = new JasperPHP;
 
 $jasper->process(
         $input,
         $output,
-        $format,
-        [], //parametros
-        [
-            'driver' => 'postgres',
-            'username' => 'DB_USERNAME',
-            'password' => 'DB_PASSWORD',
-            'host' => 'DB_HOST',
-            'database' => 'DB_DATABASE',
-            'schema' => 'DB_SCHEMA',
-            'port' => '5432'
-	 ],
-        $locale
+        $options
 )->execute();
 ```
 
@@ -228,223 +226,38 @@ Para a lista completa de idiomas suportados veja o link [Supported Locales](http
 ###Relatórios com banco de dados MSSQL
 
 ```php
-
 require __DIR__ . '/vendor/autoload.php';
 
 use JasperPHP\JasperPHP;
 
-$input = '/pasta_de_entrada/seu_relatorio.jasper ou .jrxml';   
-$output = '/pasta_de_saida';
-$format = 'pdf'; //formato do relatorio
-$locale = 'pt_BR'; //idioma do relatorio
-
-$jdbc_dir = __DIR__ . '/vendor/geekcom/phpjasper/src/JasperStarter/jdbc/';
+$input = '/your_input_path/your_report.jasper or .jrxml';   
+$output = '/your_output_path';
+$jdbc_dir = __DIR__ . '/vendor/geekcom/phpjasper/bin/jaspertarter/jdbc';
+$options = [
+    'format' => ['pdf'],
+    'locale' => 'en',
+    'params' => [],
+    'db_connection' => [
+        'driver' => 'generic',
+        'host' => '127.0.0.1',
+        'port' => '1433',
+        'database' => 'DataBaseName',
+        'username' => 'UserName',
+        'password' => 'password',
+        'jdbc_driver' => 'com.microsoft.sqlserver.jdbc.SQLServerDriver',
+        'jdbc_url' => 'jdbc:sqlserver://127.0.0.1:1433;databaseName=Teste',
+        'jdbc_dir' => $jdbc_dir
+    ]
+];
 
 $jasper = new JasperPHP;
 
 $jasper->process(
         $input,
         $output,
-        $format,
-        [], //parametros
-        [
-            'driver' => 'generic',
-            'host' => '127.0.0.1',
-            'port' => '1433',
-            'database' => 'DataBaseName',
-            'username' => 'UserName',
-            'password' => 'password',
-            'jdbc_driver' => 'com.microsoft.sqlserver.jdbc.SQLServerDriver',
-            'jdbc_url' => 'jdbc:sqlserver://127.0.0.1:1433;databaseName=Teste',
-            'jdbc_dir' => $jdbc_dir
-        ],
-        $locale
+        $options
     )->execute();
 ```
-
-###[opcional] Como usar PHPJasper com Laravel 5 em diante
-
-* Instale o [Composer](http://getcomposer.org)
-```
-composer require geekcom/phpjasper
-```
-Ou crie um arquivo 'composer.json' e adicione o trecho:
-
-```javascript
-{
-    "require": {
-        "geekcom/phpjasper": "1.*"
-    }
-}
-```
-
-* Rode o comando:
-
-    **composer update**
-
-* Adicione o provider ao array providers em config/app.php:
-
-    **JasperPHP\JasperPHPServiceProvider::class,**
-
-* Crie a pasta **/report** em **/public directory**
-
-* Copie o arquivo **hello_world.jrxml** em **/vendor/geekcom/phpjasper/examples** para a pasta: **/public/report**
-
-* Copie o código abaixo para seu arquivo **route.php**
-
-**Nota 3:** no Laravel 5.3 os arquivos de rota estão localizados em **/routes** 
-
-```php
-use JasperPHP\JasperPHP;
-
-Route::get('/reports', function () {
-    
-    $report = new JasperPHP;
-    
-    $report->process(
-        public_path() . '/report/hello_world.jrxml', //entrada 
-        public_path() . '/report/'.time().'_hello_world', //saida
-        ['pdf', 'rtf', 'xml'], //formats
-        [], //parametros
-        [],  //fonte de dados
-        '', //idioma do relatorio
-        )->execute();
-});
-```
-
-* Rode **php artisan serve**
-
-* Acesse **localhost:8000/reports**
-
-* Abra a pasta **/public/report**. você terá 3 arquivos, `hello_world.pdf`, `hello_world.rtf` e `hello_world.xml`.
-
-Neste exemplo nós geramos relatórios com as seguintes extensões pdf, rtf and xml.
-
-
-###[Opcional] Relatórios a partir de um arquivo xml em PHP/Laravel 5 em diante
-
-Veja como é fácil gerar um relatório com uma fonte de um arquivo JSON:
-
-```php
-
-use JasperPHP\JasperPHP;
-
-public function xmlToPdf()
-    {
-        $output = public_path() . '/report/'.time().'_CancelAck';
-        $ext = "pdf";
-        $data_file = public_path() . '/report/CancelAck.xml';
-        $driver = 'xml';
-        $xml_xpath = '/CancelResponse/CancelResult/ID';
-        $locale = 'pt_BR';
-        
-        $php_jasper = new JasperPHP;
-        
-        $php_jasper->process(
-            public_path() . '/report/CancelAck.jrxml', //input
-            $output, //saida
-            [$ext], //formatos
-            [], //parametros
-            ['data_file' => $data_file, 'driver' => $driver, 'xml_xpath' => $xml_xpath], //fonte de dados
-            $locale //idioma
-            )->execute();
-    
-        header('Content-Description: File Transfer');
-        header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename='.time().'_CancelAck.'.$ext);
-        header('Content-Transfer-Encoding: binary');
-        header('Expires: 0');
-        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-        header('Content-Length: ' . filesize($output.'.'.$ext));
-        flush();
-        readfile($output.'.'.$ext);
-        unlink($output.'.'.$ext);
-    }
-```
-
-
-**Não esqueça de escrever sua rota**
-
-```php
-Route::get('reports/xml', 'ReportsController@xmlToPdf');
-```
-**simplesmente acesse**:
-
-http://localhost:8000/reports/xml
-
-**Nota 3:** 
-Para usar o exemplo acima você precisa copiar os arquivos localizados em:
-
-**\vendor\geekcom\phpjasper\examples\CancelAck.jrxml** 
-e
-**\vendor\geekcom\phpjasper\examples\CancelAck.xml** 
-
-para a pasta:
-
-**\public\report** 
-
-
-###[opcional] Relatórios a partir de um arquivo JSON em PHP/Laravel 5 em diante
-
-```php
-
-use JasperPHP\JasperPHP;
-
-public function jsonToPdf()
-    {
-        $output = public_path() . '/report/'.time().'_Contacts';
-        $ext = "pdf";
-        $driver = 'json';
-        $json_query= "contacts.person";
-        $data_file = public_path() . '/report/contacts.json';
-        $locale = 'pt_BR';
-            
-        $php_jasper = new JasperPHP;
-        
-        $php_jasper->process(
-            public_path() . '/report/json.jrxml', //entrada
-            $output, //saida
-            [$ext], //formato
-            [], //parametro
-            ['data_file' => $data_file, 'driver' => $driver, 'json_query' => $json_query],
-            $locale //idioma
-        )->execute();
-    
-        header('Content-Description: File Transfer');
-        header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename='.time().'_Contacts.'.$ext);
-        header('Content-Transfer-Encoding: binary');
-        header('Expires: 0');
-        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-        header('Content-Length: ' . filesize($output.'.'.$ext));
-        flush();
-        readfile($output.'.'.$ext);
-        unlink($output.'.'.$ext);
-    }
-```
-
-**Escreva sua rota**
-
-```php
-Route::get('reports/json', 'ReportsController@jsonToPdf');
-```
-
-**acesse**:
-
-http://localhost:8000/reports/json
-
-**Nota 4:**
-
-Copie os arquivos em
-
-**\vendor\geekcom\phpjasper\examples\json.jrxml**
-e
-**\vendor\geekcom\phpjasper\examples\contacts.json**
-
-Para:
-
-**\public\report**
-
 
 ###MySQL
 
@@ -481,4 +294,4 @@ MIT
 
 ##[Contribuição](https://github.com/geekcom/phpjasper/blob/master/CONTRIBUTING.md)
 
-Contribua com a comunidade PHP e Laravel, sinta-se à vontade para contribuir, faça um fork !!
+Contribua com a comunidade PHP, faça um fork !!
