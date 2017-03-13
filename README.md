@@ -263,67 +263,6 @@ $jasper->process(
     )->execute();
 ```
 
-###[optional] How to use JasperPHP with Laravel 5.*
-**This library yet not supported in Laravel 5.4**
-
-* Install [Composer](http://getcomposer.org) if you don't have it.
-```
-composer require geekcom/phpjasper
-```
-Or in your 'composer.json' file add:
-
-```javascript
-{
-    "require": {
-        "geekcom/phpjasper": "1.*"
-    }
-}
-```
-
-* Just run:
-
-    **composer update**
-
-* Add to your config/app.php providers array:
-
-    **JasperPHP\JasperPHPServiceProvider::class,**
-
-* Create a folder **/report** on **/public directory**
-
-* Copy the file **hello_world.jrxml** in **/vendor/geekcom/phpjasper/examples** from directory: **/public/report**
-
-* Copy and paste the code below to your **route.php** file
-
-**Note 3:** In laravel 5.3 your routes files it's located on directory /routes
-
-```php
-use JasperPHP\JasperPHP;
-
-Route::get('/reports', function () {
-    
-    $report = new JasperPHP;
-    
-    $report->process(
-        public_path() . '/report/hello_world.jrxml', //input 
-        public_path() . '/report/'.time().'_hello_world', //output
-        [
-            'format' => ['pdf', 'rtf', 'xml'],
-            'locale' => 'en',
-            'params' => [],
-            'db_connection' => []
-        ];
-        )->execute();
-});
-```
-
-* Run **php artisan serve**
-
-* Access **localhost:8000/reports**
-
-* Check the directory **/public/report**. You now have 3 files, `hello_world.pdf`, `hello_world.rtf` and `hello_world.xml`.
-
-In this example we generate reports pdf, rtf and xml.
-
 ###MySQL
 
 We ship the [MySQL connector](http://dev.mysql.com/downloads/connector/j/) (v5.1.39) in the `/src/JasperStarter/jdbc/` directory.
