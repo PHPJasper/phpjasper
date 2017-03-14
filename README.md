@@ -18,7 +18,7 @@ This package is the solution to compile and process JasperReports (.jrxml & .jas
 **Note for Linux servers?**
 
 Do not forget to grant permission 777 for the directory 
-**/vendor/geekcom/phpjasper/src/JasperStarter/bin** and the file binary **jasperstarter**
+**/vendor/geekcom/phpjasper/bin/jasperstarter/bin** and the file binary **jasperstarter**
 
 **Do you need to generate Python reports?**
 
@@ -28,7 +28,7 @@ Meet the **[pyreport](https://github.com/jadsonbr/pyreport)**
 
 Did you ever had to create a good looking Invoice with a lot of fields for your great web app?
 
-I had to, and the solutions out there were not perfect. Generating *HTML* + *CSS* to make a *PDF*? WTF? That doesn't make any sense! :)
+I had to, and the solutions out there were not perfect. Generating *HTML* + *CSS* to make a *PDF*? That doesn't make any sense! :)
 
 Then I found **JasperReports** the best open source solution for reporting.
 
@@ -167,7 +167,7 @@ $jasper->process(
 
 Now check the examples folder! :) Great right? You now have 2 files, `hello_world.pdf` and `hello_world.rtf`.
 
-Check the *API* of the  `compile` and `process` functions in the file `src/JasperPHP/JasperPHP.php` file.
+Check the *methods* `compile` and `process` in `src/JasperPHP.php` for more details
 
 ####Listing Parameters
 
@@ -261,6 +261,67 @@ $jasper->process(
         $output,
         $options
     )->execute();
+```
+
+###Reports from a XML
+
+```php
+require __DIR__ . '/vendor/autoload.php';
+
+use JasperPHP\JasperPHP;
+
+$input = '/your_input_path/your_report.jasper';   
+$output = '/your_output_path';
+$data_file = __DIR__ . '/your_data_files_path/your_xml_file.xml';
+$options = [
+    'format' => ['pdf'],
+    'params' => [],
+    'locale' => 'en',
+    'db_connection' => [
+        'driver' => 'xml',
+        'data_file' => $data_file,
+        'xml_xpath' => '/your_xml_xpath'
+    ]
+];
+
+$jasper = new JasperPHP;
+
+$jasper->process(
+    $input,
+    $output,
+    $options
+)->execute();
+```
+
+###Reports from a JSON
+
+```php
+require __DIR__ . '/vendor/autoload.php';
+
+use JasperPHP\JasperPHP;
+
+$input = '/your_input_path/your_report.jasper';   
+$output = '/your_output_path';
+
+$data_file = __DIR__ . '/your_data_files_path/your_json_file.json';
+$options = [
+    'format' => ['pdf'],
+    'params' => [],
+    'locale' => 'en',
+    'db_connection' => [
+        'driver' => 'json',
+        'data_file' => $data_file,
+        'json_query' => 'your_json_query'
+    ]
+];
+
+$jasper = new JasperPHP;
+
+$jasper->process(
+    $input,
+    $output,
+    $options
+)->execute();
 ```
 
 ###MySQL

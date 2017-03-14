@@ -20,7 +20,7 @@ Este pacote é a solução perfeita para compilar e processar relatórios Jasper
 **Seu servidor é Linux?**
 
 Não esqueça de fornecer permissão 777 para o diretório
-**/vendor/geekcom/phpjasper/src/JasperStarter/bin** e para o arquivo binário **jasperstarter**
+**/vendor/geekcom/phpjasper/bin/jasperstarter/bin** e para o arquivo binário **jasperstarter**
 
 **Precisa gerar relatórios em Python?**
 
@@ -116,7 +116,7 @@ E execute o comando:
 
 ###*Hello World* PHPJasper.
 
-Vá para o diretório de exemplos na raiz do repositório (`vendor/copam/phpjasper/examples`).
+Vá para o diretório de exemplos na raiz do repositório (`vendor/geekcom/phpjasper/examples`).
 Abra o arquivo `hello_world.jrxml` com o JasperStudio ou seu editor favorito  e dê uma olhada no código.
 
 #### Compilando
@@ -186,7 +186,7 @@ foreach($output as $parameter_description)
 
 ###Relatórios a partir de um banco de dados
 
-Adicione os parâmetros específicos para conexão com seu banco de dados:
+Adicione os parâmetros específicos para conexão com seu banco de dados: MYSQL, POSTGRES ou MSSQL:
 
 ```php
 require __DIR__ . '/vendor/autoload.php';
@@ -197,7 +197,7 @@ $input = '/your_input_path/your_report.jasper';
 $output = '/your_output_path';
 $options = [
     'format' => ['pdf'],
-    'locale' => 'en',
+    'locale' => 'pt_BR',
     'params' => [],
     'db_connection' => [
         'driver' => 'postgres',
@@ -235,7 +235,7 @@ $output = '/your_output_path';
 $jdbc_dir = __DIR__ . '/vendor/geekcom/phpjasper/bin/jaspertarter/jdbc';
 $options = [
     'format' => ['pdf'],
-    'locale' => 'en',
+    'locale' => 'pt_BR',
     'params' => [],
     'db_connection' => [
         'driver' => 'generic',
@@ -257,6 +257,67 @@ $jasper->process(
         $output,
         $options
     )->execute();
+```
+
+###Relatórios a partir de um arquivo XML
+
+```php
+require __DIR__ . '/vendor/autoload.php';
+
+use JasperPHP\JasperPHP;
+
+$input = '/your_input_path/your_report.jasper';   
+$output = '/your_output_path';
+$data_file = __DIR__ . '/your_data_files_path/your_xml_file.xml';
+$options = [
+    'format' => ['pdf'],
+    'params' => [],
+    'locale' => 'pt_BR',
+    'db_connection' => [
+        'driver' => 'xml',
+        'data_file' => $data_file,
+        'xml_xpath' => '/your_xml_xpath'
+    ]
+];
+
+$jasper = new JasperPHP;
+
+$jasper->process(
+    $input,
+    $output,
+    $options
+)->execute();
+```
+
+###Relatórios a partir de um arquivo JSON
+
+```php
+require __DIR__ . '/vendor/autoload.php';
+
+use JasperPHP\JasperPHP;
+
+$input = '/your_input_path/your_report.jasper';   
+$output = '/your_output_path';
+
+$data_file = __DIR__ . '/your_data_files_path/your_json_file.json';
+$options = [
+    'format' => ['pdf'],
+    'params' => [],
+    'locale' => 'pt_BR',
+    'db_connection' => [
+        'driver' => 'json',
+        'data_file' => $data_file,
+        'json_query' => 'your_json_query'
+    ]
+];
+
+$jasper = new JasperPHP;
+
+$jasper->process(
+    $input,
+    $output,
+    $options
+)->execute();
 ```
 
 ###MySQL
