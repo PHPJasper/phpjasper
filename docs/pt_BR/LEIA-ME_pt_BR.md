@@ -8,10 +8,10 @@
 [![License](https://poser.pugx.org/geekcom/phpjasper/license)](https://packagist.org/packages/geekcom/phpjasper) 
 [![Bitcoin Donations](https://img.shields.io/badge/bitcoin-donation-orange.svg)](https://blockchain.info/address/1LqwqcMfNuNzq6S671z1HjM61MpBuFCGqg)
 
-###Documentação
+### Documentação
 [![Language-en_US](https://img.shields.io/badge/en__US-100%25-green.svg)](https://github.com/geekcom/phpjasper/blob/master/README.md)
 
-###Sobre a biblioteca
+### Sobre a biblioteca
 
 Este pacote é a solução perfeita para compilar e processar relatórios Jasper (.jrxml & .jasper) com PHP puro ou através do Laravel Framework.
 
@@ -26,7 +26,7 @@ Não esqueça de fornecer permissão 777 para o diretório
 
 Conheça a biblioteca **[pyreport](https://github.com/jadsonbr/pyreport)**
 
-###Por quê preciso do PHPJasper?
+### Por quê preciso do PHPJasper?
 
 Alguma vez você precisou de um relatório simples ou complexo em PHP para seu sistema web?
 
@@ -34,7 +34,7 @@ Eu já precisei e fui em busca de algumas soluções, a maioria delas é complex
 
 Apresento para vocês **JasperReports** a melhor solução open source que existe para relatórios.
 
-###O que eu posso fazer com isso?
+### O que eu posso fazer com isso?
 
 **Texto extraido do site JasperSoft:**
 
@@ -47,19 +47,19 @@ Apresento para vocês **JasperReports** a melhor solução open source que exist
 * Listas
 
 
-##Requisitos
+## Requisitos
 
 * Java JDK 1.8
 * PHP [exec()](http://php.net/manual/function.exec.php) function
 
-##Opcional
+## Opcional
 
 * [Mysql JDBC Driver](http://dev.mysql.com/downloads/connector/j/) (se você pretende usar esse tipo de banco de dados)
 * [PostgreSQL JDBC Driver](https://jdbc.postgresql.org/download.html) (se você pretende usar esse tipo de banco de dados)
 * [Microsoft JDBC Drivers](https://www.microsoft.com/en-US/download/details.aspx?id=11774) (se você pretende usar esse tipo de banco de dados)
 * [Jaspersoft Studio](http://community.jaspersoft.com/project/jaspersoft-studio) (para escrever e compilar seus relatórios)
 
-###Instalando o Java(JDK)
+### Instalando o Java(JDK)
 
 Verifique se o JDK está instalado:
 
@@ -86,7 +86,7 @@ Agora rode novamente o comando `javac -version` e veja se deu tudo certo.
 
 ---------------------------------------------------------------------------------------------------------------------------
 
-##Instalando a biblioteca PHPJasper
+## Instalando a biblioteca PHPJasper
 
 Instale o [Composer](http://getcomposer.org), e rode o comando:
 
@@ -112,9 +112,9 @@ E execute o comando:
 
 ----------------------------------------------------------------------------------------------------------------------------
 
-##Exemplos
+## Exemplos
 
-###*Hello World* PHPJasper.
+### *Hello World* PHPJasper.
 
 Vá para o diretório de exemplos na raiz do repositório (`vendor/geekcom/phpjasper/examples`).
 Abra o arquivo `hello_world.jrxml` com o JasperStudio ou seu editor favorito  e dê uma olhada no código.
@@ -139,7 +139,7 @@ $jasper->compile($input)->execute();
 
 Esse comando compila o arquivo fonte `hello_world.jrxml` em um arquivo binário `hello_world.jasper`.
 
-####Processando
+#### Processando
 
 Agora vamos processar o nosso relatório que foi compilado acima:
 
@@ -165,7 +165,7 @@ $jasper->process(
 
 Agora olhe a pasta **/examples** :) Ótimo trabalho? Você tem  2 arquivos, `hello_world.pdf` e `hello_world.rtf`.
 
-####Listando parâmetros
+#### Listando parâmetros
 
 Como consultar o arquivo jrxml para examinar os parâmetros disponíveis no relatório:
 
@@ -184,7 +184,7 @@ foreach($output as $parameter_description)
     print $parameter_description . '<pre>';
 ```
 
-###Relatórios a partir de um banco de dados
+### Relatórios a partir de um banco de dados
 
 Adicione os parâmetros específicos para conexão com seu banco de dados: MYSQL, POSTGRES ou MSSQL:
 
@@ -223,7 +223,7 @@ $jasper->process(
 
 Para a lista completa de idiomas suportados veja o link [Supported Locales](http://www.oracle.com/technetwork/java/javase/java8locales-2095355.html)
 
-###Relatórios com banco de dados MSSQL
+### Relatórios com banco de dados MSSQL
 
 ```php
 require __DIR__ . '/vendor/autoload.php';
@@ -259,7 +259,7 @@ $jasper->process(
     )->execute();
 ```
 
-###Relatórios a partir de um arquivo XML
+### Relatórios a partir de um arquivo XML
 
 ```php
 require __DIR__ . '/vendor/autoload.php';
@@ -289,7 +289,7 @@ $jasper->process(
 )->execute();
 ```
 
-###Relatórios a partir de um arquivo JSON
+### Relatórios a partir de um arquivo JSON
 
 ```php
 require __DIR__ . '/vendor/autoload.php';
@@ -320,39 +320,39 @@ $jasper->process(
 )->execute();
 ```
 
-###MySQL
+### MySQL
 
 Incluímos o [MySQL connector](http://dev.mysql.com/downloads/connector/j/) (v5.1.39) na pasta `/src/JasperStarter/jdbc/`
 
-###PostgreSQL
+### PostgreSQL
 
 Incluímos também o [PostgreSQL](https://jdbc.postgresql.org/) (v9.4-1203) na pasta `/src/JasperStarter/jdbc/`
 
-###MSSQL
+### MSSQL
 
 [Microsoft JDBC Drivers 6.0, 4.2, 4.1, and 4.0 for SQL Server
 ](https://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=11774).
 
-##Performance
+## Performance
 
 Depende da complexidade do seu relatório.
 
-##Agradecimentos
+## Agradecimentos
 
 [Cenote GmbH](http://www.cenote.de/) pelo [JasperStarter](http://jasperstarter.sourceforge.net/) tool.
 
 [JetBrains](https://www.jetbrains.com/) pelo [PhpStorm](https://www.jetbrains.com/phpstorm/) e seu grande apoio.
 
 
-##[Dúvidas?](https://github.com/geekcom/phpjasper/issues)
+## [Dúvidas?](https://github.com/geekcom/phpjasper/issues)
 
 Abra uma [Issue](https://github.com/geekcom/phpjasper/issues) ou procure por Issues antigas
 
 
-##[Licença](https://github.com/geekcom/phpjasper/blob/master/LICENSE)
+## [Licença](https://github.com/geekcom/phpjasper/blob/master/LICENSE)
 
 MIT
 
-##[Contribuição](https://github.com/geekcom/phpjasper/blob/master/CONTRIBUTING.md)
+## [Contribuição](https://github.com/geekcom/phpjasper/blob/master/CONTRIBUTING.md)
 
 Contribua com a comunidade PHP, faça um fork !!
