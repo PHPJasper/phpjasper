@@ -7,10 +7,10 @@
 [![License](https://poser.pugx.org/geekcom/phpjasper/license)](https://packagist.org/packages/geekcom/phpjasper) 
 [![Bitcoin Donations](https://img.shields.io/badge/bitcoin-donation-orange.svg)](https://blockchain.info/address/1LqwqcMfNuNzq6S671z1HjM61MpBuFCGqg)
 
-###Docs
+### Docs
 [![Language-pt_BR](https://img.shields.io/badge/pt__BR-100%25-green.svg)](https://github.com/geekcom/phpjasper/blob/master/docs/pt_BR/LEIA-ME_pt_BR.md)
 
-###About
+### About
 This package is the solution to compile and process JasperReports (.jrxml & .jasper files) just using PHP.
 
 **Note:** PHPJasper Can be used regardless of your PHP Framework
@@ -24,7 +24,7 @@ Do not forget to grant permission 777 for the directory
 
 Meet the **[pyreport](https://github.com/jadsonbr/pyreport)**
 
-###Why PHPJasper?
+### Why PHPJasper?
 
 Did you ever had to create a good looking Invoice with a lot of fields for your great web app?
 
@@ -32,7 +32,7 @@ I had to, and the solutions out there were not perfect. Generating *HTML* + *CSS
 
 Then I found **JasperReports** the best open source solution for reporting.
 
-###What can I do with this?
+### What can I do with this?
 
 Well, everything. JasperReports is a powerful tool for **reporting** and **BI**.
 
@@ -50,19 +50,19 @@ It is recommended using [Jaspersoft Studio](http://community.jaspersoft.com/proj
 
 Package to generate reports with [JasperReports 6.3.1](http://community.jaspersoft.com/project/jaspersoft-studio/releases) library through [JasperStarter v3](http://jasperstarter.sourceforge.net/) command-line tool.
 
-##Requirements
+## Requirements
 
 * Java JDK 1.8
 * PHP [exec()](http://php.net/manual/function.exec.php) function
 
-##Optional
+## Optional
 
 * [Mysql JDBC Driver](http://dev.mysql.com/downloads/connector/j/) (If you want to use a database)
 * [PostgreSQL JDBC Driver](https://jdbc.postgresql.org/download.html) (If you want to use a database)
 * [Microsoft JDBC Drivers](https://www.microsoft.com/en-US/download/details.aspx?id=11774) (If you want to use a database)
 * [Jaspersoft Studio](http://community.jaspersoft.com/project/jaspersoft-studio) (to draw and compile your reports)
 
-###Java(JDK)
+### Java(JDK)
 
 Check if you already have Java installed:
 
@@ -89,7 +89,7 @@ Now run the `javac -version` again and check if the output is ok.
 
 ---------------------------------------------------------------------------------------------------------------------------
 
-##Installation
+## Installation
 
 Install [Composer](http://getcomposer.org) if you don't have it.
 ```
@@ -113,9 +113,9 @@ and thats it.
 
 ----------------------------------------------------------------------------------------------------------------------------
 
-##Examples
+## Examples
 
-###The *Hello World* example.
+### The *Hello World* example.
 
 Go to the examples directory in the root of the repository (`vendor/geekcom/phpjasper/examples`).
 Open the `hello_world.jrxml` file with Jaspersoft Studio or with your favorite text editor and take a look at the source code.
@@ -140,7 +140,7 @@ $jasper->compile($input)->execute();
 
 This commando will compile the `hello_world.jrxml` source file to a `hello_world.jasper` file.
 
-####Processing
+#### Processing
 
 Now lets process the report that we compile before:
 
@@ -169,7 +169,7 @@ Now check the examples folder! :) Great right? You now have 2 files, `hello_worl
 
 Check the *methods* `compile` and `process` in `src/JasperPHP.php` for more details
 
-####Listing Parameters
+#### Listing Parameters
 
 Querying the jasper file to examine parameters available in the given jasper report file:
 
@@ -188,7 +188,7 @@ foreach($output as $parameter_description)
     print $parameter_description . '<pre>';
 ```
 
-###Advanced example - using a database
+### Advanced example - using a database
 
 We can also specify parameters for connecting to database:
 
@@ -227,7 +227,7 @@ $jasper->process(
 
 For a complete list of locales see [Supported Locales](http://www.oracle.com/technetwork/java/javase/java8locales-2095355.html)
 
-###Using MSSQL DataBase
+### Using MSSQL DataBase
 
 ```php
 require __DIR__ . '/vendor/autoload.php';
@@ -263,7 +263,7 @@ $jasper->process(
     )->execute();
 ```
 
-###Reports from a XML
+### Reports from a XML
 
 ```php
 require __DIR__ . '/vendor/autoload.php';
@@ -293,7 +293,7 @@ $jasper->process(
 )->execute();
 ```
 
-###Reports from a JSON
+### Reports from a JSON
 
 ```php
 require __DIR__ . '/vendor/autoload.php';
@@ -324,41 +324,41 @@ $jasper->process(
 )->execute();
 ```
 
-###MySQL
+### MySQL
 
 We ship the [MySQL connector](http://dev.mysql.com/downloads/connector/j/) (v5.1.39) in the `/src/JasperStarter/jdbc/` directory.
 
-###PostgreSQL
+### PostgreSQL
 
 We ship the [PostgreSQL](https://jdbc.postgresql.org/) (v9.4-1203) in the `/src/JasperStarter/jdbc/` directory.
 
-###MSSQL
+### MSSQL
 
 [Microsoft JDBC Drivers 6.0, 4.2, 4.1, and 4.0 for SQL Server
 ](https://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=11774).
 
-##Performance
+## Performance
 
 Depends on the complexity, amount of data and the resources of your machine (let me know your use case).
 
 I have a report that generates a *Invoice* with a DB connection, images and multiple pages and it takes about **3/4 seconds** to process. I suggest that you use a worker to generate the reports in the background.
 
-##Thanks
+## Thanks
 
 [Cenote GmbH](http://www.cenote.de/) for the [JasperStarter](http://jasperstarter.sourceforge.net/) tool.
 
 [JetBrains](https://www.jetbrains.com/) for the [PhpStorm](https://www.jetbrains.com/phpstorm/) and all great tools.
 
 
-##[Questions?](https://github.com/geekcom/phpjasper/issues)
+## [Questions?](https://github.com/geekcom/phpjasper/issues)
 
 Open a new [Issue](https://github.com/geekcom/phpjasper/issues) or look for a closed issue
 
 
-##[License](https://github.com/geekcom/phpjasper/blob/master/LICENSE)
+## [License](https://github.com/geekcom/phpjasper/blob/master/LICENSE)
 
 MIT
 
-##[Contribute](https://github.com/geekcom/phpjasper/blob/master/CONTRIBUTING.md)
+## [Contribute](https://github.com/geekcom/phpjasper/blob/master/CONTRIBUTING.md)
 
 Contribute to the community PHP, make a fork!!
