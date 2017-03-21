@@ -102,54 +102,24 @@ class JasperPHP
         }
 
         if ($options['db_connection']) {
-            $this->command .= " -t {$options['db_connection']['driver']}";
+            $mapDbParams = [
+                'driver' => '-t',
+                'username' => '-u',
+                'password' => '-p',
+                'host' => '-H',
+                'database' => '-n',
+                'port' => '--db-port',
+                'jdbc_driver' => '--db-driver',
+                'jdbc_url' => '--db-url',
+                'jdbc_dir' => '--jdbc-dir',
+                'db_sid' => '-db-sid',
+                'xml_xpath' => '--xml-xpath',
+                'data_file' => '--data-file',
+                'json_query' => '--json-query'
+            ];
 
-            if (isset($options['db_connection']['username'])) {
-                $this->command .= " -u {$options['db_connection']['username']}";
-            }
-
-            if (isset($options['db_connection']['password']) && !empty($options['db_connection']['password'])) {
-                $this->command .= " -p {$options['db_connection']['password']}";
-            }
-
-            if (isset($options['db_connection']['host']) && !empty($options['db_connection']['host'])) {
-                $this->command .= " -H {$options['db_connection']['host']}";
-            }
-
-            if (isset($options['db_connection']['database']) && !empty($options['db_connection']['database'])) {
-                $this->command .= " -n {$options['db_connection']['database']}";
-            }
-
-            if (isset($options['db_connection']['port']) && !empty($options['db_connection']['port'])) {
-                $this->command .= " --db-port {$options['db_connection']['port']}";
-            }
-
-            if (isset($options['db_connection']['jdbc_driver']) && !empty($options['db_connection']['jdbc_driver'])) {
-                $this->command .= " --db-driver {$options['db_connection']['jdbc_driver']}";
-            }
-
-            if (isset($options['db_connection']['jdbc_url']) && !empty($options['db_connection']['jdbc_url'])) {
-                $this->command .= " --db-url {$options['db_connection']['jdbc_url']}";
-            }
-
-            if (isset($options['db_connection']['jdbc_dir']) && !empty($options['db_connection']['jdbc_dir'])) {
-                $this->command .= " --jdbc-dir {$options['db_connection']['jdbc_dir']}";
-            }
-
-            if (isset($options['db_connection']['db_sid']) && !empty($options['db_connection']['db_sid'])) {
-                $this->command .= " -db-sid {$options['db_connection']['db_sid']}";
-            }
-
-            if (isset($options['db_connection']['xml_xpath'])) {
-                $this->command .= " --xml-xpath {$options['db_connection']['xml_xpath']}";
-            }
-
-            if (isset($options['db_connection']['data_file'])) {
-                $this->command .= " --data-file {$options['db_connection']['data_file']}";
-            }
-
-            if (isset($options['db_connection']['json_query'])) {
-                $this->command .= " --json-query {$options['db_connection']['json_query']}";
+            foreach ($options['db_connection'] as $key => $value) {
+                $this->command .= " {$mapDbParams[$key]} {$value}";
             }
         }
 
