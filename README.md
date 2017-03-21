@@ -209,7 +209,6 @@ $options = [
         'password' => 'DB_PASSWORD',
         'host' => 'DB_HOST',
         'database' => 'DB_DATABASE',
-        'schema' => 'DB_SCHEMA',
         'port' => '5432'
     ]
 ];
