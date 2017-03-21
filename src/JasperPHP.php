@@ -101,6 +101,29 @@ class JasperPHP
             }
         }
 
+        if ($options['db_connection']) {
+
+            $mapDbParams = [
+                'driver' => '-t',
+                'username' => '-u',
+                'password' => '-p',
+                'host' => '-H',
+                'database' => '-n',
+                'port' => '--db-port',
+                'jdbc_driver' => '--db-driver',
+                'jdbc_url' => '--db-url',
+                'jdbc_dir' => '--jdbc-dir',
+                'db_sid' => '-db-sid',
+                'xml_xpath' => '--xml-xpath',
+                'data_file' => '--data-file',
+                'json_query' => '--json-query'
+            ];
+
+            foreach ($options['db_connection'] as $key => $value) {
+                $this->command .= " {$mapDbParams[$key]} {$value}";
+            }
+        }
+
         return $this;
     }
 
