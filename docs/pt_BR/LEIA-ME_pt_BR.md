@@ -4,7 +4,6 @@
 [![StyleCI](https://styleci.io/repos/46984485/shield?branch=master)](https://styleci.io/repos/46984485)
 [![Latest Stable Version](https://poser.pugx.org/geekcom/phpjasper/v/stable)](https://packagist.org/packages/geekcom/phpjasper)
 [![Total Downloads](https://poser.pugx.org/geekcom/phpjasper/downloads)](https://packagist.org/packages/geekcom/phpjasper)
-[![Latest Unstable Version](https://poser.pugx.org/geekcom/phpjasper/v/unstable)](https://packagist.org/packages/geekcom/phpjasper)
 [![License](https://poser.pugx.org/geekcom/phpjasper/license)](https://packagist.org/packages/geekcom/phpjasper) 
 [![Bitcoin Donations](https://img.shields.io/badge/bitcoin-donation-orange.svg)](https://blockchain.info/address/1LqwqcMfNuNzq6S671z1HjM61MpBuFCGqg)
 

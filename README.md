@@ -1,7 +1,6 @@
 # PHPJasper
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/geekcom/phpjasper/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/geekcom/phpjasper/?branch=master)
 [![StyleCI](https://styleci.io/repos/46984485/shield?branch=master)](https://styleci.io/repos/46984485)
-[![Latest Stable Version](https://poser.pugx.org/geekcom/phpjasper/v/stable)](https://packagist.org/packages/geekcom/phpjasper)
 [![Total Downloads](https://poser.pugx.org/geekcom/phpjasper/downloads)](https://packagist.org/packages/geekcom/phpjasper)
 [![Latest Unstable Version](https://poser.pugx.org/geekcom/phpjasper/v/unstable)](https://packagist.org/packages/geekcom/phpjasper)
 [![License](https://poser.pugx.org/geekcom/phpjasper/license)](https://packagist.org/packages/geekcom/phpjasper) 
