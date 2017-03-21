@@ -102,7 +102,6 @@ class JasperPHP
         }
 
         if ($options['db_connection']) {
-
             $mapDbParams = [
                 'driver' => '-t',
                 'username' => '-u',
@@ -229,7 +228,7 @@ class JasperPHP
         if (!$this->command) {
             throw new \JasperPHP\Exception\InvalidCommandExecutable();
         }
-        if (!is_dir ($this->path_executable)) {
+        if (!is_dir($this->path_executable)) {
             throw new \JasperPHP\Exception\InvalidResourceDirectory();
         }
 
