@@ -12,9 +12,9 @@
 
 ### Sobre a biblioteca
 
-Este pacote é a solução perfeita para compilar e processar relatórios Jasper (.jrxml & .jasper) com PHP puro ou através do Laravel Framework.
+Este pacote é a solução perfeita para compilar e processar relatórios Jasper (.jrxml & .jasper) com PHP.
 
-**Nota:** PHPJasper pode ser usado independente de seu PHP Framework
+**Nota:** PHPJasper pode ser usado independente de seu Framework
 
 **Seu servidor é Linux?**
 
