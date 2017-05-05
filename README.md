@@ -16,7 +16,7 @@ This package is the solution to compile and process JasperReports (.jrxml & .jas
 
 **Note for Linux servers?**
 
-Do not forget to grant permission 777 for the directory 
+Do not forget to grant the correct permissions for the directory 
 **/vendor/geekcom/phpjasper/bin/jasperstarter/bin** and the file binary **jasperstarter**
 
 **Do you need to generate Python reports?**

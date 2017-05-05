@@ -18,7 +18,7 @@ Este pacote é a solução perfeita para compilar e processar relatórios Jasper
 
 **Seu servidor é Linux?**
 
-Não esqueça de fornecer permissão 777 para o diretório
+Não esqueça de fornecer as permissões devidas para o diretório
 **/vendor/geekcom/phpjasper/bin/jasperstarter/bin** e para o arquivo binário **jasperstarter**
 
 **Precisa gerar relatórios em Python?**
@@ -95,7 +95,7 @@ composer require geekcom/phpjasper
 
 Ou crie um arquivo 'composer.json' e adicione o trecho:
 
-```javascript
+```json
 {
     "require": {
         "geekcom/phpjasper": "1.*"
