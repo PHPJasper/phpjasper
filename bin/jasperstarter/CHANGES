@@ -2,6 +2,19 @@
 JasperStarter - Running JasperReports from command line
 ========================================================
 
+Release Notes - JasperStarter - Version 3.1.0
+---------------------------------------------
+
+** New Feature
+    * [JAS-83] - JSON file as a data source
+
+** Task
+    * [JAS-95] - Include JasperReports 6.4.0
+
+** Improvement
+    * [JAS-84] - How to pass $P{XML_DATA_DOCUMENT} to sub report - additional documentation
+
+
 Release Notes - JasperStarter - Version 3.0.0
 ---------------------------------------------
 

@@ -8,7 +8,7 @@
 [![Bitcoin Donations](https://img.shields.io/badge/bitcoin-donation-orange.svg)](https://blockchain.info/address/1LqwqcMfNuNzq6S671z1HjM61MpBuFCGqg)
 
 ### Documentação
-[![Language-en_US](https://img.shields.io/badge/en__US-100%25-green.svg)](https://github.com/geekcom/phpjasper/blob/master/README.md)
+[![Language-en_US](https://img.shields.io/badge/en__US-100%25-green.svg)](https://github.com/PHPJasper/phpjasper/blob/master/README.md)
 
 ### Sobre a biblioteca
 
@@ -337,20 +337,20 @@ Depende da complexidade do seu relatório.
 
 ## Agradecimentos
 
-[Cenote GmbH](http://www.cenote.de/) pelo [JasperStarter](http://jasperstarter.sourceforge.net/) tool.
+[Cenote GmbH](http://www.cenote.de/) pelo [JasperStarter](https://bitbucket.org/cenote/jasperstarter/) tool.
 
 [JetBrains](https://www.jetbrains.com/) pelo [PhpStorm](https://www.jetbrains.com/phpstorm/) e seu grande apoio.
 
 
-## [Dúvidas?](https://github.com/geekcom/phpjasper/issues)
+## [Dúvidas?](https://github.com/PHPJasper/phpjasper/issues)
 
-Abra uma [Issue](https://github.com/geekcom/phpjasper/issues) ou procure por Issues antigas
+Abra uma [Issue](https://github.com/PHPJasper/phpjasper/issues) ou procure por Issues antigas
 
 
-## [Licença](https://github.com/geekcom/phpjasper/blob/master/LICENSE)
+## [Licença](https://github.com/PHPJasper/phpjasper/blob/master/LICENSE)
 
 MIT
 
-## [Contribuição](https://github.com/geekcom/phpjasper/blob/master/CONTRIBUTING.md)
+## [Contribuição](https://github.com/PHPJasper/phpjasper/blob/master/CONTRIBUTING.md)
 
 Contribua com a comunidade PHP, faça um fork !!

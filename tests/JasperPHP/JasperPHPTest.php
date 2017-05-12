@@ -10,8 +10,6 @@ class JasperPHPTest extends PHPUnit_Framework_TestCase
  * @author Rafael Queiroz <rafaelfqf@gmail.com>
  * @package JasperPHP
  */
-class JasperPHPTest extends \PHPUnit_Framework_TestCase
-
 {
 
     /**

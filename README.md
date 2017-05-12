@@ -7,7 +7,7 @@
 [![Bitcoin Donations](https://img.shields.io/badge/bitcoin-donation-orange.svg)](https://blockchain.info/address/1LqwqcMfNuNzq6S671z1HjM61MpBuFCGqg)
 
 ### Docs
-[![Language-pt_BR](https://img.shields.io/badge/pt__BR-100%25-green.svg)](https://github.com/geekcom/phpjasper/blob/master/docs/pt_BR/LEIA-ME_pt_BR.md)
+[![Language-pt_BR](https://img.shields.io/badge/pt__BR-100%25-green.svg)](https://github.com/PHPJasper/phpjasper/blob/master/docs/pt_BR/LEIA-ME_pt_BR.md)
 
 ### About
 This package is the solution to compile and process JasperReports (.jrxml & .jasper files) just using PHP.
@@ -47,7 +47,7 @@ It is recommended using [Jaspersoft Studio](http://community.jaspersoft.com/proj
 * Reports
 * Listings
 
-Package to generate reports with [JasperReports 6.3.1](http://community.jaspersoft.com/project/jaspersoft-studio/releases) library through [JasperStarter v3](http://jasperstarter.sourceforge.net/) command-line tool.
+Package to generate reports with [JasperReports 6.3.1](http://community.jaspersoft.com/project/jaspersoft-studio/releases) library through [JasperStarter v3.1.0](https://bitbucket.org/cenote/jasperstarter) command-line tool.
 
 ## Requirements
 
@@ -96,7 +96,7 @@ composer require geekcom/phpjasper
 ```
 Or in your file'composer.json' add:
 
-```javascript
+```json
 {
     "require": {
         "geekcom/phpjasper": "1.*"
@@ -348,15 +348,15 @@ I have a report that generates a *Invoice* with a DB connection, images and mult
 [JetBrains](https://www.jetbrains.com/) for the [PhpStorm](https://www.jetbrains.com/phpstorm/) and all great tools.
 
 
-## [Questions?](https://github.com/geekcom/phpjasper/issues)
+## [Questions?](https://github.com/PHPJasper/phpjasper/issues)
 
-Open a new [Issue](https://github.com/geekcom/phpjasper/issues) or look for a closed issue
+Open a new [Issue](https://github.com/PHPJasper/phpjasper/issues) or look for a closed issue
 
 
-## [License](https://github.com/geekcom/phpjasper/blob/master/LICENSE)
+## [License](https://github.com/PHPJasper/phpjasper/blob/master/LICENSE)
 
 MIT
 
-## [Contribute](https://github.com/geekcom/phpjasper/blob/master/CONTRIBUTING.md)
+## [Contribute](https://github.com/PHPJasper/phpjasper/blob/master/CONTRIBUTING.md)
 
 Contribute to the community PHP, make a fork!!
