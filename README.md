@@ -322,6 +322,8 @@ $jasper->process(
 )->execute();
 ```
 
+Please check the repository of examples for more [PHPJasper Examples](https://github.com/PHPJasper/examples)
+
 ### MySQL
 
 We ship the [MySQL connector](http://dev.mysql.com/downloads/connector/j/) (v5.1.39) in the `/src/JasperStarter/jdbc/` directory.
