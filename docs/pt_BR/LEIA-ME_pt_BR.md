@@ -318,6 +318,8 @@ $jasper->process(
 )->execute();
 ```
 
+Para mais exemplos: [PHPJasper Examples](https://github.com/PHPJasper/examples)
+
 ### MySQL
 
 Incluímos o [MySQL connector](http://dev.mysql.com/downloads/connector/j/) (v5.1.39) na pasta `/src/JasperStarter/jdbc/`
