@@ -21,10 +21,6 @@ Este pacote é a solução perfeita para compilar e processar relatórios Jasper
 Não esqueça de fornecer as permissões devidas para o diretório
 **/vendor/geekcom/phpjasper/bin/jasperstarter/bin** e para o arquivo binário **jasperstarter**
 
-**Precisa gerar relatórios em Python?**
-
-Conheça a biblioteca **[pyreport](https://github.com/jadsonbr/pyreport)**
-
 ### Por quê preciso do PHPJasper?
 
 Alguma vez você precisou de um relatório simples ou complexo em PHP para seu sistema web?
@@ -48,8 +44,8 @@ Apresento para vocês **JasperReports** a melhor solução open source que exist
 
 ## Requisitos
 
+* PHP 7.1 em diante
 * Java JDK 1.8
-* PHP [exec()](http://php.net/manual/function.exec.php) function
 
 ## Opcional
 

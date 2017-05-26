@@ -1,8 +1,8 @@
 <?php
-namespace JasperPHP\Exception;
+namespace PHPJasper\Exception;
 /**
  * Class InvalidInputFile
- * @package JasperPHP\Exception
+ * @package PHPJasper\Exception
  */
 class InvalidInputFile extends \Exception
 {

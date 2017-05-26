@@ -1,10 +1,12 @@
 <?php
-namespace JasperPHP;
+
+namespace PHPJasper;
+
 /**
- * Class JasperPHP
- * @package JasperPHP
+ * Class PHPJasper
+ * @package PHPJasper
  */
-class JasperPHP
+class PHPJasper
 {
 
     /**
@@ -33,7 +35,7 @@ class JasperPHP
     protected $formats = ['pdf', 'rtf', 'xls', 'xlsx', 'docx', 'odt', 'ods', 'pptx', 'csv', 'html', 'xhtml', 'xml', 'jrprint'];
 
     /**
-     * JasperPHP constructor
+     * PHPJasper constructor
      */
     public function __construct()
     {
@@ -51,7 +53,7 @@ class JasperPHP
     public function compile($input_file, $output_file = false)
     {
         if (!$input_file) {
-            throw new \JasperPHP\Exception\InvalidInputFile();
+            throw new \PHPJasper\Exception\InvalidInputFile();
         }
 
         $this->command = $this->windows ? $this->executable : './' . $this->executable;
@@ -78,7 +80,7 @@ class JasperPHP
     {
         $options = $this->parseProcessOptions($options);
         if (!$input_file) {
-            throw new \JasperPHP\Exception\InvalidInputFile();
+            throw new \PHPJasper\Exception\InvalidInputFile();
         }
         $this->validateFormat($options['format']);
 
@@ -154,7 +156,7 @@ class JasperPHP
         }
         foreach ($format as $value) {
             if (!in_array($value, $this->formats)) {
-                throw new \JasperPHP\Exception\InvalidFormat();
+                throw new \PHPJasper\Exception\InvalidFormat();
             }
         }
     }
@@ -167,7 +169,7 @@ class JasperPHP
     public function listParameters($input_file)
     {
         if (!$input_file) {
-            throw new \JasperPHP\Exception\InvalidInputFile();
+            throw new \PHPJasper\Exception\InvalidInputFile();
         }
 
         $this->command = $this->windows ? $this->executable : './' . $this->executable;
@@ -195,7 +197,7 @@ class JasperPHP
         chdir($this->path_executable);
         exec($this->command, $output, $return_var);
         if ($return_var !== 0) {
-            throw new \JasperPHP\Exception\ErrorCommandExecutable();
+            throw new \PHPJasper\Exception\ErrorCommandExecutable();
         }
 
         return $output;
@@ -226,10 +228,10 @@ class JasperPHP
     protected function validateExecute()
     {
         if (!$this->command) {
-            throw new \JasperPHP\Exception\InvalidCommandExecutable();
+            throw new \PHPJasper\Exception\InvalidCommandExecutable();
         }
         if (!is_dir($this->path_executable)) {
-            throw new \JasperPHP\Exception\InvalidResourceDirectory();
+            throw new \PHPJasper\Exception\InvalidResourceDirectory();
         }
 
     }

@@ -1,8 +1,8 @@
 <?php
-namespace JasperPHP\Exception;
+namespace PHPJasper\Exception;
 /**
  * Class ErrorCommandExecutable
- * @package JasperPHP\Exception
+ * @package PHPJasper\Exception
  */
 class ErrorCommandExecutable extends \Exception
 {
