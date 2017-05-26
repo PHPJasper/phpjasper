@@ -19,10 +19,6 @@ This package is the solution to compile and process JasperReports (.jrxml & .jas
 Do not forget to grant the correct permissions for the directory 
 **/vendor/geekcom/phpjasper/bin/jasperstarter/bin** and the file binary **jasperstarter**
 
-**Do you need to generate Python reports?**
-
-Meet the **[pyreport](https://github.com/jadsonbr/pyreport)**
-
 ### Why PHPJasper?
 
 Did you ever had to create a good looking Invoice with a lot of fields for your great web app?
@@ -51,8 +47,8 @@ Package to generate reports with [JasperReports 6.3.1](http://community.jasperso
 
 ## Requirements
 
+* PHP 7.1 or above
 * Java JDK 1.8
-* PHP [exec()](http://php.net/manual/function.exec.php) function
 
 ## Optional
 
