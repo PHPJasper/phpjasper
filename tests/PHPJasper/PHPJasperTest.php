@@ -12,8 +12,8 @@ final class PHPJasperTest extends TestCase
      * @package PHPJasper
      */
 {
-    private $input = '../examples/hello_world.jrxml';
-    private $output = '../examples';
+    private $input;
+    private $output;
 
     public function testConstructor()
     {
@@ -23,19 +23,19 @@ final class PHPJasperTest extends TestCase
     public function testCompile()
     {
         $jasper = new PHPJasper();
-        $result = $jasper->compile($this->input);
+        $result = $jasper->compile('{input_file}', '{output_file}');
 
         $this->assertInstanceOf(PHPJasper::class, $result);
-        $this->assertEquals('jasperstarter compile "../examples/hello_world.jrxml"', $result->output());
+        $this->assertEquals('jasperstarter compile "{input_file}" -o "{output_file}"', $result->output());
     }
 
     public function testListParameters()
     {
         $jasper = new PHPJasper();
-        $result = $jasper->listParameters($this->input);
+        $result = $jasper->listParameters('{input_fille}');
 
         $this->assertInstanceOf(PHPJasper::class, $result);
-        $this->assertEquals('jasperstarter list_parameters "../examples/hello_world.jrxml"', $result->output());
+        $this->assertEquals('jasperstarter list_parameters "{input_fille}"', $result->output());
     }
 
     /*public function testCompileWithWrongInput()
