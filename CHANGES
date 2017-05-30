@@ -1,11 +1,14 @@
-Release Notes - PHPJasper - Version 1.15
+Release Notes - PHPJasper - Version 2.0
 ========================================================
-
 ** Improvement
-    * Updated JasperStarter to Version 3.1.0
-
+    * Support php 7.1 above
 ________________________________________________________
 
+Release Notes - PHPJasper - Version 1.15
+========================================================
+** Improvement
+    * Updated JasperStarter to Version 3.1.0
+________________________________________________________
 
 Release Notes - JasperStarter - Version 3.1.0
 ========================================================
