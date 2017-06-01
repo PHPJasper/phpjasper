@@ -1,3 +1,9 @@
+Release Notes - PHPJasper - Version 2.1
+========================================================
+** Refactoring
+    * strict types activate
+    * add type declarations
+________________________________________________________
 Release Notes - PHPJasper - Version 2.0
 ========================================================
 ** Improvement
