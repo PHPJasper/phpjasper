@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PHPJasper;
 
 /**
@@ -22,7 +24,7 @@ class PHPJasper
     /**
      * @var string
      */
-    protected $path_executable;
+    protected $pathExecutable;
 
     /**
      * @var bool
@@ -40,28 +42,28 @@ class PHPJasper
     public function __construct()
     {
         $this->executable = 'jasperstarter';
-        $this->path_executable = __DIR__ . '/../bin/jasperstarter/bin';
+        $this->pathExecutable = __DIR__ . '/../bin/jasperstarter/bin';
         $this->windows = strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ? true : false;
     }
 
     /**
-     * @param $input_file
-     * @param bool $output_file
+     * @param string $input
+     * @param string $output optional
      * @return $this
      * @throws Exception\InvalidInputFile
      */
-    public function compile($input_file, $output_file = false)
+    public function compile(string $input, string $output = '')
     {
-        if (!$input_file) {
+        if (!$input) {
             throw new \PHPJasper\Exception\InvalidInputFile();
         }
 
         $this->command = $this->windows ? $this->executable : './' . $this->executable;
         $this->command .= ' compile ';
-        $this->command .= "\"$input_file\"";
+        $this->command .= "\"$input\"";
 
-        if ($output_file !== false) {
-            $this->command .= ' -o ' . "\"$output_file\"";
+        if (!empty($output)) {
+            $this->command .= ' -o ' . "\"$output\"";
         }
 
         return $this;
@@ -69,17 +71,17 @@ class PHPJasper
 
 
     /**
-     * @param $input_file
-     * @param bool $output_file
+     * @param string $input
+     * @param string $output
      * @param array $options
      * @return $this
      * @throws Exception\InvalidInputFile
      * @throws Exception\InvalidFormat
      */
-    public function process($input_file, $output_file = false, $options = [])
+    public function process(string $input, string $output, array $options = [])
     {
         $options = $this->parseProcessOptions($options);
-        if (!$input_file) {
+        if (!$input) {
             throw new \PHPJasper\Exception\InvalidInputFile();
         }
         $this->validateFormat($options['format']);
@@ -90,10 +92,8 @@ class PHPJasper
         }
 
         $this->command .= ' process ';
-        $this->command .= "\"$input_file\"";
-        if ($output_file !== false) {
-            $this->command .= ' -o ' . "\"$output_file\"";
-        }
+        $this->command .= "\"$input\"";
+        $this->command .= ' -o ' . "\"$output\"";
 
         $this->command .= ' -f ' . join(' ', $options['format']);
         if ($options['params']) {
@@ -130,10 +130,10 @@ class PHPJasper
 
     /**
      *
-     * @param $options
+     * @param array $options
      * @return array
      */
-    protected function parseProcessOptions($options)
+    protected function parseProcessOptions(array $options)
     {
         $defaultOptions = [
             'format' => ['pdf'],
@@ -162,19 +162,19 @@ class PHPJasper
     }
 
     /**
-     * @param $input_file
+     * @param string $input
      * @return $this
      * @throws \Exception
      */
-    public function listParameters($input_file)
+    public function listParameters(string $input)
     {
-        if (!$input_file) {
+        if (!$input) {
             throw new \PHPJasper\Exception\InvalidInputFile();
         }
 
         $this->command = $this->windows ? $this->executable : './' . $this->executable;
         $this->command .= ' list_parameters ';
-        $this->command .= "\"$input_file\"";
+        $this->command .= "\"$input\"";
 
         return $this;
     }
@@ -192,11 +192,11 @@ class PHPJasper
         $this->addUserToCommand($user);
 
         $output = [];
-        $return_var = 0;
+        $returnVar = 0;
 
-        chdir($this->path_executable);
-        exec($this->command, $output, $return_var);
-        if ($return_var !== 0) {
+        chdir($this->pathExecutable);
+        exec($this->command, $output, $returnVar);
+        if ($returnVar !== 0) {
             throw new \PHPJasper\Exception\ErrorCommandExecutable();
         }
 
@@ -230,7 +230,7 @@ class PHPJasper
         if (!$this->command) {
             throw new \PHPJasper\Exception\InvalidCommandExecutable();
         }
-        if (!is_dir($this->path_executable)) {
+        if (!is_dir($this->pathExecutable)) {
             throw new \PHPJasper\Exception\InvalidResourceDirectory();
         }
 
