@@ -1,3 +1,22 @@
+Release Notes - PHPJasper - Version 1.17
+========================================================
+
+** Improvements
+    * Updated docs
+    * namespace JasperPHP to PHPJasper
+    * refactoring tests
+    * minimum required: PHP 5.6.*, PHPUnit 5.7
+
+________________________________________________________
+
+Release Notes - PHPJasper - Version 1.16
+========================================================
+
+** Improvement
+    * Updated docs
+
+________________________________________________________
+
 Release Notes - PHPJasper - Version 1.15
 ========================================================
 

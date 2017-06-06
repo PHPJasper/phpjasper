@@ -1,11 +1,11 @@
 <?php
-namespace JasperPHP;
+namespace PHPJasper;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class JasperPHPCommand extends Command
+class PHPJasperCommand extends Command
 {
     /**
      *
