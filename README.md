@@ -6,7 +6,7 @@
 [![License](https://poser.pugx.org/geekcom/phpjasper/license)](https://packagist.org/packages/geekcom/phpjasper) 
 
 ### Docs
-[![Language-pt_BR](https://img.shields.io/badge/pt__BR-100%25-green.svg)](https://github.com/PHPJasper/phpjasper/blob/2.0/docs/pt_BR/LEIA-ME_pt_BR.md)
+[![Language-pt_BR](https://img.shields.io/badge/pt__BR-100%25-green.svg)](https://github.com/PHPJasper/phpjasper/blob/master/docs/pt_BR/LEIA-ME_pt_BR.md)
 
 ### About
 This package is the solution to compile and process JasperReports (.jrxml & .jasper files) just using PHP.
