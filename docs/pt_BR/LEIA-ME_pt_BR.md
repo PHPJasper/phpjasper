@@ -11,14 +11,11 @@
 
 ### Sobre a biblioteca
 
-Este pacote é a solução perfeita para compilar e processar relatórios Jasper (.jrxml & .jasper) com PHP.
+PHPJasper é a solução perfeita para compilar e processar relatórios Jasper (.jrxml & .jasper) com PHP, ou seja, gerar relatórios com PHP.
 
-**Nota:** PHPJasper pode ser usado independente de seu Framework
-
-**Seu servidor é Linux?**
-
-Não esqueça de fornecer as permissões devidas para o diretório
-**/vendor/geekcom/phpjasper/bin/jasperstarter/bin** e para o arquivo binário **jasperstarter**
+**Notas:** 
+* PHPJasper pode ser usado independente de seu Framework
+* Se você está usando uma versão menor que PHP 7.1 veja: [v1.16](https://github.com/PHPJasper/phpjasper/releases/tag/v1.16)
 
 ### Por quê preciso do PHPJasper?
 
