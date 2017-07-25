@@ -9,14 +9,13 @@
 [![Language-pt_BR](https://img.shields.io/badge/pt__BR-100%25-green.svg)](https://github.com/PHPJasper/phpjasper/blob/master/docs/pt_BR/LEIA-ME_pt_BR.md)
 
 ### About
-This package is the solution to compile and process JasperReports (.jrxml & .jasper files) just using PHP.
+PHPJasper is the best solution to compile and process JasperReports (.jrxml & .jasper files) just using PHP, in short: to generate reports using PHP.
 
-**Note:** PHPJasper Can be used regardless of your PHP Framework
+**Notes:** 
+* PHPJasper Can be used regardless of your PHP Framework,
+* For PHP versions less than 7.1 see: [v1.16](https://github.com/PHPJasper/phpjasper/releases/tag/v1.16)
+ 
 
-**Note for Linux servers?**
-
-Do not forget to grant the correct permissions for the directory 
-**/vendor/geekcom/phpjasper/bin/jasperstarter/bin** and the file binary **jasperstarter**
 
 ### Why PHPJasper?
 
@@ -41,8 +40,6 @@ It is recommended using [Jaspersoft Studio](http://community.jaspersoft.com/proj
 * Invoices
 * Reports
 * Listings
-
-Package to generate reports with [JasperReports 6.3.1](http://community.jaspersoft.com/project/jaspersoft-studio/releases) library through [JasperStarter v3.1.0](https://bitbucket.org/cenote/jasperstarter) command-line tool.
 
 ## Requirements
 
