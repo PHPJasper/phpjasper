@@ -1,3 +1,9 @@
+Release Notes - PHPJasper - Version 2.2
+========================================================
+** Improvement: https://github.com/PHPJasper/phpjasper/issues/30
+    * add support for resource option
+________________________________________________________
+
 Release Notes - PHPJasper - Version 2.1
 ========================================================
 ** Refactoring
