@@ -123,6 +123,10 @@ class PHPJasper
             foreach ($options['db_connection'] as $key => $value) {
                 $this->command .= " {$mapDbParams[$key]} {$value}";
             }
+
+            if ($options['resources']) {
+                $this->command .= " -r {$options['resources']}";
+            }
         }
 
         return $this;
@@ -138,6 +142,7 @@ class PHPJasper
         $defaultOptions = [
             'format' => ['pdf'],
             'params' => [],
+            'resources' => false,
             'locale' => false,
             'db_connection' => []
         ];
