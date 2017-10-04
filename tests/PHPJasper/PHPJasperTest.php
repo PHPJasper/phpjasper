@@ -1,8 +1,9 @@
 <?php
 
-namespace PHPJasper;
+namespace PHPJasper\Test;
 
 use PHPUnit\Framework\TestCase;
+use PHPJasper\PHPJasper;
 
 final class PHPJasperTest extends TestCase
     /**
