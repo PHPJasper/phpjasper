@@ -104,6 +104,14 @@ final class PHPJasperTest extends TestCase
         $jasper->compile('hello_world.jrxml')->execute();
     }
 
+    public function testExecute()
+    {
+        $jasper = new PHPJasper();
+        $actual = $jasper->compile(__DIR__ . '/test.jrxml')->execute();
+
+        $this->assertInternalType('array', $actual);
+    }
+
     public function testResourceDirectoryException()
     {
         $this->expectException(\PHPJasper\Exception\InvalidResourceDirectory::class);
