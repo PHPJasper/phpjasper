@@ -40,7 +40,11 @@ final class PHPJasperTest extends TestCase
         $result = $this->PHPJasper->compile('{input_file}', '{output_file}');
 
         $this->assertInstanceOf(PHPJasper::class, $result);
-        $this->assertEquals('jasperstarter compile "{input_file}" -o "{output_file}"', $result->output());
+
+        $expected = strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ? '' : './';
+        $expected .= 'jasperstarter compile "{input_file}" -o "{output_file}"';
+
+        $this->assertEquals($expected, $result->output());
     }
 
     public function testListParameters()
@@ -48,7 +52,11 @@ final class PHPJasperTest extends TestCase
         $result = $this->PHPJasper->listParameters('{input_fille}');
 
         $this->assertInstanceOf(PHPJasper::class, $result);
-        $this->assertEquals('jasperstarter list_parameters "{input_fille}"', $result->output());
+
+        $expected = strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ? '' : './';
+        $expected .= 'jasperstarter list_parameters "{input_fille}"';
+
+        $this->assertEquals($expected, $result->output());
     }
 
     public function testCompileWithWrongInput()
