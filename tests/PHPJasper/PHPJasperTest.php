@@ -103,6 +103,27 @@ final class PHPJasperTest extends TestCase
         $jasper = new PHPJasper();
         $jasper->compile('hello_world.jrxml')->execute();
     }
+
+    public function testExecute()
+    {
+        $jasper = new PHPJasper();
+        $actual = $jasper->compile(__DIR__ . '/test.jrxml')->execute();
+
+        $this->assertInternalType('array', $actual);
+    }
+
+    public function testResourceDirectoryException()
+    {
+        $this->expectException(\PHPJasper\Exception\InvalidResourceDirectory::class);
+
+        $jasper = new PHPJasper();
+        $jasperReflection = new \ReflectionClass(get_class($jasper));
+        $property = $jasperReflection->getProperty('pathExecutable');
+        $property->setAccessible(true);
+        $property->setValue($jasper,'');
+
+        $jasper->compile(__DIR__ . '/test.jrxml')->execute();
+    }
     
     public function testListParametersWithWrongInput()
     {
@@ -129,11 +150,10 @@ final class PHPJasperTest extends TestCase
             'format' => 'mp3'
         ]);
     }
-    
+
     public function testProcess()
     {
         $jasper = new PHPJasper();
         $this->assertInstanceOf(PHPJasper::class, $jasper->process('hello_world.jrxml', ""));
     }
-
 }
