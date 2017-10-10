@@ -1,24 +1,27 @@
 <?php
 
+/*
+ * This file is part of the PHPJasper.
+ *
+ * (c) Daniel Rodrigues (geekcom)
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+declare(strict_types=1);
+
 namespace PHPJasper\Test;
 
 use PHPUnit\Framework\TestCase;
 use PHPJasper\PHPJasper;
 
-final class PHPJasperTest extends TestCase
-    /**
-     * Class PHPJasperTest
-     *
-     * @author Rafael Queiroz <rafaelfqf@gmail.com>
-     * @author Daniel Rodrigues Lima ( geekcom ) <danielrodrigues-ti@hotmail.com>
-     * @package PHPJasper
-     */
-{
-    private $PHPJasper;
-    private $input;
-    private $output;
-    protected $windows;
+/**
+ * @author Rafael Queiroz <rafaelfqf@gmail.com>
+ */
+class PHPJasperTest extends TestCase
 
+{
     public function setUp()
     {
         $this->PHPJasper = new PHPJasper();
@@ -64,8 +67,8 @@ final class PHPJasperTest extends TestCase
         $this->expectException(\PHPJasper\Exception\InvalidInputFile::class);
 
         $jasper = new PHPJasper();
-        
-        $jasper->compile(null);
+
+        $jasper->compile('');
     }
 
     public function testCompileHelloWorld()
@@ -76,18 +79,17 @@ final class PHPJasperTest extends TestCase
 
         $this->assertInstanceOf(PHPJasper::class, $result);
 
-        if($this->windows) {
+        if ($this->windows) {
 
             $this->assertEquals('jasperstarter compile "hello_world.jrxml"', $result->output());
-        
-        }
-        else {
+
+        } else {
 
             $this->assertEquals('./jasperstarter compile "hello_world.jrxml"', $result->output());
         }
 
     }
-    
+
     public function testExecuteWithoutCompile()
     {
         $this->expectException(\PHPJasper\Exception\InvalidCommandExecutable::class);
@@ -95,7 +97,7 @@ final class PHPJasperTest extends TestCase
         $jasper = new PHPJasper();
         $jasper->execute();
     }
-    
+
     public function testExecuteWithCompile()
     {
         $this->expectException(\PHPJasper\Exception\ErrorCommandExecutable::class);
@@ -112,19 +114,6 @@ final class PHPJasperTest extends TestCase
         $this->assertInternalType('array', $actual);
     }
 
-    public function testResourceDirectoryException()
-    {
-        $this->expectException(\PHPJasper\Exception\InvalidResourceDirectory::class);
-
-        $jasper = new PHPJasper();
-        $jasperReflection = new \ReflectionClass(get_class($jasper));
-        $property = $jasperReflection->getProperty('pathExecutable');
-        $property->setAccessible(true);
-        $property->setValue($jasper,'');
-
-        $jasper->compile(__DIR__ . '/test.jrxml')->execute();
-    }
-    
     public function testListParametersWithWrongInput()
     {
         $this->expectException(\PHPJasper\Exception\InvalidInputFile::class);
@@ -132,21 +121,23 @@ final class PHPJasperTest extends TestCase
         $jasper = new PHPJasper();
         $jasper->listParameters('');
     }
-    
+
     public function testProcessWithWrongInput()
     {
         $this->expectException(\PHPJasper\Exception\InvalidInputFile::class);
 
         $jasper = new PHPJasper();
-        $jasper->process(0, "");
+        $jasper->process('', '', [
+            'format' => 'mp3'
+        ]);
     }
-    
+
     public function testProcessWithWrongFormat()
     {
         $this->expectException(\PHPJasper\Exception\InvalidFormat::class);
 
         $jasper = new PHPJasper();
-        $jasper->process('hello_world.jrxml', false, [
+        $jasper->process('hello_world.jrxml', '', [
             'format' => 'mp3'
         ]);
     }
