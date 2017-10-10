@@ -52,9 +52,9 @@ class PHPJasper
      * @return $this
      * @throws Exception\InvalidInputFile
      */
-    public function compile(string $input, string $output = '')
+    public function compile($input, string $output = '')
     {
-        if (!$input) {
+        if ( !$input ) {
             throw new \PHPJasper\Exception\InvalidInputFile();
         }
 

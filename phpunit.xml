@@ -12,8 +12,7 @@
 
     <filter>
         <whitelist>
-            <directory>src/PHPJasper</directory>
-            <directory>src/JasperStarter</directory>
+            <directory suffix=".php">./src</directory>
         </whitelist>
     </filter>
 

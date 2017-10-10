@@ -350,4 +350,4 @@ MIT
 
 ## [Contribute](https://github.com/PHPJasper/phpjasper/blob/master/CONTRIBUTING.md)
 
-Contribute to the community PHP, make a fork!!
+Contribute to the community PHP, make a fork!
