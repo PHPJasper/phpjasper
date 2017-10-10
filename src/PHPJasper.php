@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the PHPJasper.
+ *
+ * (c) Daniel Rodrigues (geekcom)
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 declare(strict_types=1);
 
 namespace PHPJasper;
@@ -52,7 +61,7 @@ class PHPJasper
      * @return $this
      * @throws Exception\InvalidInputFile
      */
-    public function compile($input, string $output = '')
+    public function compile(string $input, string $output = '')
     {
         if ( !$input ) {
             throw new \PHPJasper\Exception\InvalidInputFile();
