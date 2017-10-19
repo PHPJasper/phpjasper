@@ -55,6 +55,11 @@ class PHPJasper
         $this->windows = strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ? true : false;
     }
 
+    private function checkServer()
+    {
+        return $this->command = $this->windows ? $this->executable : './' . $this->executable;
+    }
+
     /**
      * @param string $input
      * @param string $output optional
@@ -63,11 +68,11 @@ class PHPJasper
      */
     public function compile(string $input, string $output = '')
     {
-        if ( !$input ) {
+        if (!$input) {
             throw new \PHPJasper\Exception\InvalidInputFile();
         }
 
-        $this->command = $this->windows ? $this->executable : './' . $this->executable;
+        $this->command = $this->checkServer();
         $this->command .= ' compile ';
         $this->command .= "\"$input\"";
 
@@ -90,12 +95,15 @@ class PHPJasper
     public function process(string $input, string $output, array $options = [])
     {
         $options = $this->parseProcessOptions($options);
+
         if (!$input) {
             throw new \PHPJasper\Exception\InvalidInputFile();
         }
+
         $this->validateFormat($options['format']);
 
-        $this->command = $this->windows ? $this->executable : './' . $this->executable;
+        $this->command = $this->checkServer();
+
         if ($options['locale']) {
             $this->command .= " --locale {$options['locale']}";
         }
@@ -186,7 +194,7 @@ class PHPJasper
             throw new \PHPJasper\Exception\InvalidInputFile();
         }
 
-        $this->command = $this->windows ? $this->executable : './' . $this->executable;
+        $this->command = $this->checkServer();
         $this->command .= ' list_parameters ';
         $this->command .= "\"$input\"";
 
@@ -249,5 +257,4 @@ class PHPJasper
         }
 
     }
-
 }
