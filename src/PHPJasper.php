@@ -13,10 +13,6 @@ declare(strict_types=1);
 
 namespace PHPJasper;
 
-/**
- * Class PHPJasper
- * @package PHPJasper
- */
 class PHPJasper
 {
 
@@ -55,6 +51,9 @@ class PHPJasper
         $this->windows = strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ? true : false;
     }
 
+    /**
+     * @return string
+     */
     private function checkServer()
     {
         return $this->command = $this->windows ? $this->executable : './' . $this->executable;
@@ -82,7 +81,6 @@ class PHPJasper
 
         return $this;
     }
-
 
     /**
      * @param string $input
@@ -150,7 +148,6 @@ class PHPJasper
     }
 
     /**
-     *
      * @param array $options
      * @return array
      */
@@ -255,6 +252,5 @@ class PHPJasper
         if (!is_dir($this->pathExecutable)) {
             throw new \PHPJasper\Exception\InvalidResourceDirectory();
         }
-
     }
 }
