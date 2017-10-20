@@ -1,12 +1,11 @@
 <?php
-namespace PHPJasper\Exception;
-/**
- * Class InvalidResourceDirectory
- * @package PHPJasper\Exception
- */
-class InvalidResourceDirectory extends \Exception
-{
 
+namespace PHPJasper\Exception;
+
+use Exception;
+
+class InvalidResourceDirectory extends Exception
+{
     /**
      * Invalid Resource Directory constructor.
      *
