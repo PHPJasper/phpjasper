@@ -15,7 +15,7 @@ PHPJasper is the best solution to compile and process JasperReports (.jrxml & .j
 **Notes:** 
 * PHPJasper Can be used regardless of your PHP Framework
 * For PHP versions less than 7.1 see: [v1.16](https://github.com/PHPJasper/phpjasper/releases/tag/v1.16)
- 
+* [Here](https://github.com/PHPJasper/examples) are several examples of how to use PHPJasper
 
 
 ### Why PHPJasper?

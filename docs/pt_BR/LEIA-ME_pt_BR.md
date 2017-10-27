@@ -17,7 +17,7 @@ PHPJasper é a solução perfeita para compilar e processar relatórios Jasper (
 **Notas:** 
 * PHPJasper pode ser usado independente de seu Framework
 * Se você está usando uma versão menor que PHP 7.1 veja: [v1.16](https://github.com/PHPJasper/phpjasper/releases/tag/v1.16)
-
+* [Aqui](https://github.com/PHPJasper/examples) tem vários exemplos de como usar PHPJasper
 ### Por quê preciso do PHPJasper?
 
 Alguma vez você precisou de um relatório simples ou complexo em PHP para seu sistema web?
