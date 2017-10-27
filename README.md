@@ -1,4 +1,6 @@
 # PHPJasper
+_A PHP Report Generator_
+
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/geekcom/phpjasper/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/geekcom/phpjasper/?branch=master)
 [![Latest Stable Version](https://img.shields.io/packagist/v/geekcom/phpjasper.svg?style=flat-square)](https://packagist.org/packages/geekcom/phpjasper)
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.1-blue.svg?style=flat-square)](https://php.net/)
@@ -11,7 +13,7 @@
 PHPJasper is the best solution to compile and process JasperReports (.jrxml & .jasper files) just using PHP, in short: to generate reports using PHP.
 
 **Notes:** 
-* PHPJasper Can be used regardless of your PHP Framework,
+* PHPJasper Can be used regardless of your PHP Framework
 * For PHP versions less than 7.1 see: [v1.16](https://github.com/PHPJasper/phpjasper/releases/tag/v1.16)
  
 
@@ -90,7 +92,7 @@ Or in your file'composer.json' add:
 ```json
 {
     "require": {
-        "geekcom/phpjasper": "^2.1"
+        "geekcom/phpjasper": "^2.4"
     }
 }
 ```
@@ -178,7 +180,7 @@ foreach($output as $parameter_description)
     print $parameter_description . '<pre>';
 ```
 
-### Advanced example - using a database
+### Using database to generate reports
 
 We can also specify parameters for connecting to database:
 
@@ -194,7 +196,7 @@ $options = [
     'locale' => 'en',
     'params' => [],
     'db_connection' => [
-        'driver' => 'postgres',
+        'driver' => 'postgres', //mysql, ....
         'username' => 'DB_USERNAME',
         'password' => 'DB_PASSWORD',
         'host' => 'DB_HOST',
