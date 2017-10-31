@@ -20,12 +20,10 @@ use PHPJasper\PHPJasper;
  * @author Rafael Queiroz <rafaelfqf@gmail.com>
  */
 class PHPJasperTest extends TestCase
-
 {
     public function setUp()
     {
         $this->PHPJasper = new PHPJasper();
-        $this->windows = strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ? true : false;
     }
 
     public function tearDown()
@@ -40,26 +38,25 @@ class PHPJasperTest extends TestCase
 
     public function testCompile()
     {
-        $result = $this->PHPJasper->compile('{input_file}', '{output_file}');
+        $result = $this->PHPJasper->compile('examples/hello_world.jrxml', '{output_file}');
 
         $this->assertInstanceOf(PHPJasper::class, $result);
 
-        $expected = strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ? '' : './';
-        $expected .= 'jasperstarter compile "{input_file}" -o "{output_file}"';
+        $expected = '.*jasperstarter compile ".*hello_world.jrxml" -o "{output_file}"';
 
-        $this->assertEquals($expected, $result->output());
+        $this->assertRegExp('/'.$expected.'/', $result->output());
     }
 
     public function testListParameters()
     {
-        $result = $this->PHPJasper->listParameters('{input_fille}');
+        $result = $this->PHPJasper->listParameters('examples/hello_world.jrxml');
 
         $this->assertInstanceOf(PHPJasper::class, $result);
 
-        $expected = strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ? '' : './';
-        $expected .= 'jasperstarter list_parameters "{input_fille}"';
-
-        $this->assertEquals($expected, $result->output());
+        $this->assertRegExp(
+            '/.*jasperstarter list_parameters ".*hello_world.jrxml"/',
+            $result->output()
+        );
     }
 
     public function testCompileWithWrongInput()
@@ -75,19 +72,11 @@ class PHPJasperTest extends TestCase
     {
         $jasper = new PHPJasper();
 
-        $result = $jasper->compile('hello_world.jrxml');
+        $result = $jasper->compile('examples/hello_world.jrxml');
 
         $this->assertInstanceOf(PHPJasper::class, $result);
 
-        if ($this->windows) {
-
-            $this->assertEquals('jasperstarter compile "hello_world.jrxml"', $result->output());
-
-        } else {
-
-            $this->assertEquals('./jasperstarter compile "hello_world.jrxml"', $result->output());
-        }
-
+        $this->assertRegExp('/.*jasperstarter compile ".*hello_world.jrxml"/', $result->output());
     }
 
     public function testExecuteWithoutCompile()
@@ -98,12 +87,12 @@ class PHPJasperTest extends TestCase
         $jasper->execute();
     }
 
-    public function testExecuteWithCompile()
+    public function testInvalidInputFile()
     {
-        $this->expectException(\PHPJasper\Exception\ErrorCommandExecutable::class);
+        $this->expectException(\PHPJasper\Exception\InvalidInputFile::class);
 
         $jasper = new PHPJasper();
-        $jasper->compile('hello_world.jrxml')->execute();
+        $jasper->compile('{invalid}')->execute();
     }
 
     public function testExecute()
