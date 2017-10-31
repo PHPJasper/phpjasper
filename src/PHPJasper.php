@@ -67,13 +67,13 @@ class PHPJasper
      */
     public function compile(string $input, string $output = '')
     {
-        if (!$input) {
+        if (!is_file($input)) {
             throw new \PHPJasper\Exception\InvalidInputFile();
         }
 
         $this->command = $this->checkServer();
         $this->command .= ' compile ';
-        $this->command .= "\"$input\"";
+        $this->command .= '"' . realpath($input) . '"';
 
         if (!empty($output)) {
             $this->command .= ' -o ' . "\"$output\"";
@@ -187,13 +187,13 @@ class PHPJasper
      */
     public function listParameters(string $input)
     {
-        if (!$input) {
+        if (!is_file($input)) {
             throw new \PHPJasper\Exception\InvalidInputFile();
         }
 
         $this->command = $this->checkServer();
         $this->command .= ' list_parameters ';
-        $this->command .= "\"$input\"";
+        $this->command .= '"'.realpath($input).'"';
 
         return $this;
     }
