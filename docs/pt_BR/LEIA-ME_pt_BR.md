@@ -4,8 +4,9 @@ _Gerador de relatórios PHP_
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/geekcom/phpjasper/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/geekcom/phpjasper/?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/geekcom/phpjasper/v/stable)](https://packagist.org/packages/geekcom/phpjasper)
-[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.1-blue.svg?style=flat-square)](https://php.net/)
+[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.0-blue.svg?style=flat-square)](https://php.net/)
 [![License](https://poser.pugx.org/geekcom/phpjasper/license)](https://packagist.org/packages/geekcom/phpjasper) 
+[![Build Status](https://travis-ci.org/geekcom/phpjasper.svg?branch=master)](https://travis-ci.org/geekcom/phpjasper) 
 
 ### Documentação
 [![Language-en_US](https://img.shields.io/badge/en__US-100%25-green.svg)](https://github.com/PHPJasper/phpjasper/blob/master/README.md)
@@ -16,7 +17,7 @@ PHPJasper é a solução perfeita para compilar e processar relatórios Jasper (
 
 **Notas:** 
 * PHPJasper pode ser usado independente de seu Framework
-* Se você está usando uma versão menor que PHP 7.1 veja: [v1.16](https://github.com/PHPJasper/phpjasper/releases/tag/v1.16)
+* Se você está usando uma versão menor que PHP 7.0 veja: [v1.16](https://github.com/PHPJasper/phpjasper/releases/tag/v1.16)
 * [Aqui](https://github.com/PHPJasper/examples) tem vários exemplos de como usar PHPJasper
 ### Por quê preciso do PHPJasper?
 
