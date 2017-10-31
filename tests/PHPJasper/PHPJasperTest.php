@@ -20,7 +20,6 @@ use PHPJasper\PHPJasper;
  * @author Rafael Queiroz <rafaelfqf@gmail.com>
  */
 class PHPJasperTest extends TestCase
-
 {
     public function setUp()
     {
