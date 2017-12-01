@@ -6,7 +6,6 @@ _Gerador de relatórios PHP_
 [![Latest Stable Version](https://poser.pugx.org/geekcom/phpjasper/v/stable)](https://packagist.org/packages/geekcom/phpjasper)
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.0-blue.svg?style=flat-square)](https://php.net/)
 [![License](https://poser.pugx.org/geekcom/phpjasper/license)](https://packagist.org/packages/geekcom/phpjasper) 
-[![Build Status](https://travis-ci.org/geekcom/phpjasper.svg?branch=master)](https://travis-ci.org/geekcom/phpjasper) 
 
 ### Documentação
 [![Language-en_US](https://img.shields.io/badge/en__US-100%25-green.svg)](https://github.com/PHPJasper/phpjasper/blob/master/README.md)
@@ -42,7 +41,7 @@ Apresento para vocês **JasperReports** a melhor solução open source que exist
 
 ## Requisitos
 
-* PHP 7.1 em diante
+* PHP 7.0 em diante
 * Java JDK 1.8
 
 ## Opcional
