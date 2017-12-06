@@ -2,6 +2,27 @@
 JasperStarter - Running JasperReports from command line
 ========================================================
 
+Release Notes - JasperStarter - Version 3.2.1
+---------------------------------------------
+
+** Task
+    * [JAS-109] - Include JasperReports-6.4.3
+
+
+Release Notes - JasperStarter - Version 3.2.0
+---------------------------------------------
+
+** Bug
+    * [JAS-96] - Enable JavaScript in expression
+    * [JAS-99] - jasperreports-functions not in maven central
+    * [JAS-100] - Pipeline build failed: Font "Arial" is not available to the JVM
+    * [JAS-101] - Pipeline build failed: net.sf.launch4j.ExecException: java.io.IOException: Cannot run program
+    * [JAS-107] - JasperStarter could not run reports with Barcode4J barcodes
+
+** Task
+    * [JAS-108] - Include JasperReports 6.4.1
+
+
 Release Notes - JasperStarter - Version 3.1.0
 ---------------------------------------------
 

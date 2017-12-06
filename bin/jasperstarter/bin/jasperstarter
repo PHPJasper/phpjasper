@@ -23,5 +23,4 @@ else
 fi
 
 #SCRIPTPATH="$(dirname $0)"
-#java -jar "$HOME_FOLDER/lib/jasperstarter.jar" "$@"
-java -jar -Djava.net.preferIPv4Stack=true -Xmx1024m "$HOME_FOLDER/lib/jasperstarter.jar" "$@"
+java -jar "$HOME_FOLDER/lib/jasperstarter.jar" "$@"
