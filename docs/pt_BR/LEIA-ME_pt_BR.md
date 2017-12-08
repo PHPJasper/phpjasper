@@ -30,7 +30,7 @@ Apresento para vocês **JasperReports** a melhor solução open source que exist
 
 **Texto extraido do site JasperSoft:**
 
-> A biblioteca JasperReports é o mecanismo de geração de relatórios de código aberto mais popular do mundo. É inteiramente escrito em Java e é capaz de usar dados provenientes de qualquer tipo de fonte de dados e gerar documentos perfeitos que podem ser visualizado, impressom ou exportadom em uma variedade de formatos de documentos, incluindo HTML, PDF, Excel, OpenOffice e Word .
+> A biblioteca JasperReports é o mecanismo de geração de relatórios de código aberto mais popular do mundo. É inteiramente escrito em Java e é capaz de usar dados provenientes de qualquer tipo de fonte de dados e gerar documentos perfeitos que podem ser visualizado, impresso ou exportado em uma variedade de formatos de documentos, incluindo HTML, PDF, Excel, OpenOffice e Word .
 
 *Exemplos do que você pode fazer:*
 
