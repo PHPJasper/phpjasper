@@ -140,7 +140,7 @@ class PHPJasper
             }
 
             if ($options['resources']) {
-                $this->command .= " -r  \"".$options['resources']."\"";
+                $this->command .= " -r {$options['resources']}";
             }
 
             $this->command = $this->command . ' 2>&1';
