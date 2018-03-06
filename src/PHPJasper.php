@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 namespace PHPJasper;
 
-/**
- * Class PHPJasper
- * @package PHPJasper
- */
 class PHPJasper
 {
 
@@ -35,15 +31,26 @@ class PHPJasper
      * @var array
      */
     protected $formats = ['pdf', 'rtf', 'xls', 'xlsx', 'docx', 'odt', 'ods', 'pptx', 'csv', 'html', 'xhtml', 'xml', 'jrprint'];
+	
+	protected $lang;
 
     /**
      * PHPJasper constructor
      */
-    public function __construct()
+    public function __construct($lang = "pt_BR.UTF-8")
     {
+		$this->lang = $lang;
         $this->executable = 'jasperstarter';
         $this->pathExecutable = __DIR__ . '/../bin/jasperstarter/bin';
         $this->windows = strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ? true : false;
+    }
+
+    /**
+     * @return string
+     */
+    private function checkServer()
+    {
+        return $this->command = ($this->windows) ? $this->executable :  'LANG=' . $this->lang . ' ./' . $this->executable;
     }
 
     /**
@@ -54,13 +61,13 @@ class PHPJasper
      */
     public function compile(string $input, string $output = '')
     {
-        if (!$input) {
+        if (!is_file($input)) {
             throw new \PHPJasper\Exception\InvalidInputFile();
         }
 
-        $this->command = $this->windows ? $this->executable : './' . $this->executable;
+        $this->command = $this->checkServer();
         $this->command .= ' compile ';
-        $this->command .= "\"$input\"";
+        $this->command .= '"' . realpath($input) . '"';
 
         if (!empty($output)) {
             $this->command .= ' -o ' . "\"$output\"";
@@ -68,7 +75,6 @@ class PHPJasper
 
         return $this;
     }
-
 
     /**
      * @param string $input
@@ -81,12 +87,15 @@ class PHPJasper
     public function process(string $input, string $output, array $options = [])
     {
         $options = $this->parseProcessOptions($options);
+
         if (!$input) {
             throw new \PHPJasper\Exception\InvalidInputFile();
         }
+
         $this->validateFormat($options['format']);
 
-        $this->command = $this->windows ? $this->executable : './' . $this->executable;
+        $this->command = $this->checkServer();
+
         if ($options['locale']) {
             $this->command .= " --locale {$options['locale']}";
         }
@@ -127,13 +136,14 @@ class PHPJasper
             if ($options['resources']) {
                 $this->command .= " -r {$options['resources']}";
             }
+            
+            $this->command = $this->command . ' 2>&1';
         }
 
         return $this;
     }
 
     /**
-     *
      * @param array $options
      * @return array
      */
@@ -173,13 +183,13 @@ class PHPJasper
      */
     public function listParameters(string $input)
     {
-        if (!$input) {
+        if (!is_file($input)) {
             throw new \PHPJasper\Exception\InvalidInputFile();
         }
 
-        $this->command = $this->windows ? $this->executable : './' . $this->executable;
+        $this->command = $this->checkServer();
         $this->command .= ' list_parameters ';
-        $this->command .= "\"$input\"";
+        $this->command .= '"'.realpath($input).'"';
 
         return $this;
     }
@@ -202,7 +212,8 @@ class PHPJasper
         chdir($this->pathExecutable);
         exec($this->command, $output, $returnVar);
         if ($returnVar !== 0) {
-            throw new \PHPJasper\Exception\ErrorCommandExecutable();
+            //throw new \PHPJasper\Exception\ErrorCommandExecutable();
+            throw new \Exception("{$output[0]}", 1);
         }
 
         return $output;
@@ -238,7 +249,5 @@ class PHPJasper
         if (!is_dir($this->pathExecutable)) {
             throw new \PHPJasper\Exception\InvalidResourceDirectory();
         }
-
     }
-
 }
