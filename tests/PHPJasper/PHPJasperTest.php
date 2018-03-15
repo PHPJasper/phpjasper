@@ -21,14 +21,19 @@ use PHPJasper\PHPJasper;
  */
 class PHPJasperTest extends TestCase
 {
+    /**
+     * @var
+     */
+    private $instance;
+
     public function setUp()
     {
-        $this->PHPJasper = new PHPJasper();
+        $this->instance = new PHPJasper();
     }
 
     public function tearDown()
     {
-        unset($this->PHPJasper);
+        unset($this->instance);
     }
 
     public function testConstructor()
@@ -38,20 +43,26 @@ class PHPJasperTest extends TestCase
 
     public function testCompile()
     {
-        $result = $this->PHPJasper->compile('examples/hello_world.jrxml', '{output_file}');
-
-        $this->assertInstanceOf(PHPJasper::class, $result);
+        $result = $this->instance->compile('examples/hello_world.jrxml', '{output_file}');
 
         $expected = '.*jasperstarter compile ".*hello_world.jrxml" -o "{output_file}"';
 
         $this->assertRegExp('/'.$expected.'/', $result->output());
     }
 
+    public function testProcess()
+    {
+        $result = $this->instance->process('examples/hello_world.jrxml', '{output_file}');
+
+        $expected = '.*jasperstarter process ".*hello_world.jrxml" -o "{output_file}"';
+
+        $this->assertRegExp('/'.$expected.'/', $result->output());
+
+    }
+
     public function testListParameters()
     {
-        $result = $this->PHPJasper->listParameters('examples/hello_world.jrxml');
-
-        $this->assertInstanceOf(PHPJasper::class, $result);
+        $result = $this->instance->listParameters('examples/hello_world.jrxml');
 
         $this->assertRegExp(
             '/.*jasperstarter list_parameters ".*hello_world.jrxml"/',
@@ -63,18 +74,12 @@ class PHPJasperTest extends TestCase
     {
         $this->expectException(\PHPJasper\Exception\InvalidInputFile::class);
 
-        $jasper = new PHPJasper();
-
-        $jasper->compile('');
+        $this->instance->compile('');
     }
 
     public function testCompileHelloWorld()
     {
-        $jasper = new PHPJasper();
-
-        $result = $jasper->compile('examples/hello_world.jrxml');
-
-        $this->assertInstanceOf(PHPJasper::class, $result);
+        $result = $this->instance->compile('examples/hello_world.jrxml');
 
         $this->assertRegExp('/.*jasperstarter compile ".*hello_world.jrxml"/', $result->output());
     }
@@ -83,22 +88,19 @@ class PHPJasperTest extends TestCase
     {
         $this->expectException(\PHPJasper\Exception\InvalidCommandExecutable::class);
 
-        $jasper = new PHPJasper();
-        $jasper->execute();
+        $this->instance->execute();
     }
 
     public function testInvalidInputFile()
     {
         $this->expectException(\PHPJasper\Exception\InvalidInputFile::class);
 
-        $jasper = new PHPJasper();
-        $jasper->compile('{invalid}')->execute();
+        $this->instance->compile('{invalid}')->execute();
     }
 
     public function testExecute()
     {
-        $jasper = new PHPJasper();
-        $actual = $jasper->compile(__DIR__ . '/test.jrxml')->execute();
+        $actual = $this->instance->compile(__DIR__ . '/test.jrxml')->execute();
 
         $this->assertInternalType('array', $actual);
     }
@@ -107,16 +109,14 @@ class PHPJasperTest extends TestCase
     {
         $this->expectException(\PHPJasper\Exception\InvalidInputFile::class);
 
-        $jasper = new PHPJasper();
-        $jasper->listParameters('');
+        $this->instance->listParameters('');
     }
 
     public function testProcessWithWrongInput()
     {
         $this->expectException(\PHPJasper\Exception\InvalidInputFile::class);
 
-        $jasper = new PHPJasper();
-        $jasper->process('', '', [
+        $this->instance->process('', '', [
             'format' => 'mp3'
         ]);
     }
@@ -125,15 +125,8 @@ class PHPJasperTest extends TestCase
     {
         $this->expectException(\PHPJasper\Exception\InvalidFormat::class);
 
-        $jasper = new PHPJasper();
-        $jasper->process('hello_world.jrxml', '', [
+        $this->instance->process('hello_world.jrxml', '', [
             'format' => 'mp3'
         ]);
-    }
-
-    public function testProcess()
-    {
-        $jasper = new PHPJasper();
-        $this->assertInstanceOf(PHPJasper::class, $jasper->process('hello_world.jrxml', ""));
     }
 }
