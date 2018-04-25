@@ -92,7 +92,7 @@ Or in your file'composer.json' add:
 ```json
 {
     "require": {
-        "geekcom/phpjasper": "^2.4"
+        "geekcom/phpjasper": "^2.7"
     }
 }
 ```
