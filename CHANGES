@@ -1,3 +1,10 @@
+Release Notes - PHPJasper - Version 2.7
+========================================================
+** Improvement https://github.com/PHPJasper/phpjasper/issues/99
+    * improvement in resource '-r' parameter,
+      it's no longer necessary to be connected in database
+      to use resources
+________________________________________________________
 Release Notes - PHPJasper - Version 2.6
 ========================================================
 ** Update

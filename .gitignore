@@ -1,4 +1,3 @@
-.idea/
 /vendor
 tests/PHPJasper/*.jasper
 
@@ -7,3 +6,5 @@ tests/PHPJasper/*.jasper
 .buildpath
 .project
 .settings
+## PHPStorm
+.idea/
