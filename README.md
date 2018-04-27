@@ -2,12 +2,14 @@
 _A PHP Report Generator_
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/geekcom/phpjasper/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/geekcom/phpjasper/?branch=master)
-[![Latest Stable Version](https://img.shields.io/packagist/v/geekcom/phpjasper.svg?style=flat-square)](https://packagist.org/packages/geekcom/phpjasper)
+[![Latest Stable Version](https://poser.pugx.org/geekcom/phpjasper/v/stable)](https://packagist.org/packages/geekcom/phpjasper)
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.0-blue.svg?style=flat-square)](https://php.net/)
+[![Total Downloads](https://poser.pugx.org/geekcom/phpjasper/downloads)](https://packagist.org/packages/geekcom/phpjasper)
 [![License](https://poser.pugx.org/geekcom/phpjasper/license)](https://packagist.org/packages/geekcom/phpjasper)
 
 ### Docs
-[![Language-pt_BR](https://img.shields.io/badge/pt__BR-100%25-green.svg)](https://github.com/PHPJasper/phpjasper/blob/master/docs/pt_BR/LEIA-ME_pt_BR.md)
+
+[![Language-pt_BR](https://img.shields.io/badge/pt__BR-100%25-green.svg?style=flat-square)](https://github.com/PHPJasper/phpjasper/blob/master/docs/pt_BR/LEIA-ME_pt_BR.md)
 
 ### About
 PHPJasper is the best solution to compile and process JasperReports (.jrxml & .jasper files) just using PHP, in short: to generate reports using PHP.
