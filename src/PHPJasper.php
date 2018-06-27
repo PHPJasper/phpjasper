@@ -129,7 +129,7 @@ class PHPJasper
                 'jdbc_driver' => '--db-driver',
                 'jdbc_url' => '--db-url',
                 'jdbc_dir' => '--jdbc-dir',
-                'db_sid' => '-db-sid',
+                'db_sid' => '--db-sid',
                 'xml_xpath' => '--xml-xpath',
                 'data_file' => '--data-file',
                 'json_query' => '--json-query'
