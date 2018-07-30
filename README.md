@@ -56,33 +56,6 @@ It is recommended using [Jaspersoft Studio](http://community.jaspersoft.com/proj
 * [Microsoft JDBC Drivers](https://www.microsoft.com/en-US/download/details.aspx?id=11774) (If you want to use a database)
 * [Jaspersoft Studio](http://community.jaspersoft.com/project/jaspersoft-studio) (to draw and compile your reports)
 
-### Java(JDK)
-
-Check if you already have Java installed:
-
-```
-$ javac -version
-javac version 1.8.0_101
-```
-
-If you get:
-
-    command not found: javac
-
-Then install it with: (Ubuntu/Debian)
-
-    $ sudo apt-get install default-jdk
-
-To install on: (centOS/Fedora)
-
-    # yum install java-1.8.0-openjdk.x86_64
-
-To install on windows visit the link-> [JDK](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) and look for the most appropriate version for your system.
-
-Now run the `javac -version` again and check if the output is ok.
-
----------------------------------------------------------------------------------------------------------------------------
-
 ## Installation
 
 Install [Composer](http://getcomposer.org) if you don't have it.
