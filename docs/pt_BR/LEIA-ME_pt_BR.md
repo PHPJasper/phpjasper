@@ -52,33 +52,6 @@ Apresento para vocês **JasperReports** a melhor solução open source que exist
 * [Microsoft JDBC Drivers](https://www.microsoft.com/en-US/download/details.aspx?id=11774) (se você pretende usar esse tipo de banco de dados)
 * [Jaspersoft Studio](http://community.jaspersoft.com/project/jaspersoft-studio) (para escrever e compilar seus relatórios)
 
-### Instalando o Java(JDK)
-
-Verifique se o JDK está instalado:
-
-```
-$ javac -version
-javac version 1.8.0_101
-```
-
-Se você receber a resposta:
-
-    command not found: javac
-
-Então você precisa instalar, para o (Ubuntu/Debian) rode o comando:
-
-    $ sudo apt-get install default-jdk
-
-Para instalar no (centOS/Fedora) faça o seguinte:
-
-    # yum install java-1.8.0-openjdk.x86_64
-
-Para instalar no Windows visite o link-> [JDK](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) e veja qual a versão mais apropriada para o seu Sistema Operacional.
-
-Agora rode novamente o comando `javac -version` e veja se deu tudo certo.
-
----------------------------------------------------------------------------------------------------------------------------
-
 ## Instalando a biblioteca PHPJasper
 
 Instale o [Composer](http://getcomposer.org), e rode o comando:
