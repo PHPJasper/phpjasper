@@ -1,5 +1,6 @@
 /vendor
-tests/PHPJasper/*.jasper
+tests/*.jasper
+tests/codeCoverage
 
 # IDE
 ## Eclipse

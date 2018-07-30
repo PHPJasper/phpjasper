@@ -1,0 +1,8 @@
+version: '2'
+services:
+  php:
+    image: geekcom/phpjasper
+    container_name: phpjasper
+    volumes:
+      - .:/var/www/app
+    tty: true
