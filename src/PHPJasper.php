@@ -42,6 +42,11 @@ class PHPJasper
     protected $formats = ['pdf', 'rtf', 'xls', 'xlsx', 'docx', 'odt', 'ods', 'pptx', 'csv', 'html', 'xhtml', 'xml', 'jrprint'];
 
     /**
+     * @var string
+     */
+    protected $tmpJsonFile = null;
+
+    /**
      * PHPJasper constructor
      */
     public function __construct()
@@ -135,6 +140,7 @@ class PHPJasper
                 'json_query' => '--json-query'
             ];
 
+            $this->checkJsonUrlDriver($options['db_connection']);
             foreach ($options['db_connection'] as $key => $value) {
                 $this->command .= " {$mapDbParams[$key]} {$value}";
             }
@@ -215,6 +221,11 @@ class PHPJasper
 
         chdir($this->pathExecutable);
         exec($this->command, $output, $returnVar);
+
+        if (!is_null($this->tmpJsonFile)) {
+            fclose($this->tmpJsonFile);
+        }
+
         if ($returnVar !== 0) {
             throw new \PHPJasper\Exception\ErrorCommandExecutable();
         }
@@ -251,6 +262,30 @@ class PHPJasper
         }
         if (!is_dir($this->pathExecutable)) {
             throw new \PHPJasper\Exception\InvalidResourceDirectory();
+        }
+    }
+
+    /**
+     * Handle json_url driver
+     * @param $dbConnection
+     * @throws Exception\NoJsonData
+     */
+    private function checkJsonUrlDriver(&$dbConnection)
+    {
+        if (isset($dbConnection['driver']) && $dbConnection['driver'] === 'json_url') {
+            $this->tmpJsonFile = tmpfile();
+            $jsonData = file_get_contents($dbConnection['data_file']);
+
+            if ($jsonData === false) {
+                throw new \PHPJasper\Exception\NoJsonData();
+            }
+
+            fwrite($this->tmpJsonFile, $jsonData);
+            fseek($this->tmpJsonFile, 0);
+            $tmpPath = stream_get_meta_data($this->tmpJsonFile);
+
+            $dbConnection['driver'] = 'json';
+            $dbConnection['data_file'] = $tmpPath['uri'];
         }
     }
 }
