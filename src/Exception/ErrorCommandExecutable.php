@@ -14,7 +14,14 @@ class ErrorCommandExecutable extends Exception
      */
     public function __construct($message = "", $code = 0, Exception $previous = null)
     {
-        $message = 'Your report has an error and couldn \'t be processed!\ Try to output the command using the function `output();` and run it manually in the console.';
+        $message = trim($message);
+
+        if ($message === '') {
+            $message = 'Your report has an error and couldn \'t be processed!\ Try to output the command using the function `output();` and run it manually in the console.';
+        } else {
+            $message = 'Your report has an error and couldn \'t be processed!\ Try to output the command using the function `output();` and run it manually in the console. Error of the command: ' . $message;
+        }
+
         parent::__construct($message, $code, $previous);
     }
 }
