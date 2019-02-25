@@ -80,6 +80,24 @@ and thats it.
 
 ----------------------------------------------------------------------------------------------------------------------------
 
+## PHPJasper with Docker
+
+With Docker CE and docker-compose installed just run:
+
+* `docker-compose up -d`
+* `docker exec -it phpjasper composer install`
+
+To execute tests:
+
+* `docker exec -it phpjasper ./vendor/bin/phpunit` or
+* `docker exec -it phpjasper ./vendor/bin/phpunit --testdox`
+
+To see coverage of tests execute the file: `/tests/codeCoverage/html/dashboard.html`
+
+_Help us writing new tests, make a fork_ :)
+
+----------------------------------------------------------------------------------------------------------------------------
+
 ## Examples
 
 ### The *Hello World* example.
