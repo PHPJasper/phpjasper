@@ -77,6 +77,23 @@ E execute o comando:
 é isso, você tem a biblioteca instalada e pronta para uso.
 
 ----------------------------------------------------------------------------------------------------------------------------
+## PHPJasper com Docker
+
+Com o Docker CE e o docker-compose instalados basta executar os comandos:
+
+* `docker-compose up -d`
+* `docker exec -it phpjasper composer install`
+
+Para rodar os testes dentro do container execute:
+
+* `docker exec -it phpjasper ./vendor/bin/phpunit` ou
+* `docker exec -it phpjasper ./vendor/bin/phpunit --testdox`
+
+Para ver o coverage basta executar o arquivo: `/tests/codeCoverage/html/dashboard.html`
+
+_Ajude-nos escrevendo novos testes, faça um fork_ :)
+
+----------------------------------------------------------------------------------------------------------------------------
 
 ## Exemplos
 
