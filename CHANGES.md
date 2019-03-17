@@ -1,3 +1,12 @@
+Release Notes - PHPJasper - Version 3.0.0
+========================================================
+* Improvement
+    * added Semantic Versioning 2.0.0
+* Update
+    * updated for jasperstarter 3.5.0
+* Bug
+    * solved problems with useSSL at MySQL connections
+____________________________________
 Release Notes - PHPJasper - Version 2.7
 ========================================================
 * Improvement https://github.com/PHPJasper/phpjasper/issues/99
