@@ -2,6 +2,109 @@
 JasperStarter - Running JasperReports from command line
 ========================================================
 
+Release notes - JasperStarter - Version 3.5.0
+---------------------------------------------
+
+** Bug
+    * [JAS-134] - "InterruptedException" should not be ignored in App.java
+    * [JAS-135] - comparisons between unrelated types in Config.java
+
+** New Feature
+    * [JAS-131] - Jasperstarter does not provide a way to use the query string saved in the report itself
+
+** Task
+    * [JAS-133] - Release Pipeline takes longer than before
+    * [JAS-136] - Throwable.printStackTrace(...) should not be called in Report.java setLookAndFeel()
+    * [JAS-137] - Do not use a bitwise operator with a Boolean-like operand in ParameterPanel.java
+    * [JAS-138] - Do not use a bitwise operator with a Boolean-like operand in ParameterPrompt.java
+
+
+Release notes - JasperStarter - Version 3.4.1
+---------------------------------------------
+
+** Bug
+    * [JAS-132] - Security alert on org.springframework:spring-core
+                  Updated springframework to 4.3.21
+
+    CVE-2016-5007 - moderate severity - Vulnerable versions: < 4.3.1
+    CVE-2018-1275 - high severity - Vulnerable versions: < 4.3.16
+    CVE-2018-1272 - moderate severity - Vulnerable versions: < 4.3.15
+    CVE-2018-1271 - moderate severity - Vulnerable versions: < 4.3.15
+    CVE-2018-1270 - high severity - Vulnerable versions: < 4.3.16
+    CVE-2018-1257 - moderate severity - Vulnerable versions: < 4.3.17
+
+
+Release notes - JasperStarter - Version 3.4.0
+---------------------------------------------
+
+  JasperStarter-3.2.0 silently dropped Java7 support by using the
+  latest available JasperReports Library.
+  JasperReports-6.4.0 is the last release which works with Java7 so
+  JasperStarter-3.1.0 was the latest release supporting Java7.
+
+  Now JasperStarter needs Java8 at a minimum and is manually tested
+  with OpenJDK-8, OpenJDK-10, OpenJDK-11. Automatic testing is on the
+  way (see JAS-128).
+  There will be a special release supporting Java7.
+
+  "Diskless" operation using stdin and stdout for input data and
+  output is now complete. See ([JAS-97] and [JAS-89]).
+
+  A public API allows direct integration with Python using jpy
+  ([JAS-125]).
+
+Known bugs:
+    * [JAS-120] - JasperReports-6.7.0 Version does not match with
+                  reported version from the jar file in
+      This is an upstream error which causes JasperStarter to put out
+      a wrong JasperReports version number of 6.6.0 instead of 6.7.0
+      if you call: jasperstarter -V
+
+** Bug
+    * [JAS-111] - JRE 1.7 incompatibility - not fixed in the main
+                  release but clarified.
+    * [JAS-122] - Runtime error if a chart with "chart customizers" is
+                  used
+    * [JAS-126] - Jasperstarter does not usefully propagate
+                  compilation errors
+
+** New Feature
+    * [JAS-97] - Use stdout for the resulting PDF (so we don't have to
+                 write to the hosting server's storage)
+    * [JAS-125] - Make report fill accessible via API
+
+** Task
+    * [JAS-127] - Enable dependency caching in build pipeline
+    * [JAS-129] - Remove test dependency to font Arial
+    * [JAS-130] - launch4j-maven-plugin:1.5.2 depends on 32bit
+                  libraries
+
+
+Release notes - JasperStarter - Version 3.3.0
+---------------------------------------------
+
+Known bugs:
+    * [JAS-120] - JasperReports-6.7.0 Version does not match with reported version from the jar file in 
+      This is an upstream error which causes JasperStarter to put out
+      a wrong JasperReports version number of 6.6.0 instead of 6.7.0
+      if you call: jasperstarter -V
+
+** Bug
+    * [JAS-116] - SSL error
+    * [JAS-121] - Container 'Build' exceeded memory limit.
+    * [JAS-122] - Runtime error if a chart with "chart customizers" is used
+
+** New Feature
+    * [JAS-113] - JSONQL data source support
+
+** Task
+    * [JAS-102] - Pipeline: enable build artifact upload to download section
+    * [JAS-119] - Include JasperReports-6.7.0
+
+** Improvement
+    * [JAS-89] - Accept stdin for datafile input
+
+
 Release Notes - JasperStarter - Version 3.2.1
 ---------------------------------------------
 

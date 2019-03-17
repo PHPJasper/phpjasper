@@ -9,7 +9,7 @@ The official homepage is [jasperstater.cenote.de][].
 
 It has the following features:
 
-  * Run any JasperReport that needs a jdbc, csv, xml, json or empty datasource
+  * Run any JasperReport that needs a jdbc, csv, xml, json, jsonql or empty datasource
   * Use with any database for which a jdbc driver is available
   * Run reports with subreports
   * Execute reports that need runtime parameters. Any parameter whose class has
@@ -29,10 +29,11 @@ It has the following features:
   * Integrate in non Java applications (for example PHP, Python)
   * Binary executable on Windows
   * Includes JasperReports so this is the only tool you need to install
+  * "Diskless" operation using stdin and stdout for input data and output.
 
 Requirements:
 
-  * Java 1.6 or higher
+  * Java 1.8 or higher
   * A JDBC 2.1 driver for your database
 
 
@@ -67,6 +68,43 @@ Example with hsql using database type generic:
 For more information take a look in the docs directory of the distibution
 archive or read the [Usage][] page online.
 
+### Python Integration using public API
+
+JasperStarter exposes an API which can be used with [jpy][] to
+provide direct access from Python:
+
+    #
+    # Load the JVM. See the jpy docs for details.
+    #
+    import jpyutil
+    jpyutil.init_jvm(jvm_maxmem='512M', jvm_classpath=['.../jasperstarter.jar'])
+    #
+    # Load the Java types needed.
+    #
+    import jpy
+    Arrays = jpy.get_type('java.util.Arrays')
+    File = jpy.get_type('java.io.File')
+    Report = jpy.get_type('de.cenote.jasperstarter.Report')
+    Config = jpy.get_type('de.cenote.jasperstarter.Config')
+    DsType = jpy.get_type('de.cenote.jasperstarter.types.DsType')
+    #
+    # Create the JasperStarter configuration. See Config.java for details.
+    #
+    config = Config()
+    config.setInput('jsonql.jrxml')
+    config.setOutput('contacts.pdf')
+    config.setDbType(DsType.json)
+    config.setDataFile(File('contacts.json'))
+    config.setJsonQuery('contacts.person')
+    config.setOutputFormats(Arrays.asList([]))
+    #
+    # Run the report. See Report.java for details.
+    #
+    instance = Report(config, File(config.getInput()))
+    instance.fill()
+    instance.exportPdf()
+
+See the examples/python directory for a fuller example.
 
 ### Release Notes
 
@@ -88,23 +126,26 @@ and create a bug or feature request.
 If you like the software you can write a [review][] :-)
 
 
-### Developement
+### Development
 
 The sourcecode is available at [bitbucket.org/cenote/jasperstarter][], the
 project website is hosted at [Sourceforge][].
 
 JasperStarter is build with [Maven][]. 
 
-On Linux 64 bit the launch4j-maven-plugin may fail. You need the folloing libs in a 32 bit version:
+On Linux 64 bit the launch4j-maven-plugin may fail. In this case, may you need the following libs in a 32 bit version:
 
   * z1
   * ncurses5
   * bz2-1.0
 
-On Ubuntu 14.04 for example use this command:
+Install on Ubuntu 14.04 or above:
 
     $ sudo apt-get install lib32z1 lib32ncurses5 lib32bz2-1.0
 
+Install on Fedora 27 or above:
+
+    $sudo dnf install ncurses-compat-libs.i686
 
 To get a distribution package run:
 
@@ -187,3 +228,4 @@ limitations under the License.
 [Usage]:http://jasperstarter.sourceforge.net/usage.html
 [Issues]:https://cenote-issues.atlassian.net/browse/JAS
 [Changes]:changes.html
+[jpy]:https://github.com/bcdev/jpy

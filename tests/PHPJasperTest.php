@@ -19,7 +19,7 @@ use PHPJasper\PHPJasper;
 /**
  * @author Rafael Queiroz <rafaelfqf@gmail.com>
  */
-class PHPJasperTest extends TestCase
+final class PHPJasperTest extends TestCase
 {
     /**
      * @var
