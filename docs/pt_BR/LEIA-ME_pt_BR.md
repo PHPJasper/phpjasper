@@ -1,3 +1,5 @@
+![Krakend logo](../images/phpjasper.png)
+
 # PHPJasper
 
 _Gerador de relatórios PHP_
