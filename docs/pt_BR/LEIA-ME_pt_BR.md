@@ -1,4 +1,4 @@
-![Krakend logo](../images/phpjasper.png)
+![PHPJasper logo](../images/phpjasper.png)
 
 # PHPJasper
 

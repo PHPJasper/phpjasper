@@ -1,4 +1,4 @@
-![Krakend logo](docs/images/phpjasper.png)
+![PHPJasper logo](docs/images/phpjasper.png)
 
 # PHPJasper
 _A PHP Report Generator_
