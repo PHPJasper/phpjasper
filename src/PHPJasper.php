@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace PHPJasper;
 
+use PHPJasper\Exception;
+
 class PHPJasper
 {
 
@@ -68,7 +70,7 @@ class PHPJasper
     public function compile(string $input, string $output = '')
     {
         if (!is_file($input)) {
-            throw new \PHPJasper\Exception\InvalidInputFile();
+            throw new Exception\InvalidInputFile();
         }
 
         $this->command = $this->checkServer();
@@ -95,7 +97,7 @@ class PHPJasper
         $options = $this->parseProcessOptions($options);
 
         if (!$input) {
-            throw new \PHPJasper\Exception\InvalidInputFile();
+            throw new Exception\InvalidInputFile();
         }
 
         $this->validateFormat($options['format']);
@@ -175,7 +177,7 @@ class PHPJasper
         }
         foreach ($format as $value) {
             if (!in_array($value, $this->formats)) {
-                throw new \PHPJasper\Exception\InvalidFormat();
+                throw new Exception\InvalidFormat();
             }
         }
     }
@@ -188,7 +190,7 @@ class PHPJasper
     public function listParameters(string $input)
     {
         if (!is_file($input)) {
-            throw new \PHPJasper\Exception\InvalidInputFile();
+            throw new Exception\InvalidInputFile();
         }
 
         $this->command = $this->checkServer();
@@ -216,7 +218,7 @@ class PHPJasper
         chdir($this->pathExecutable);
         exec($this->command, $output, $returnVar);
         if ($returnVar !== 0) {
-            throw new \PHPJasper\Exception\ErrorCommandExecutable();
+            throw new Exception\ErrorCommandExecutable();
         }
 
         return $output;
@@ -247,10 +249,10 @@ class PHPJasper
     protected function validateExecute()
     {
         if (!$this->command) {
-            throw new \PHPJasper\Exception\InvalidCommandExecutable();
+            throw new Exception\InvalidCommandExecutable();
         }
         if (!is_dir($this->pathExecutable)) {
-            throw new \PHPJasper\Exception\InvalidResourceDirectory();
+            throw new Exception\InvalidResourceDirectory();
         }
     }
 }

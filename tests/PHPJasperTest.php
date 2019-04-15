@@ -15,15 +15,13 @@ namespace PHPJasper\Test;
 
 use PHPUnit\Framework\TestCase;
 use PHPJasper\PHPJasper;
+use PHPJasper\Exception;
 
 /**
  * @author Rafael Queiroz <rafaelfqf@gmail.com>
  */
 final class PHPJasperTest extends TestCase
 {
-    /**
-     * @var
-     */
     private $instance;
 
     public function setUp()
@@ -72,7 +70,7 @@ final class PHPJasperTest extends TestCase
 
     public function testCompileWithWrongInput()
     {
-        $this->expectException(\PHPJasper\Exception\InvalidInputFile::class);
+        $this->expectException(Exception\InvalidInputFile::class);
 
         $this->instance->compile('');
     }
@@ -86,14 +84,14 @@ final class PHPJasperTest extends TestCase
 
     public function testExecuteWithoutCompile()
     {
-        $this->expectException(\PHPJasper\Exception\InvalidCommandExecutable::class);
+        $this->expectException(Exception\InvalidCommandExecutable::class);
 
         $this->instance->execute();
     }
 
     public function testInvalidInputFile()
     {
-        $this->expectException(\PHPJasper\Exception\InvalidInputFile::class);
+        $this->expectException(Exception\InvalidInputFile::class);
 
         $this->instance->compile('{invalid}')->execute();
     }
@@ -107,14 +105,14 @@ final class PHPJasperTest extends TestCase
 
     public function testListParametersWithWrongInput()
     {
-        $this->expectException(\PHPJasper\Exception\InvalidInputFile::class);
+        $this->expectException(Exception\InvalidInputFile::class);
 
         $this->instance->listParameters('');
     }
 
     public function testProcessWithWrongInput()
     {
-        $this->expectException(\PHPJasper\Exception\InvalidInputFile::class);
+        $this->expectException(Exception\InvalidInputFile::class);
 
         $this->instance->process('', '', [
             'format' => 'mp3'
@@ -123,7 +121,7 @@ final class PHPJasperTest extends TestCase
 
     public function testProcessWithWrongFormat()
     {
-        $this->expectException(\PHPJasper\Exception\InvalidFormat::class);
+        $this->expectException(Exception\InvalidFormat::class);
 
         $this->instance->process('hello_world.jrxml', '', [
             'format' => 'mp3'
