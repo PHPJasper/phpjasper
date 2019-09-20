@@ -1,3 +1,8 @@
+Release Notes - PHPJasper - Version 3.0.1
+========================================================
+* Improvement
+    * output() method
+________________________________________________________
 Release Notes - PHPJasper - Version 3.0.0
 ========================================================
 * Improvement
@@ -6,7 +11,7 @@ Release Notes - PHPJasper - Version 3.0.0
     * updated for jasperstarter 3.5.0
 * Bug
     * solved problems with useSSL at MySQL connections
-____________________________________
+________________________________________________________
 Release Notes - PHPJasper - Version 2.7
 ========================================================
 * Improvement https://github.com/PHPJasper/phpjasper/issues/99
