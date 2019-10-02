@@ -45,7 +45,7 @@ final class PHPJasperTest extends TestCase
 
         $expected = '.*jasperstarter compile ".*hello_world.jrxml" -o "{output_file}"';
 
-        $this->assertRegExp('/'.$expected.'/', $result->output());
+        $this->expectOutputRegex('/'.$expected.'/', $result->output());
     }
 
     public function testProcess()
@@ -54,15 +54,42 @@ final class PHPJasperTest extends TestCase
 
         $expected = '.*jasperstarter process ".*hello_world.jrxml" -o "{output_file}"';
 
-        $this->assertRegExp('/'.$expected.'/', $result->output());
+        $this->expectOutputRegex('/'.$expected.'/', $result->output());
+    }
 
+    public function testProcessWithOptions()
+    {
+        $options = [
+            'locale' => 'en_US',
+            'params' => [
+                'param_1' => 'value_1',
+                'param_2' => 'value_2',
+            ],
+            'db_connection' => [
+                'driver' => 'driver',
+                'username' => 'user',
+                'password' => '12345678',
+                'database' => 'db'
+            ],
+            'resources' => 'foo',
+        ];
+
+        $result = $this->instance->process('examples/hello_world.jrxml', '{output_file}', $options);
+
+        $expected = '.*jasperstarter --locale en_US process ".*hello_world.jrxml" -o "{output_file}" ';
+        $expected .= '-f pdf -P  param_1="value_1"   param_2="value_2"   -t driver -u user -p 12345678 -n db -r foo';
+
+        $this->expectOutputRegex(
+            '/'.$expected.'/',
+            $result->output()
+        );
     }
 
     public function testListParameters()
     {
         $result = $this->instance->listParameters('examples/hello_world.jrxml');
 
-        $this->assertRegExp(
+        $this->expectOutputRegex(
             '/.*jasperstarter list_parameters ".*hello_world.jrxml"/',
             $result->output()
         );
@@ -79,7 +106,18 @@ final class PHPJasperTest extends TestCase
     {
         $result = $this->instance->compile('examples/hello_world.jrxml');
 
-        $this->assertRegExp('/.*jasperstarter compile ".*hello_world.jrxml"/', $result->output());
+        $this->expectOutputRegex('/.*jasperstarter compile ".*hello_world.jrxml"/', $result->output());
+    }
+
+    public function testOutputWithUserOnExecute()
+    {
+        $this->expectException(Exception\ErrorCommandExecutable::class);
+
+        $this->instance->compile(__DIR__ . '/test.jrxml', __DIR__ . '/test')->execute('phpjasper');
+
+        $expected = 'su -u 1000 -c "./jasperstarter compile "/var/www/app/tests/test.jrxml" -o "/var/www/app/tests/test""';
+
+        $this->expectOutputRegex('/' . $expected . '/', $this->instance->output());
     }
 
     public function testExecuteWithoutCompile()
@@ -101,6 +139,25 @@ final class PHPJasperTest extends TestCase
         $actual = $this->instance->compile(__DIR__ . '/test.jrxml')->execute();
 
         $this->assertInternalType('array', $actual);
+    }
+
+    public function testExecuteWithOutput()
+    {
+        $actual = $this->instance->compile(__DIR__ . '/test.jrxml', __DIR__ . '/test')->execute();
+
+        $this->assertInternalType('array', $actual);
+    }
+
+    public function testExecuteThrowsInvalidResourceDirectory()
+    {
+        $reflectionObject = new \ReflectionObject($this->instance);
+        $reflectionProperty = $reflectionObject->getProperty('pathExecutable');
+        $reflectionProperty->setAccessible(true);
+        $reflectionProperty->setValue($this->instance, '');
+
+        $this->expectException(Exception\InvalidResourceDirectory::class);
+
+        $this->instance->compile(__DIR__ . '/test.jrxml', __DIR__ . '/test')->execute();
     }
 
     public function testListParametersWithWrongInput()
