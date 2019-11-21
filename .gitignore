@@ -1,7 +1,8 @@
 /vendor
 tests/*.jasper
 tests/fixture
-tests/codeCoverage
+/tests/logs
+.phpcs-cache
 
 # IDE
 ## Eclipse
