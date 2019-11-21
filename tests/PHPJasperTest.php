@@ -16,6 +16,7 @@ namespace PHPJasper\Test;
 use PHPUnit\Framework\TestCase;
 use PHPJasper\PHPJasper;
 use PHPJasper\Exception;
+use ReflectionObject;
 
 /**
  * @author Rafael Queiroz <rafaelfqf@gmail.com>
@@ -34,30 +35,35 @@ final class PHPJasperTest extends TestCase
         unset($this->instance);
     }
 
-    public function testConstructor()
+    /** @test */
+    public function constructor()
     {
         $this->assertInstanceOf(PHPJasper::class, new PHPJasper());
     }
 
-    public function testCompile()
+    /** @test */
+    public function compile()
     {
         $result = $this->instance->compile('examples/hello_world.jrxml', '{output_file}');
 
         $expected = '.*jasperstarter compile ".*hello_world.jrxml" -o "{output_file}"';
 
-        $this->expectOutputRegex('/'.$expected.'/', $result->output());
+        $this->expectOutputRegex('/' . $expected . '/', $result->output());
     }
 
-    public function testProcess()
+
+    /** @test */
+    public function process()
     {
         $result = $this->instance->process('examples/hello_world.jrxml', '{output_file}');
 
         $expected = '.*jasperstarter process ".*hello_world.jrxml" -o "{output_file}"';
 
-        $this->expectOutputRegex('/'.$expected.'/', $result->output());
+        $this->expectOutputRegex('/' . $expected . '/', $result->output());
     }
 
-    public function testProcessWithOptions()
+    /** @test */
+    public function processWithOptions()
     {
         $options = [
             'locale' => 'en_US',
@@ -79,37 +85,35 @@ final class PHPJasperTest extends TestCase
         $expected = '.*jasperstarter --locale en_US process ".*hello_world.jrxml" -o "{output_file}" ';
         $expected .= '-f pdf -P  param_1="value_1"   param_2="value_2"   -t driver -u user -p 12345678 -n db -r foo';
 
-        $this->expectOutputRegex(
-            '/'.$expected.'/',
-            $result->output()
-        );
+        $this->expectOutputRegex('/' . $expected . '/', $result->output());
     }
 
-    public function testListParameters()
+    /** @test */
+    public function listParameters()
     {
         $result = $this->instance->listParameters('examples/hello_world.jrxml');
 
-        $this->expectOutputRegex(
-            '/.*jasperstarter list_parameters ".*hello_world.jrxml"/',
-            $result->output()
-        );
+        $this->expectOutputRegex('/.*jasperstarter list_parameters ".*hello_world.jrxml"/', $result->output());
     }
 
-    public function testCompileWithWrongInput()
+    /** @test */
+    public function compileWithWrongInput()
     {
         $this->expectException(Exception\InvalidInputFile::class);
 
         $this->instance->compile('');
     }
 
-    public function testCompileHelloWorld()
+    /** @test */
+    public function compileHelloWorld()
     {
         $result = $this->instance->compile('examples/hello_world.jrxml');
 
         $this->expectOutputRegex('/.*jasperstarter compile ".*hello_world.jrxml"/', $result->output());
     }
 
-    public function testOutputWithUserOnExecute()
+    /** @test */
+    public function outputWithUserOnExecute()
     {
         $this->expectException(Exception\ErrorCommandExecutable::class);
 
@@ -120,37 +124,42 @@ final class PHPJasperTest extends TestCase
         $this->expectOutputRegex('/' . $expected . '/', $this->instance->output());
     }
 
-    public function testExecuteWithoutCompile()
+    /** @test */
+    public function executeWithoutCompile()
     {
         $this->expectException(Exception\InvalidCommandExecutable::class);
 
         $this->instance->execute();
     }
 
-    public function testInvalidInputFile()
+    /** @test */
+    public function invalidInputFile()
     {
         $this->expectException(Exception\InvalidInputFile::class);
 
         $this->instance->compile('{invalid}')->execute();
     }
 
-    public function testExecute()
+    /** @test */
+    public function execute()
     {
         $actual = $this->instance->compile(__DIR__ . '/test.jrxml')->execute();
 
         $this->assertInternalType('array', $actual);
     }
 
-    public function testExecuteWithOutput()
+    /** @test */
+    public function executeWithOutput()
     {
         $actual = $this->instance->compile(__DIR__ . '/test.jrxml', __DIR__ . '/test')->execute();
 
         $this->assertInternalType('array', $actual);
     }
 
-    public function testExecuteThrowsInvalidResourceDirectory()
+    /** @test */
+    public function executeThrowsInvalidResourceDirectory()
     {
-        $reflectionObject = new \ReflectionObject($this->instance);
+        $reflectionObject = new ReflectionObject($this->instance);
         $reflectionProperty = $reflectionObject->getProperty('pathExecutable');
         $reflectionProperty->setAccessible(true);
         $reflectionProperty->setValue($this->instance, '');
@@ -160,28 +169,39 @@ final class PHPJasperTest extends TestCase
         $this->instance->compile(__DIR__ . '/test.jrxml', __DIR__ . '/test')->execute();
     }
 
-    public function testListParametersWithWrongInput()
+    /** @test */
+    public function listParametersWithWrongInput()
     {
         $this->expectException(Exception\InvalidInputFile::class);
 
         $this->instance->listParameters('');
     }
 
-    public function testProcessWithWrongInput()
+    /** @test */
+    public function processWithWrongInput()
     {
         $this->expectException(Exception\InvalidInputFile::class);
 
-        $this->instance->process('', '', [
-            'format' => 'mp3'
-        ]);
+        $this->instance->process(
+            '',
+            '',
+            [
+                'format' => 'mp3'
+            ]
+        );
     }
 
-    public function testProcessWithWrongFormat()
+    /** @test */
+    public function processWithWrongFormat()
     {
         $this->expectException(Exception\InvalidFormat::class);
 
-        $this->instance->process('hello_world.jrxml', '', [
-            'format' => 'mp3'
-        ]);
+        $this->instance->process(
+            'hello_world.jrxml',
+            '',
+            [
+                'format' => 'mp3'
+            ]
+        );
     }
 }

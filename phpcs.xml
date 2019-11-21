@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<ruleset>
+    <arg name="basepath" value="."/>
+    <arg name="extensions" value="php"/>
+    <arg name="parallel" value="80"/>
+    <arg name="cache" value=".phpcs-cache"/>
+    <arg name="colors"/>
+
+    <arg value="p"/>
+
+    <exclude-pattern type="relative">^/tests/*</exclude-pattern>
+
+    <file>src</file>
+
+    <rule ref="PSR12"/>
+</ruleset>

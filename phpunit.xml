@@ -17,13 +17,14 @@
     </filter>
 
     <testsuites>
-        <testsuite name="Test Suite">
+        <testsuite name="PHPJasper Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
 
     <logging>
-        <log type="coverage-html" target="tests/codeCoverage/html"
+        <log type="coverage-html" target="tests/logs/coverage"
              lowUpperBound="50"  highLowerBound="80" charset="UTF-8"/>
+        <log type="testdox-html" target="tests/logs/testdox/testdox.html"/>
     </logging>
 </phpunit>
