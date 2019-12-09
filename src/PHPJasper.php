@@ -229,7 +229,17 @@ class PHPJasper
      */
     public function output()
     {
-        print $this->command . "\n";
+        return $this->command;
+    }
+    
+    /**
+     * Prints the command.
+     *
+     * @return void
+     */
+    public function printOutput()
+    {
+        print $this->output() . "\n";
     }
 
     /**
