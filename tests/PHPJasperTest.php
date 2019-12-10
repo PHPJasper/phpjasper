@@ -30,11 +30,6 @@ final class PHPJasperTest extends TestCase
         $this->instance = new PHPJasper();
     }
 
-    public function tearDown()
-    {
-        unset($this->instance);
-    }
-
     /** @test */
     public function constructor()
     {
@@ -44,13 +39,10 @@ final class PHPJasperTest extends TestCase
     /** @test */
     public function compile()
     {
-        $result = $this->instance->compile('examples/hello_world.jrxml', '{output_file}');
+        $result = $this->instance->compile('examples/hello_world.jrxml');
 
-        $expected = '.*jasperstarter compile ".*hello_world.jrxml" -o "{output_file}"';
-
-        $this->expectOutputRegex('/' . $expected . '/', $result->output());
+        $this->expectOutputRegex('/.*jasperstarter compile ".*hello_world.jrxml"/', $result->printOutput());
     }
-
 
     /** @test */
     public function process()
@@ -59,7 +51,7 @@ final class PHPJasperTest extends TestCase
 
         $expected = '.*jasperstarter process ".*hello_world.jrxml" -o "{output_file}"';
 
-        $this->expectOutputRegex('/' . $expected . '/', $result->output());
+        $this->expectOutputRegex('/' . $expected . '/', $result->printOutput());
     }
 
     /** @test */
@@ -85,7 +77,7 @@ final class PHPJasperTest extends TestCase
         $expected = '.*jasperstarter --locale en_US process ".*hello_world.jrxml" -o "{output_file}" ';
         $expected .= '-f pdf -P  param_1="value_1"   param_2="value_2"   -t driver -u user -p 12345678 -n db -r foo';
 
-        $this->expectOutputRegex('/' . $expected . '/', $result->output());
+        $this->expectOutputRegex('/' . $expected . '/', $result->printOutput());
     }
 
     /** @test */
@@ -93,7 +85,7 @@ final class PHPJasperTest extends TestCase
     {
         $result = $this->instance->listParameters('examples/hello_world.jrxml');
 
-        $this->expectOutputRegex('/.*jasperstarter list_parameters ".*hello_world.jrxml"/', $result->output());
+        $this->expectOutputRegex('/.*jasperstarter list_parameters ".*hello_world.jrxml"/', $result->printOutput());
     }
 
     /** @test */
@@ -105,14 +97,6 @@ final class PHPJasperTest extends TestCase
     }
 
     /** @test */
-    public function compileHelloWorld()
-    {
-        $result = $this->instance->compile('examples/hello_world.jrxml');
-
-        $this->expectOutputRegex('/.*jasperstarter compile ".*hello_world.jrxml"/', $result->output());
-    }
-
-    /** @test */
     public function outputWithUserOnExecute()
     {
         $this->expectException(Exception\ErrorCommandExecutable::class);
@@ -121,7 +105,7 @@ final class PHPJasperTest extends TestCase
 
         $expected = 'su -u 1000 -c "./jasperstarter compile "/var/www/app/tests/test.jrxml" -o "/var/www/app/tests/test""';
 
-        $this->expectOutputRegex('/' . $expected . '/', $this->instance->output());
+        $this->expectOutputRegex('/' . $expected . '/', $this->instance->printOutput());
     }
 
     /** @test */
@@ -203,5 +187,13 @@ final class PHPJasperTest extends TestCase
                 'format' => 'mp3'
             ]
         );
+    }
+
+    /** @test */
+    public function output()
+    {
+        $result = $this->instance->listParameters('examples/hello_world.jrxml');
+
+        $this->expectOutputRegex('/.*jasperstarter list_parameters ".*hello_world.jrxml' . '/', $result->output() . "\n");
     }
 }
