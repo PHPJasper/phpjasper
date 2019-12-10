@@ -41,7 +41,21 @@ class PHPJasper
     /**
      * @var array
      */
-    protected $formats = ['pdf', 'rtf', 'xls', 'xlsx', 'docx', 'odt', 'ods', 'pptx', 'csv', 'html', 'xhtml', 'xml', 'jrprint'];
+    protected $formats = [
+        'pdf',
+        'rtf',
+        'xls',
+        'xlsx',
+        'docx',
+        'odt',
+        'ods',
+        'pptx',
+        'csv',
+        'html',
+        'xhtml',
+        'xml',
+        'jrprint'
+    ];
 
     /**
      * PHPJasper constructor
@@ -239,7 +253,7 @@ class PHPJasper
      */
     public function printOutput()
     {
-        print $this->output() . "\n";
+        print $this->command . "\n";
     }
 
     /**

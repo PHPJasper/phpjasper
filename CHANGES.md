@@ -1,6 +1,8 @@
-Release Notes - PHPJasper - Version 3.0.1
+Release Notes - PHPJasper - Version 3.1.0
 ========================================================
 * Improvement
+    * added printOutput() method
+* Refactoring
     * output() method
 ________________________________________________________
 Release Notes - PHPJasper - Version 3.0.0
