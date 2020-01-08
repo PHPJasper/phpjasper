@@ -3,6 +3,7 @@ tests/*.jasper
 tests/fixture
 /tests/logs
 .phpcs-cache
+.phpunit.result.cache
 
 # IDE
 ## Eclipse

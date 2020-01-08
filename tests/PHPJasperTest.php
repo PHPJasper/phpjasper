@@ -25,7 +25,7 @@ final class PHPJasperTest extends TestCase
 {
     private $instance;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->instance = new PHPJasper();
     }
@@ -37,7 +37,7 @@ final class PHPJasperTest extends TestCase
     }
 
     /** @test */
-    public function compile()
+    public function compile(): void
     {
         $result = $this->instance->compile('examples/hello_world.jrxml');
 
@@ -45,7 +45,7 @@ final class PHPJasperTest extends TestCase
     }
 
     /** @test */
-    public function process()
+    public function process(): void
     {
         $result = $this->instance->process('examples/hello_world.jrxml', '{output_file}');
 
@@ -55,7 +55,7 @@ final class PHPJasperTest extends TestCase
     }
 
     /** @test */
-    public function processWithOptions()
+    public function processWithOptions(): void
     {
         $options = [
             'locale' => 'en_US',
@@ -81,7 +81,7 @@ final class PHPJasperTest extends TestCase
     }
 
     /** @test */
-    public function listParameters()
+    public function listParameters(): void
     {
         $result = $this->instance->listParameters('examples/hello_world.jrxml');
 
@@ -89,7 +89,7 @@ final class PHPJasperTest extends TestCase
     }
 
     /** @test */
-    public function compileWithWrongInput()
+    public function compileWithWrongInput(): void
     {
         $this->expectException(Exception\InvalidInputFile::class);
 
@@ -97,7 +97,7 @@ final class PHPJasperTest extends TestCase
     }
 
     /** @test */
-    public function outputWithUserOnExecute()
+    public function outputWithUserOnExecute(): void
     {
         $this->expectException(Exception\ErrorCommandExecutable::class);
 
@@ -109,7 +109,7 @@ final class PHPJasperTest extends TestCase
     }
 
     /** @test */
-    public function executeWithoutCompile()
+    public function executeWithoutCompile(): void
     {
         $this->expectException(Exception\InvalidCommandExecutable::class);
 
@@ -117,7 +117,7 @@ final class PHPJasperTest extends TestCase
     }
 
     /** @test */
-    public function invalidInputFile()
+    public function invalidInputFile(): void
     {
         $this->expectException(Exception\InvalidInputFile::class);
 
@@ -125,23 +125,23 @@ final class PHPJasperTest extends TestCase
     }
 
     /** @test */
-    public function execute()
+    public function execute(): void
     {
         $actual = $this->instance->compile(__DIR__ . '/test.jrxml')->execute();
 
-        $this->assertInternalType('array', $actual);
+        $this->assertIsArray($actual);
     }
 
     /** @test */
-    public function executeWithOutput()
+    public function executeWithOutput(): void
     {
         $actual = $this->instance->compile(__DIR__ . '/test.jrxml', __DIR__ . '/test')->execute();
 
-        $this->assertInternalType('array', $actual);
+        $this->assertIsArray($actual);
     }
 
     /** @test */
-    public function executeThrowsInvalidResourceDirectory()
+    public function executeThrowsInvalidResourceDirectory(): void
     {
         $reflectionObject = new ReflectionObject($this->instance);
         $reflectionProperty = $reflectionObject->getProperty('pathExecutable');
@@ -154,7 +154,7 @@ final class PHPJasperTest extends TestCase
     }
 
     /** @test */
-    public function listParametersWithWrongInput()
+    public function listParametersWithWrongInput(): void
     {
         $this->expectException(Exception\InvalidInputFile::class);
 
@@ -162,7 +162,7 @@ final class PHPJasperTest extends TestCase
     }
 
     /** @test */
-    public function processWithWrongInput()
+    public function processWithWrongInput(): void
     {
         $this->expectException(Exception\InvalidInputFile::class);
 
@@ -176,7 +176,7 @@ final class PHPJasperTest extends TestCase
     }
 
     /** @test */
-    public function processWithWrongFormat()
+    public function processWithWrongFormat(): void
     {
         $this->expectException(Exception\InvalidFormat::class);
 
@@ -187,13 +187,5 @@ final class PHPJasperTest extends TestCase
                 'format' => 'mp3'
             ]
         );
-    }
-
-    /** @test */
-    public function output()
-    {
-        $result = $this->instance->listParameters('examples/hello_world.jrxml');
-
-        $this->expectOutputRegex('/.*jasperstarter list_parameters ".*hello_world.jrxml' . '/', $result->output() . "\n");
     }
 }
