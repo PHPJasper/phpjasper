@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit bootstrap="vendor/autoload.php"
+         cacheResult="false"
          backupGlobals="false"
          backupStaticAttributes="false"
          colors="true"
@@ -7,24 +8,25 @@
          convertNoticesToExceptions="true"
          convertWarningsToExceptions="true"
          processIsolation="false"
-         stopOnFailure="false"
-         syntaxCheck="false">
+         stopOnFailure="false">
 
-    <filter>
-        <whitelist>
-            <directory suffix=".php">./src</directory>
-        </whitelist>
-    </filter>
+<testsuites>
+    <testsuite name="default">
+        <directory>./tests/</directory>
+    </testsuite>
+</testsuites>
 
-    <testsuites>
-        <testsuite name="PHPJasper Test Suite">
-            <directory>tests</directory>
-        </testsuite>
-    </testsuites>
+<filter>
+    <whitelist processUncoveredFilesFromWhitelist="true">
+        <directory>./src/</directory>
+    </whitelist>
+</filter>
 
-    <logging>
-        <log type="coverage-html" target="tests/logs/coverage"
-             lowUpperBound="50"  highLowerBound="80" charset="UTF-8"/>
-        <log type="testdox-html" target="tests/logs/testdox/testdox.html"/>
-    </logging>
+<logging>
+    <log type="coverage-html" target="tests/logs/coverage"
+         lowUpperBound="35" highLowerBound="70"/>
+    <log type="testdox-html" target="tests/logs/testdox/testdox.html"/>
+    <log type="testdox-text" target="tests/logs/testdox/testdox.txt"/>
+</logging>
+
 </phpunit>

@@ -1,3 +1,16 @@
+Release Notes - PHPJasper - Version 3.2.0
+========================================================
+* Improvement
+    * minimum PHP version now is 7.2 
+    https://www.php.net/supported-versions.php
+    * phpunit minimal now is 8.*
+* Update
+    * suggested jdbc drivers in the folder bin/jasperstarter/jdbc
+    * update tests and phpunit.xml
+    * docs
+* Remove
+    * break test
+________________________________________________
 Release Notes - PHPJasper - Version 3.1.0
 ========================================================
 * Improvement

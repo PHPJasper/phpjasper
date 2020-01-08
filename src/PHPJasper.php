@@ -209,7 +209,7 @@ class PHPJasper
 
         $this->command = $this->checkServer();
         $this->command .= ' list_parameters ';
-        $this->command .= '"'.realpath($input).'"';
+        $this->command .= '"' . realpath($input) . '"';
 
         return $this;
     }
@@ -245,7 +245,7 @@ class PHPJasper
     {
         return $this->command;
     }
-    
+
     /**
      * Prints the command.
      *

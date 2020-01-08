@@ -5,7 +5,7 @@ _A PHP Report Generator_
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/geekcom/phpjasper/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/geekcom/phpjasper/?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/geekcom/phpjasper/v/stable)](https://packagist.org/packages/geekcom/phpjasper)
-[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.0-blue.svg?style=flat-square)](https://php.net/)
+[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%207.2-blue.svg?style=flat-square)](https://php.net/)
 [![Total Downloads](https://poser.pugx.org/geekcom/phpjasper/downloads)](https://packagist.org/packages/geekcom/phpjasper)
 [![License](https://poser.pugx.org/geekcom/phpjasper/license)](https://packagist.org/packages/geekcom/phpjasper)
 
@@ -20,7 +20,6 @@ PHPJasper is the best solution to compile and process JasperReports (.jrxml & .j
 * PHPJasper Can be used regardless of your PHP Framework
 * For PHP versions less than 7.0 see: [v1.16](https://github.com/PHPJasper/phpjasper/releases/tag/v1.16)
 * [Here](https://github.com/PHPJasper/examples) are several examples of how to use PHPJasper
-
 
 ### Why PHPJasper?
 
@@ -48,15 +47,17 @@ It is recommended using [Jaspersoft Studio](http://community.jaspersoft.com/proj
 
 ## Requirements
 
-* PHP 7.0 or above
+* PHP 7.2 or above
 * Java JDK 1.8
 
 ## Optional
 
-* [Mysql JDBC Driver](http://dev.mysql.com/downloads/connector/j/) (If you want to use a database)
-* [PostgreSQL JDBC Driver](https://jdbc.postgresql.org/download.html) (If you want to use a database)
-* [Microsoft JDBC Drivers](https://www.microsoft.com/en-US/download/details.aspx?id=11774) (If you want to use a database)
-* [Jaspersoft Studio](http://community.jaspersoft.com/project/jaspersoft-studio) (to draw and compile your reports)
+* Any `jdbc` drivers to generate reports from a database (MySQL, PostgreSQL, MSSQL...), must be copied to a folder `bin/jasperstarter/jdbc`
+* We ship the [PostgreSQL](https://jdbc.postgresql.org/) (42.2.9) in the `bin/jasperstarter/jdbc` directory.
+* We ship the [MySQL connector](http://dev.mysql.com/downloads/connector/j/) (v5.1.48) in the `bin/jasperstarter/jdbc` directory.
+* [Microsoft JDBC Drivers SQL Server
+](https://docs.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-ver15).
+* [Jaspersoft Studio](http://community.jaspersoft.com/project/jaspersoft-studio) (to draw your reports).
 
 ## Installation
 
@@ -69,7 +70,7 @@ Or in your file'composer.json' add:
 ```json
 {
     "require": {
-        "geekcom/phpjasper": "^3.1.0"
+        "geekcom/phpjasper": "^3.2.0"
     }
 }
 ```
@@ -94,7 +95,7 @@ To execute tests:
 * `docker exec -it phpjasper ./vendor/bin/phpunit` or
 * `docker exec -it phpjasper ./vendor/bin/phpunit --testdox`
 
-To see coverage of tests execute the file: `/tests/codeCoverage/html/dashboard.html`
+To see coverage of tests execute the file: `tests/logs/coverage/index.html`
 
 _Help us writing new tests, make a fork_ :)
 
@@ -309,19 +310,6 @@ $jasper->process(
     $options
 )->execute();
 ```
-
-### MySQL
-
-We ship the [MySQL connector](http://dev.mysql.com/downloads/connector/j/) (v5.1.39) in the `/src/JasperStarter/jdbc/` directory.
-
-### PostgreSQL
-
-We ship the [PostgreSQL](https://jdbc.postgresql.org/) (v9.4-1203) in the `/src/JasperStarter/jdbc/` directory.
-
-### MSSQL
-
-[Microsoft JDBC Drivers 6.0, 4.2, 4.1, and 4.0 for SQL Server
-](https://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=11774).
 
 ## Performance
 
