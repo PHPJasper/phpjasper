@@ -1,9 +1,8 @@
 /vendor
-tests/*.jasper
-tests/fixture
-/tests/logs
-.phpcs-cache
-.phpunit.result.cache
+/tests/log
+phpunit.xml
+*.jasper
+*.cache
 
 # IDE
 ## Eclipse
