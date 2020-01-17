@@ -1,3 +1,12 @@
+Release Notes - PHPJasper - Version 3.3.0
+========================================================
+* Improvement
+    * add support to coverage tests
+    * add support to travisCI
+    * static Static Analysis with phpstan
+    * add phpunit.xml.dist
+    * new badges
+________________________________________________
 Release Notes - PHPJasper - Version 3.2.0
 ========================================================
 * Improvement

@@ -10,7 +10,7 @@
   "authors": [
     {
       "name": "Daniel Rodrigues Lima",
-      "email": "danielrodrigues-ti@hotmail.com",
+      "email": "geekcom@php.net",
       "role": "lead"
     }
   ],
@@ -19,8 +19,10 @@
     "php": "^7.2"
   },
   "require-dev": {
-    "phpunit/phpunit": "^8.3",
-    "squizlabs/php_codesniffer": "3.*"
+    "phpunit/phpunit": "^8.4",
+    "php-coveralls/php-coveralls": "^2.2",
+    "squizlabs/php_codesniffer": "*",
+    "phpstan/phpstan": "^0.12.5"
   },
   "autoload": {
     "psr-4": {
@@ -31,5 +33,17 @@
     "psr-4": {
       "PHPJasper\\Test\\": "tests/"
     }
+  },
+  "scripts": {
+    "phpcs": "phpcs --standard=PSR12 -n src",
+    "phpcbf": "phpcbf --standard=PSR12 -n src",
+    "unit": "phpunit --coverage-clover ./tests/log/clover.xml --colors=always",
+    "unit-html": "php -d phar.readonly=0 vendor/bin/phpunit --coverage-html ./tests/log/ --colors=always",
+    "phpstan": "phpstan analyse src --level 0",
+    "test": [
+      "@phpcs",
+      "@unit",
+      "@phpstan"
+    ]
   }
 }
