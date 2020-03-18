@@ -15,6 +15,18 @@ namespace PHPJasper;
 
 use PHPJasper\Exception;
 
+use function strtoupper;
+use function substr;
+use function is_file;
+use function realpath;
+use function join;
+use function array_merge;
+use function is_array;
+use function in_array;
+use function chdir;
+use function exec;
+use function is_dir;
+
 class PHPJasper
 {
 
@@ -127,6 +139,7 @@ class PHPJasper
         $this->command .= ' -o ' . "\"$output\"";
 
         $this->command .= ' -f ' . join(' ', $options['format']);
+
         if ($options['params']) {
             $this->command .= ' -P ';
             foreach ($options['params'] as $key => $value) {
@@ -189,6 +202,7 @@ class PHPJasper
         if (!is_array($format)) {
             $format = [$format];
         }
+
         foreach ($format as $value) {
             if (!in_array($value, $this->formats)) {
                 throw new Exception\InvalidFormat();
@@ -231,6 +245,7 @@ class PHPJasper
 
         chdir($this->pathExecutable);
         exec($this->command, $output, $returnVar);
+
         if ($returnVar !== 0) {
             throw new Exception\ErrorCommandExecutable();
         }
@@ -275,6 +290,7 @@ class PHPJasper
         if (!$this->command) {
             throw new Exception\InvalidCommandExecutable();
         }
+
         if (!is_dir($this->pathExecutable)) {
             throw new Exception\InvalidResourceDirectory();
         }

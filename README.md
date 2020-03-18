@@ -94,10 +94,10 @@ With Docker CE and docker-compose installed just run:
 
 To execute tests:
 
-* `docker exec -it phpjasper ./vendor/bin/phpunit` or
-* `docker exec -it phpjasper ./vendor/bin/phpunit --testdox`
+* `docker exec -it phpjasper sudo composer test` or
+* `docker exec -it phpjasper sudo composer testdox`
 
-To see coverage of tests execute the file: `tests/logs/coverage/index.html`
+To see coverage manually of tests, execute the file: `tests/log/report/index.html`
 
 _Help us writing new tests, make a fork_ :)
 
