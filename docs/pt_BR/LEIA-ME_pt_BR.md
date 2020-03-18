@@ -91,10 +91,10 @@ Com o Docker CE e o docker-compose instalados basta executar os comandos:
 
 Para rodar os testes dentro do container execute:
 
-* `docker exec -it phpjasper ./vendor/bin/phpunit` ou
-* `docker exec -it phpjasper ./vendor/bin/phpunit --testdox`
+* `docker exec -it phpjasper sudo composer test` ou
+* `docker exec -it phpjasper sudo composer testdox`
 
-Para ver o coverage basta executar o arquivo: `tests/logs/coverage/index.html`
+Para ver o coverage basta executar o arquivo: `tests/log/report/index.html`
 
 _Ajude-nos escrevendo novos testes, faça um fork_ :)
 

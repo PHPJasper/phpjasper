@@ -20,6 +20,7 @@ use ReflectionObject;
 
 /**
  * @author Rafael Queiroz <rafaelfqf@gmail.com>
+ * @author Daniel Rodrigues <geekcom@php.net>
  */
 final class PHPJasperTest extends TestCase
 {
