@@ -33,6 +33,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "boaglio",
+      "name": "Fernando Boaglio",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/6140?v=4",
+      "profile": "http://www.boaglio.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
