@@ -339,31 +339,3 @@ Open a new [Issue](https://github.com/PHPJasper/phpjasper/issues) or look for a 
 MIT
 
 ## [Contribute](https://github.com/PHPJasper/phpjasper/blob/master/CONTRIBUTING.md)
-
-Contribute to the community PHP, make a fork!
-## Contributors ✨
-
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tr>
-    <td align="center"><a href="https://twitter.com/geekcom2"><img src="https://avatars2.githubusercontent.com/u/3955933?v=4" width="100px;" alt=""/><br /><sub><b>Daniel Rodrigues</b></sub></a><br /><a href="#infra-geekcom" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#maintenance-geekcom" title="Maintenance">🚧</a> <a href="https://github.com/PHPJasper/phpjasper/commits?author=geekcom" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/rafaelqueiroz"><img src="https://avatars0.githubusercontent.com/u/275919?v=4" width="100px;" alt=""/><br /><sub><b>Rafael Queiroz</b></sub></a><br /><a href="https://github.com/PHPJasper/phpjasper/commits?author=rafaelqueiroz" title="Code">💻</a></td>
-    <td align="center"><a href="http://www.leandrobitencourt.com.br"><img src="https://avatars2.githubusercontent.com/u/13982234?v=4" width="100px;" alt=""/><br /><sub><b>Leandro Bitencourt</b></sub></a><br /><a href="https://github.com/PHPJasper/phpjasper/commits?author=lavela" title="Code">💻</a></td>
-    <td align="center"><a href="http://www.jadsonbr.com.br"><img src="https://avatars3.githubusercontent.com/u/10354607?v=4" width="100px;" alt=""/><br /><sub><b>Jadson Ribeiro</b></sub></a><br /><a href="https://github.com/PHPJasper/phpjasper/commits?author=jadsonbr" title="Code">💻</a></td>
-    <td align="center"><a href="http://www.boaglio.com"><img src="https://avatars0.githubusercontent.com/u/6140?v=4" width="100px;" alt=""/><br /><sub><b>Fernando Boaglio</b></sub></a><br /><a href="https://github.com/PHPJasper/phpjasper/commits?author=boaglio" title="Code">💻</a></td>
-    <td align="center"><a href="https://rahulja.in"><img src="https://avatars3.githubusercontent.com/u/1639945?v=4" width="100px;" alt=""/><br /><sub><b>Rahul Jain</b></sub></a><br /><a href="https://github.com/PHPJasper/phpjasper/commits?author=xRahul" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/lecneri"><img src="https://avatars2.githubusercontent.com/u/431453?v=4" width="100px;" alt=""/><br /><sub><b>Luiz Eduardo</b></sub></a><br /><a href="https://github.com/PHPJasper/phpjasper/commits?author=lecneri" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/davidribeiro"><img src="https://avatars0.githubusercontent.com/u/11426456?v=4" width="100px;" alt=""/><br /><sub><b>David Ribeiro</b></sub></a><br /><a href="https://github.com/PHPJasper/phpjasper/commits?author=davidribeiro" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/vitormattos"><img src="https://avatars3.githubusercontent.com/u/1079143?v=4" width="100px;" alt=""/><br /><sub><b>Vitor Mattos</b></sub></a><br /><a href="https://github.com/PHPJasper/phpjasper/commits?author=vitormattos" title="Code">💻</a></td>
-  </tr>
-</table>
-
-<!-- markdownlint-enable -->
-<!-- prettier-ignore-end -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
