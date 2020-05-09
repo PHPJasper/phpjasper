@@ -42,6 +42,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "dbould",
+      "name": "Dave Bould",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/5477476?v=4",
+      "profile": "http://dave.codes",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
