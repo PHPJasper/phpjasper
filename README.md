@@ -1,6 +1,6 @@
 ![PHPJasper logo](docs/images/phpjasper.png)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
@@ -352,6 +352,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://twitter.com/geekcom2"><img src="https://avatars2.githubusercontent.com/u/3955933?v=4" width="100px;" alt=""/><br /><sub><b>Daniel Rodrigues</b></sub></a><br /><a href="#infra-geekcom" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#maintenance-geekcom" title="Maintenance">🚧</a> <a href="https://github.com/PHPJasper/phpjasper/commits?author=geekcom" title="Code">💻</a></td>
+    <td align="center"><a href="http://www.leandrobitencourt.com.br"><img src="https://avatars2.githubusercontent.com/u/13982234?v=4" width="100px;" alt=""/><br /><sub><b>Leandro Bitencourt</b></sub></a><br /><a href="https://github.com/PHPJasper/phpjasper/commits?author=lavela" title="Code">💻</a></td>
   </tr>
 </table>
 
