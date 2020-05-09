@@ -1,6 +1,6 @@
 ![PHPJasper logo](docs/images/phpjasper.png)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
@@ -358,6 +358,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://dave.codes"><img src="https://avatars0.githubusercontent.com/u/5477476?v=4" width="100px;" alt=""/><br /><sub><b>Dave Bould</b></sub></a><br /><a href="https://github.com/PHPJasper/phpjasper/commits?author=dbould" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/ThiagoAlves31"><img src="https://avatars1.githubusercontent.com/u/32931011?v=4" width="100px;" alt=""/><br /><sub><b>ThiagoAlves31</b></sub></a><br /><a href="https://github.com/PHPJasper/phpjasper/commits?author=ThiagoAlves31" title="Code">💻</a></td>
     <td align="center"><a href="http://www.jadsonbr.com.br"><img src="https://avatars3.githubusercontent.com/u/10354607?v=4" width="100px;" alt=""/><br /><sub><b>Jadson Ribeiro</b></sub></a><br /><a href="https://github.com/PHPJasper/phpjasper/commits?author=jadsonbr" title="Code">💻</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="http://www.boaglio.com"><img src="https://avatars0.githubusercontent.com/u/6140?v=4" width="100px;" alt=""/><br /><sub><b>Fernando Boaglio</b></sub></a><br /><a href="https://github.com/PHPJasper/phpjasper/commits?author=boaglio" title="Code">💻</a></td>
   </tr>
 </table>
 
