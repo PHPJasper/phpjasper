@@ -1,6 +1,6 @@
 ![PHPJasper logo](docs/images/phpjasper.png)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
@@ -362,6 +362,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="http://www.boaglio.com"><img src="https://avatars0.githubusercontent.com/u/6140?v=4" width="100px;" alt=""/><br /><sub><b>Fernando Boaglio</b></sub></a><br /><a href="https://github.com/PHPJasper/phpjasper/commits?author=boaglio" title="Code">💻</a></td>
     <td align="center"><a href="https://rahulja.in"><img src="https://avatars3.githubusercontent.com/u/1639945?v=4" width="100px;" alt=""/><br /><sub><b>Rahul Jain</b></sub></a><br /><a href="https://github.com/PHPJasper/phpjasper/commits?author=xRahul" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/lecneri"><img src="https://avatars2.githubusercontent.com/u/431453?v=4" width="100px;" alt=""/><br /><sub><b>Luiz Eduardo</b></sub></a><br /><a href="https://github.com/PHPJasper/phpjasper/commits?author=lecneri" title="Code">💻</a></td>
   </tr>
 </table>
 
