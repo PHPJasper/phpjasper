@@ -19,6 +19,9 @@ _Gerador de relatórios PHP_
 
 PHPJasper é a solução perfeita para compilar e processar relatórios Jasper (.jrxml & .jasper) com PHP, ou seja, gerar relatórios com PHP.
 
+#### Nosso canal no discord
+https://discord.gg/7FpDnQ
+
 **Notas:** 
 * PHPJasper pode ser usado independente de seu Framework
 * Se você está usando uma versão menor que PHP 7.0 veja: [v1.16](https://github.com/PHPJasper/phpjasper/releases/tag/v1.16)
