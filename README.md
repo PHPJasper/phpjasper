@@ -21,6 +21,9 @@ _A PHP Report Generator_
 ### About
 PHPJasper is the best solution to compile and process JasperReports (.jrxml & .jasper files) just using PHP, in short: to generate reports using PHP.
 
+#### Our channel on discord
+https://discord.gg/7FpDnQ
+
 **Notes:** 
 * PHPJasper Can be used regardless of your PHP Framework
 * For PHP versions less than 7.0 see: [v1.16](https://github.com/PHPJasper/phpjasper/releases/tag/v1.16)
