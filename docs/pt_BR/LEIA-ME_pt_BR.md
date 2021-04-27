@@ -5,7 +5,6 @@
 _Gerador de relatórios PHP_
 
 [![Build Status](https://travis-ci.com/PHPJasper/phpjasper.svg?branch=master)](https://travis-ci.com/PHPJasper/phpjasper)
-[![CI](https://github.com/PHPJasper/phpjasper/actions/workflows/main.yml/badge.svg)](https://github.com/PHPJasper/phpjasper/actions/workflows/main.yml)
 [![Coverage Status](https://coveralls.io/repos/github/PHPJasper/phpjasper/badge.svg?branch=master)](https://coveralls.io/github/PHPJasper/phpjasper?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/geekcom/phpjasper/v/stable)](https://packagist.org/packages/geekcom/phpjasper)
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%207.2-blue.svg?style=flat-square)](https://php.net/)
