@@ -19,7 +19,7 @@
     "php": "^7.2"
   },
   "require-dev": {
-    "phpunit/phpunit": "^8.4",
+    "phpunit/phpunit": "^8.4|^9.4",
     "php-coveralls/php-coveralls": "^2.2",
     "squizlabs/php_codesniffer": "*",
     "phpstan/phpstan": "^0.12.5"
