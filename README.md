@@ -4,7 +4,7 @@
 # PHPJasper
 _A PHP Report Generator_
 
-[![Build Status](https://travis-ci.org/PHPJasper/phpjasper.svg?branch=master)](https://travis-ci.org/PHPJasper/phpjasper)
+[![Build Status](https://travis-ci.com/PHPJasper/phpjasper.svg?branch=master)](https://travis-ci.com/PHPJasper/phpjasper)
 [![Coverage Status](https://coveralls.io/repos/github/PHPJasper/phpjasper/badge.svg?branch=master)](https://coveralls.io/github/PHPJasper/phpjasper?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/geekcom/phpjasper/v/stable)](https://packagist.org/packages/geekcom/phpjasper)
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%207.2-blue.svg?style=flat-square)](https://php.net/)
