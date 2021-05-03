@@ -15,6 +15,8 @@ _Gerador de relatórios PHP_
 ### Documentação
 [![Language-en_US](https://img.shields.io/badge/en__US-100%25-green.svg)](https://github.com/PHPJasper/phpjasper/blob/master/README.md)
 
+> ### Por favor, considere **[fazer uma doação](https://nubank.com.br/pagar/518o5/zVBzxd00Sb)**, apoie nossas atividades
+
 ### Sobre a biblioteca
 
 PHPJasper é a solução perfeita para compilar e processar relatórios Jasper (.jrxml & .jasper) com PHP, ou seja, gerar relatórios com PHP.
