@@ -75,7 +75,7 @@ class PHPJasper
     public function __construct()
     {
         $this->executable = 'jasperstarter';
-        $this->pathExecutable = __DIR__ . '/../bin/jasperstarter/bin';
+        $this->pathExecutable = config('phpjasper.path_executable',__DIR__ . '/../bin/jasperstarter/bin');
         $this->windows = strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ? true : false;
     }
 

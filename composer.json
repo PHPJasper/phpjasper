@@ -1,49 +1,55 @@
 {
-  "name": "geekcom/phpjasper",
-  "description": "A PHP report generator",
-  "license": "MIT",
-  "keywords": [
-    "reports",
-    "php-reports",
-    "pdf"
-  ],
-  "authors": [
-    {
-      "name": "Daniel Rodrigues Lima",
-      "email": "geekcom@php.net",
-      "role": "lead"
+    "name": "geekcom/phpjasper",
+    "description": "A PHP report generator",
+    "license": "MIT",
+    "keywords": [
+        "reports",
+        "php-reports",
+        "pdf"
+    ],
+    "authors": [{
+        "name": "Daniel Rodrigues Lima",
+        "email": "geekcom@php.net",
+        "role": "lead"
+    }],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^7.2|^8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.4|^9.4",
+        "php-coveralls/php-coveralls": "^2.2",
+        "squizlabs/php_codesniffer": "*",
+        "phpstan/phpstan": "^0.12.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "PHPJasper\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PHPJasper\\Test\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "PHPJasper\\ServiceProvider"
+            ],
+            "aliases": {}
+        }
+    },
+    "scripts": {
+        "phpcs": "phpcs --standard=PSR12 -n src",
+        "phpstan": "phpstan analyse src --level 0",
+        "phpcbf": "phpcbf --standard=PSR12 -n src",
+        "unit": "phpunit --coverage-clover ./tests/log/clover.xml --colors=always",
+        "testdox": "phpunit --testdox",
+        "test": [
+            "@phpcs",
+            "@phpstan",
+            "@unit"
+        ]
     }
-  ],
-  "minimum-stability": "stable",
-  "require": {
-    "php": "^7.2|^8.0"
-  },
-  "require-dev": {
-    "phpunit/phpunit": "^8.4|^9.4",
-    "php-coveralls/php-coveralls": "^2.2",
-    "squizlabs/php_codesniffer": "*",
-    "phpstan/phpstan": "^0.12.5"
-  },
-  "autoload": {
-    "psr-4": {
-      "PHPJasper\\": "src/"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "PHPJasper\\Test\\": "tests/"
-    }
-  },
-  "scripts": {
-    "phpcs": "phpcs --standard=PSR12 -n src",
-    "phpstan": "phpstan analyse src --level 0",
-    "phpcbf": "phpcbf --standard=PSR12 -n src",
-    "unit": "phpunit --coverage-clover ./tests/log/clover.xml --colors=always",
-    "testdox": "phpunit --testdox",
-    "test": [
-      "@phpcs",
-      "@phpstan",
-      "@unit"
-    ]
-  }
 }
