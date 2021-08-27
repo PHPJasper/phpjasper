@@ -320,7 +320,12 @@ $jasper->process(
     $options
 )->execute();
 ```
-
+#For Laravel
+you can change path of jasperstart in configuration
+first you should publish it by command
+php artisan vendor:publish --tag=php-jasper-config
+you will find file configuration named 'phpjasper.php'
+now you can change path_executable
 ## Performance
 
 Depends on the complexity, amount of data and the resources of your machine (let me know your use case).

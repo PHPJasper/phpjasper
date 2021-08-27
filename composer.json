@@ -37,7 +37,10 @@
             "providers": [
                 "PHPJasper\\ServiceProvider"
             ],
-            "aliases": {}
+            "aliases": {
+                "PHPJasper": "PHPJasper\\Facades\\PHPJasper"
+            }
+
         }
     },
     "scripts": {
