@@ -18,6 +18,8 @@ _A PHP Report Generator_
 
 [![Language-pt_BR](https://img.shields.io/badge/pt__BR-100%25-green.svg?style=flat-square)](https://github.com/PHPJasper/phpjasper/blob/master/docs/pt_BR/LEIA-ME_pt_BR.md)
 
+> ### Please consider **[make a donation](https://blockchain.com/btc/payment_request?address=1MDkixV6Xn9yQoKLDLdznLwmbKrJ9VAThj&amount=0.00001737&message=PHPJasper_Support)**, support our activities
+
 ### About
 PHPJasper is the best solution to compile and process JasperReports (.jrxml & .jasper files) just using PHP, in short: to generate reports using PHP.
 
