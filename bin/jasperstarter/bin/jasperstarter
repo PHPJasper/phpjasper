@@ -18,7 +18,7 @@
 if(test -L "$0") then
   auxlink=`ls -l "$0" | sed 's/^[^>]*-> //g'`
   HOME_FOLDER=`dirname "$auxlink"`/..
-else
+else 
   HOME_FOLDER=`dirname "$0"`/..
 fi
 
