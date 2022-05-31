@@ -223,7 +223,7 @@ class PHPJasper
 
         preg_match_all("/<field name=\"(.*?)\"/s", file_get_contents($input), $matches);
 
-        return $matches[1];
+        return $matches[1] ?? [];
     }
 
     /**
