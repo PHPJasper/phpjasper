@@ -212,6 +212,22 @@ class PHPJasper
 
     /**
      * @param string $input
+     * @return mixed
+     * @throws Exception\InvalidInputFile
+     */
+    public function listFields(string $input)
+    {
+        if (!is_file($input)) {
+            throw new Exception\InvalidInputFile();
+        }
+
+        preg_match_all("/<field name=\"(.*?)\"/s", file_get_contents($input), $matches);
+
+        return $matches[1] ?? [];
+    }
+
+    /**
+     * @param string $input
      * @return $this
      * @throws \Exception
      */
