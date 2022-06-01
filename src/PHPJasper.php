@@ -79,6 +79,13 @@ class PHPJasper
         $this->windows = strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ? true : false;
     }
 
+    public function setExecutableDir($folderName): PHPJasper
+    {
+        $this->pathExecutable = __DIR__ . '/../bin/' . $folderName . '/bin';
+
+        return $this;
+    }
+
     /**
      * @return string
      */

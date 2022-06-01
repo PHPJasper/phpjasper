@@ -1,5 +1,5 @@
 {
-  "name": "geekcom/phpjasper",
+  "name": "smart145/phpjasper",
   "description": "A PHP report generator",
   "license": "MIT",
   "keywords": [
@@ -11,6 +11,11 @@
     {
       "name": "Daniel Rodrigues Lima",
       "email": "geekcom@php.net",
+      "role": "lead"
+    },  
+    {
+      "name": "Eliurkis Diaz",
+      "email": "eliurkis@gmail.com",
       "role": "lead"
     }
   ],

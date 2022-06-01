@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+    <nalepka>
+      <ident>
+        <smpidtxt>MP:</smpidtxt>
+        <smpid>102</smpid>
+        <smpnaztxt>Item:</smpnaztxt>
+        <smpnaz>RADIJSKA ANTENA RA-515          </smpnaz>
+        <smpnazdtxt>Naziv:</smpnazdtxt>
+        <smpnazd>RADIJSKA ANTENA                 </smpnazd>
+        <sdatetxt>Date:</sdatetxt>
+        <sdate>08.06.2017</sdate>
+        <sbatchtxt>Batch:</sbatchtxt>
+        <sbatch>00001228</sbatch>
+        <skoltxt>Qty:</skoltxt>
+        <skol>1</skol>
+        <sprevkoltxt>Prevz:</sprevkoltxt>
+        <sprevkol>000001</sprevkol>
+        <data>00000102;00001228;000010;RADIJSKA ANTENA RA-515          ;Pak1</data>
+      </ident>
+  
+      <ident>
+        <smpidtxt>MP:</smpidtxt>
+        <smpid>109</smpid>
+        <smpnaztxt>Item:</smpnaztxt>
+        <smpnaz>PLATISCA 15 COL 123456789 1234 1</smpnaz>
+        <smpnazdtxt>Naziv:</smpnazdtxt>
+        <smpnazd>100 * 10 * 5 MM                 </smpnazd>
+        <sdatetxt>Date:</sdatetxt>
+        <sdate>08.06.2017</sdate>
+        <sbatchtxt>Batch:</sbatchtxt>
+        <sbatch>00001229</sbatch>
+        <skoltxt>Qty:</skoltxt>
+        <skol>2</skol>
+        <sprevkoltxt>Prevz:</sprevkoltxt>
+        <sprevkol>000002</sprevkol>
+        <data>00000109;00001229;000020;PLATISCA 15 COL 123456789 1234 1;Pak1</data>
+      </ident>
+  
+    </nalepka>
+  

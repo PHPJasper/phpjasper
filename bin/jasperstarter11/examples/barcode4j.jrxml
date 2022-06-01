@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TDEtiketa" pageWidth="297" pageHeight="210" orientation="Landscape" columnWidth="267" leftMargin="15" rightMargin="15" topMargin="15" bottomMargin="15" uuid="10ed5b7e-e925-4927-bcf2-f2e70b21803d">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="XML Document"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<queryString language="xPath">
+		<![CDATA[/nalepka/ident]]>
+	</queryString>
+	<field name="smpidtxt_1" class="java.lang.String">
+		<fieldDescription><![CDATA[smpidtxt]]></fieldDescription>
+	</field>
+	<field name="smpid_1" class="java.lang.String">
+		<fieldDescription><![CDATA[smpid]]></fieldDescription>
+	</field>
+	<field name="smpnaztxt_1" class="java.lang.String">
+		<fieldDescription><![CDATA[smpnaztxt]]></fieldDescription>
+	</field>
+	<field name="smpnaz_1" class="java.lang.String">
+		<fieldDescription><![CDATA[smpnaz]]></fieldDescription>
+	</field>
+	<field name="smpnazdtxt_1" class="java.lang.String">
+		<fieldDescription><![CDATA[smpnazdtxt]]></fieldDescription>
+	</field>
+	<field name="smpnazd_1" class="java.lang.String">
+		<fieldDescription><![CDATA[smpnazd]]></fieldDescription>
+	</field>
+	<field name="sdatetxt_1" class="java.lang.String">
+		<fieldDescription><![CDATA[sdatetxt]]></fieldDescription>
+	</field>
+	<field name="sdate_1" class="java.lang.String">
+		<fieldDescription><![CDATA[sdate]]></fieldDescription>
+	</field>
+	<field name="sbatchtxt_1" class="java.lang.String">
+		<fieldDescription><![CDATA[sbatchtxt]]></fieldDescription>
+	</field>
+	<field name="sbatch_1" class="java.lang.String">
+		<fieldDescription><![CDATA[sbatch]]></fieldDescription>
+	</field>
+	<field name="skoltxt_1" class="java.lang.String">
+		<fieldDescription><![CDATA[skoltxt]]></fieldDescription>
+	</field>
+	<field name="skol_1" class="java.lang.String">
+		<fieldDescription><![CDATA[skol]]></fieldDescription>
+	</field>
+	<field name="sprevkoltxt_1" class="java.lang.String">
+		<fieldDescription><![CDATA[sprevkoltxt]]></fieldDescription>
+	</field>
+	<field name="sprevkol_1" class="java.lang.String">
+		<fieldDescription><![CDATA[sprevkol]]></fieldDescription>
+	</field>
+	<field name="data_1" class="java.lang.String">
+		<fieldDescription><![CDATA[data]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="180" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="40" width="80" height="20" uuid="1b4dc33c-e4bc-438c-82bf-b8f82b4d6444"/>
+				<textFieldExpression><![CDATA[$F{smpidtxt_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="40" width="190" height="20" uuid="0133a7a1-6ac5-437c-9b60-7c6f42c8a6ed"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{smpid_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="80" height="20" uuid="583786ee-3cf1-4e2f-afa3-4128cbde6054"/>
+				<textFieldExpression><![CDATA[$F{smpnaztxt_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="0" width="190" height="20" uuid="934eacf9-6015-4e49-9852-1e6376619e66"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{smpnaz_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="60" width="80" height="20" uuid="5e39fe80-417b-45c0-88c9-aaa53a90b4c5"/>
+				<textFieldExpression><![CDATA[$F{sbatchtxt_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="60" width="80" height="20" uuid="de43a67a-f33a-4a29-abc5-452c27f76f2e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sbatch_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="80" width="80" height="20" uuid="ec8a241f-d3c9-4e71-97e4-eda893d252f5"/>
+				<textFieldExpression><![CDATA[$F{skoltxt_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="80" width="80" height="20" uuid="8cfadd8b-3e3e-4725-ae09-c07adabf261f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{skol_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="100" width="80" height="20" uuid="b0737658-416f-43e7-a131-b8639637a96c"/>
+				<textFieldExpression><![CDATA[$F{sdatetxt_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="100" width="80" height="20" uuid="b7187493-8f82-4e49-ae38-403271287631"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sdate_1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="120" width="158" height="30" uuid="9a699362-d392-4062-bbe5-3479d61480c3"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Example.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="150" width="155" height="19" uuid="64028560-c551-4575-b3ef-d15e80a5d1ae"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[www.example.com]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="170" y="50" width="80" height="30" uuid="486f7f52-7760-4598-81a2-c3105e354141"/>
+				<jr:Code39 xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<jr:codeExpression><![CDATA["123456789"]]></jr:codeExpression>
+				</jr:Code39>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>
