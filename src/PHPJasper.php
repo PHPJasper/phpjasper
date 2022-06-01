@@ -252,6 +252,34 @@ class PHPJasper
     }
 
     /**
+     * @param string $input
+     * @return array
+     * @throws Exception\InvalidInputFile
+     */
+    public function listParametersTemplate(string $input)
+    {
+        if (!is_file($input)) {
+            throw new Exception\InvalidInputFile();
+        }
+
+        $this->command = $this->checkServer();
+        $this->command .= ' list_parameters ';
+        $this->command .= '"' . realpath($input) . '"';
+
+        $output = [];
+        $parameters = [];
+
+        chdir($this->pathExecutable);
+        exec($this->command, $output);
+
+        foreach ($output as $parameter) {
+            $parameters[] = substr($parameter, 2, strpos($parameter, ' ', 2) -2);
+        }
+
+        return $parameters;
+    }
+
+    /**
      * @param bool $user
      * @return mixed
      * @throws Exception\InvalidCommandExecutable
