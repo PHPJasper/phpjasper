@@ -228,9 +228,14 @@ class PHPJasper
             throw new Exception\InvalidInputFile();
         }
 
-        preg_match_all("/<field name=\"(.*?)\"/s", file_get_contents($input), $matches);
+        $fileContent = file_get_contents($input);
 
-        return $matches[1] ?? [];
+        preg_match_all("/<field name=\"(.*?)\"/s", $fileContent, $fieldsKeys);
+        preg_match_all("/<subDataset name=\"(.*?)\"/s", $fileContent, $subDataSetKeys);
+
+        $matches = array_merge($fieldsKeys[1] ?? [], $subDataSetKeys[1] ?? []);
+
+        return $matches ?? [];
     }
 
     /**
