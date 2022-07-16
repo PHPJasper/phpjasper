@@ -221,6 +221,7 @@ class PHPJasper
      * @param string $input
      * @return mixed
      * @throws Exception\InvalidInputFile
+     * @throws \Exception
      */
     public function listFieldsAndParams(string $input)
     {
@@ -229,20 +230,50 @@ class PHPJasper
         }
 
         $objXmlDocument = simplexml_load_file($input);
+
+        if ($objXmlDocument === false) {
+            $message = "There were errors parsing the XML file.\n";
+            foreach (libxml_get_errors() as $error) {
+                $message .= $error->message . "\n";
+            }
+            throw new \Exception($message);
+        }
+
         $structure = json_decode(json_encode($objXmlDocument), true);
 
         $fields = [];
-        foreach ($structure['field'] ?? [] as $field) {
-            $fields[] = $field['@attributes']['name'];
+        $currentFields = $structure['field'] ?? [];
+        if ($currentFields) {
+            if (isset($currentFields['@attributes'])) {
+                $fields[] = $currentFields['@attributes']['name'];
+            } else {
+                foreach ($currentFields as $field) {
+                    $fields[] = $field['@attributes']['name'];
+                }
+            }
         }
 
-        foreach ($structure['subDataset'] ?? [] as $subDataset) {
-            $fields[] = $subDataset['@attributes']['name'];
+        $currentSubDatasets = $structure['subDataset'] ?? [];
+        if ($currentSubDatasets) {
+            if (isset($currentSubDatasets['@attributes'])) {
+                $fields[] = $currentSubDatasets['@attributes']['name'];
+            } else {
+                foreach ($currentSubDatasets as $subDataset) {
+                    $fields[] = $subDataset['@attributes']['name'];
+                }
+            }
         }
 
         $params = [];
-        foreach ($structure['parameter'] ?? [] as $param) {
-            $params[] = $param['@attributes']['name'];
+        $currentParams = $structure['parameter'] ?? [];
+        if ($currentParams) {
+            if (isset($currentParams['@attributes'])) {
+                $params[] = $currentParams['@attributes']['name'];
+            } else {
+                foreach ($currentParams as $param) {
+                    $params[] = $param['@attributes']['name'];
+                }
+            }
         }
 
         return [
@@ -291,7 +322,7 @@ class PHPJasper
         exec($this->command, $output);
 
         foreach ($output as $parameter) {
-            $parameters[] = substr($parameter, 2, strpos($parameter, ' ', 2) -2);
+            $parameters[] = substr($parameter, 2, strpos($parameter, ' ', 2) - 2);
         }
 
         return $parameters;
