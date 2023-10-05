@@ -48,7 +48,7 @@ class PHPJasper
     /**
      * @var bool
      */
-    protected $windows;
+    protected $isWindows;
 
     /**
      * @var array
@@ -76,7 +76,7 @@ class PHPJasper
     {
         $this->executable = 'jasperstarter';
         $this->pathExecutable = __DIR__ . '/../bin/jasperstarter/bin';
-        $this->windows = strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ? true : false;
+        $this->isWindows = strtoupper(substr(PHP_OS, 0, 3)) === 'WIN';
     }
 
     /**
@@ -84,7 +84,7 @@ class PHPJasper
      */
     private function checkServer()
     {
-        return $this->command = $this->windows ? $this->executable : './' . $this->executable;
+        return $this->command = $this->isWindows ? $this->executable : './' . $this->executable;
     }
 
     /**
@@ -199,14 +199,11 @@ class PHPJasper
      */
     protected function validateFormat($format)
     {
-        if (!is_array($format)) {
-            $format = [$format];
-        }
+        $formatsToValidate = is_array($format) ? $format : [$format];
+        $invalidFormats = array_diff($formatsToValidate, $this->formats);
 
-        foreach ($format as $value) {
-            if (!in_array($value, $this->formats)) {
-                throw new Exception\InvalidFormat();
-            }
+        if (!empty($invalidFormats)) {
+            throw new Exception\InvalidFormat();
         }
     }
 
@@ -229,16 +226,19 @@ class PHPJasper
     }
 
     /**
-     * @param bool $user
+     * @param string|null $user
      * @return mixed
      * @throws Exception\InvalidCommandExecutable
      * @throws Exception\InvalidResourceDirectory
      * @throws Exception\ErrorCommandExecutable
      */
-    public function execute($user = false)
+    public function execute(?string $user = null)
     {
         $this->validateExecute();
-        $this->addUserToCommand($user);
+
+        if (!is_null($user) && !$this->isWindows) {
+            $this->addUserToCommand($user);
+        }
 
         $output = [];
         $returnVar = 0;
@@ -268,17 +268,15 @@ class PHPJasper
      */
     public function printOutput()
     {
-        print $this->command . "\n";
+        print $this->command . PHP_EOL;
     }
 
     /**
-     * @param $user
+     * @param string $user
      */
-    protected function addUserToCommand($user)
+    protected function addUserToCommand(string $user)
     {
-        if ($user && !$this->windows) {
-            $this->command = 'su -u ' . $user . " -c \"" . $this->command . "\"";
-        }
+        $this->command = 'su -u ' . $user . " -c \"" . $this->command . "\"";
     }
 
     /**
