@@ -1,7 +1,7 @@
 version: '2'
 services:
   php:
-    image: geekcom/phpjasper
+    image: geekcom/phpjasper:latest
     container_name: phpjasper
     volumes:
       - .:/var/www/app
