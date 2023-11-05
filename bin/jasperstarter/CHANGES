@@ -2,6 +2,41 @@
 JasperStarter - Running JasperReports from command line
 ========================================================
 
+Release notes - JasperStarter - Version 3.6.2
+---------------------------------------------
+
+** Bug
+    * JAS-161 CVE-2021-44832 in log4j-2.17.0
+
+
+Release notes - JasperStarter - Version 3.6.1
+---------------------------------------------
+
+** Bug
+    * JAS-160 log4j 2.16.0 is vulnerable to CVE-2021-45105
+
+
+Release notes - JasperStarter - Version 3.6.0
+---------------------------------------------
+
+** Bug
+    * CVE-2019-17571 - Included in Log4j 1.2 is a SocketServer class that is
+      vulnerable to deserialization of untrusted data which can be exploited to
+      remotely execute arbitrary code when combined with a deserialization
+      gadget when listening to untrusted network traffic for log data. This
+      affects Log4j versions up to 1.2 up to 1.2.17.
+
+    * [JAS-158] Jasperstarter contains an old log4j-1.2.17 which is affected by CVE-2019-17571
+    * [JAS-146] mvn: Could not resolve dependencies \(...\) from/to jaspersoft.artifactoryonline.com
+    * [JAS-142] Failed to generate qrcode - zxing library missing
+
+** Improvement
+    * [JAS-156] Is JasperStarter vulnerable to CVE-2021-44228
+
+** Task
+    * [JAS-157] Include JasperReports 6.18.1
+
+
 Release notes - JasperStarter - Version 3.5.0
 ---------------------------------------------
 
@@ -359,7 +394,7 @@ JasperStarter is now able to prompt for report parameters.
           jrxml    - compiles implicit
           jrprint  - print, view or export previously filled reports.
         New output type: jrprint. This makes --keep obsolete.
-        New parameter -w writes compiled file to imput dir if jrxml is
+        New parameter -w writes compiled file to input dir if jrxml is
         processed.
         Parameter -t defaults to "none" and can therefore be omited if no
         database is needed.
