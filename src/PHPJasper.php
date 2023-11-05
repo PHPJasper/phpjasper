@@ -29,7 +29,6 @@ use function is_dir;
 
 class PHPJasper
 {
-
     /**
      * @var string
      */
@@ -173,6 +172,8 @@ class PHPJasper
             $this->command .= " -r {$options['resources']}";
         }
 
+        $this->command .= " 2>&1";
+
         return $this;
     }
 
@@ -247,7 +248,7 @@ class PHPJasper
         exec($this->command, $output, $returnVar);
 
         if ($returnVar !== 0) {
-            throw new Exception\ErrorCommandExecutable();
+            throw new Exception\ErrorCommandExecutable(null, null, null, $output);
         }
 
         return $output;
