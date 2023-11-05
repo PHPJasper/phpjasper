@@ -11,10 +11,21 @@ class ErrorCommandExecutable extends Exception
      * @param string $message
      * @param int $code
      * @param Exception|null $previous
+     * @param array $output
+     *
      */
-    public function __construct($message = "", $code = 0, Exception $previous = null)
+    public function __construct($message = "", $code = 0, Exception $previous = null, $output = [])
     {
-        $message = 'Your report has an error and couldn \'t be processed!\ Try to output the command using the function `output();` and run it manually in the console.';
+        $message = '';
+
+        foreach ($output as $line) {
+            $message .= $line . '   ';
+        }
+
+        if (empty($message)) {
+            $message = 'Your report has an error and couldn\'t be processed! Try to output the command using the function `output();` and run it manually in the console.';
+        }
+
         parent::__construct($message, $code, $previous);
     }
 }

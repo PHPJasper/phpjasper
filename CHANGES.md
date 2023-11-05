@@ -1,16 +1,26 @@
+Release Notes - PHPJasper - Version 3.4.0
+========================================================
+* Update
+  * Exception::__construct(): Passing null to parameter #2 ($code) of type int is deprecated (Solved)
+  * Capture JasperStarter errors and include them in ErrorCommandExecutable exception message
+  * PathExecutable parameter
+  * Update composer libs
+  * Update phpjasper docker image
+  * Update doc
+________________________________________________
 Release Notes - PHPJasper - Version 3.3.0
 ========================================================
 * Improvement
     * add support to coverage tests
     * add support to travisCI
-    * static Static Analysis with phpstan
+    * Static Analysis with phpstan
     * add phpunit.xml.dist
     * new badges
 ________________________________________________
 Release Notes - PHPJasper - Version 3.2.0
 ========================================================
 * Improvement
-    * minimum PHP version now is 7.2 
+    * minimum PHP version now is 7.2
     https://www.php.net/supported-versions.php
     * phpunit minimal now is 8.*
 * Update
