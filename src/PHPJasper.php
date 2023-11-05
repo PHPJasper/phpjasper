@@ -248,7 +248,7 @@ class PHPJasper
         exec($this->command, $output, $returnVar);
 
         if ($returnVar !== 0) {
-            throw new Exception\ErrorCommandExecutable(null, null, null, $output);
+            throw new Exception\ErrorCommandExecutable(null, 0, null, $output);
         }
 
         return $output;
