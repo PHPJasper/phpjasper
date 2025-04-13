@@ -1,6 +1,6 @@
 <?php
 
-namespace PHPJasper\Exception;
+namespace XiDanko\Jasper\Exception;
 
 use Exception;
 

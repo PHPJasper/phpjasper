@@ -1,58 +1,19 @@
 <?php
+namespace XiDanko\Jasper;
 
-/*
- * This file is part of the PHPJasper.
- *
- * (c) Daniel Rodrigues (geekcom)
- *
- * For the full copyright and license information, please view the LICENSE.md
- * file that was distributed with this source code.
- */
+use XiDanko\Jasper\Exception\ErrorCommandExecutable;
+use XiDanko\Jasper\Exception\InvalidCommandExecutable;
+use XiDanko\Jasper\Exception\InvalidFormat;
+use XiDanko\Jasper\Exception\InvalidInputFile;
+use XiDanko\Jasper\Exception\InvalidResourceDirectory;
 
-declare(strict_types=1);
-
-namespace PHPJasper;
-
-use PHPJasper\Exception;
-
-use function strtoupper;
-use function substr;
-use function is_file;
-use function realpath;
-use function join;
-use function array_merge;
-use function is_array;
-use function in_array;
-use function chdir;
-use function exec;
-use function is_dir;
-
-class PHPJasper
+class Jasper
 {
-    /**
-     * @var string
-     */
-    protected $command;
-
-    /**
-     * @var string
-     */
-    protected $executable;
-
-    /**
-     * @var string
-     */
-    protected $pathExecutable;
-
-    /**
-     * @var bool
-     */
-    protected $windows;
-
-    /**
-     * @var array
-     */
-    protected $formats = [
+    protected string $command;
+    protected string $executable;
+    protected string $pathExecutable;
+    protected bool $windows;
+    protected array $formats = [
         'pdf',
         'rtf',
         'xls',
@@ -68,9 +29,6 @@ class PHPJasper
         'jrprint'
     ];
 
-    /**
-     * PHPJasper constructor
-     */
     public function __construct(string $pathExecutable = null)
     {
         $this->executable = 'jasperstarter';
@@ -78,24 +36,15 @@ class PHPJasper
         $this->windows = strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ? true : false;
     }
 
-    /**
-     * @return string
-     */
-    private function checkServer()
+    private function checkServer(): string
     {
         return $this->command = $this->windows ? $this->executable : './' . $this->executable;
     }
 
-    /**
-     * @param string $input
-     * @param string $output optional
-     * @return $this
-     * @throws Exception\InvalidInputFile
-     */
-    public function compile(string $input, string $output = '')
+    public function compile(string $input, string $output = ''): Jasper
     {
         if (!is_file($input)) {
-            throw new Exception\InvalidInputFile();
+            throw new InvalidInputFile();
         }
 
         $this->command = $this->checkServer();
@@ -109,20 +58,12 @@ class PHPJasper
         return $this;
     }
 
-    /**
-     * @param string $input
-     * @param string $output
-     * @param array $options
-     * @return $this
-     * @throws Exception\InvalidInputFile
-     * @throws Exception\InvalidFormat
-     */
-    public function process(string $input, string $output, array $options = [])
+    public function process(string $input, string $output, array $options = []): Jasper
     {
         $options = $this->parseProcessOptions($options);
 
         if (!$input) {
-            throw new Exception\InvalidInputFile();
+            throw new InvalidInputFile();
         }
 
         $this->validateFormat($options['format']);
@@ -177,11 +118,7 @@ class PHPJasper
         return $this;
     }
 
-    /**
-     * @param array $options
-     * @return array
-     */
-    protected function parseProcessOptions(array $options)
+    protected function parseProcessOptions(array $options): array
     {
         $defaultOptions = [
             'format' => ['pdf'],
@@ -194,11 +131,7 @@ class PHPJasper
         return array_merge($defaultOptions, $options);
     }
 
-    /**
-     * @param $format
-     * @throws Exception\InvalidFormat
-     */
-    protected function validateFormat($format)
+    protected function validateFormat($format): void
     {
         if (!is_array($format)) {
             $format = [$format];
@@ -206,20 +139,15 @@ class PHPJasper
 
         foreach ($format as $value) {
             if (!in_array($value, $this->formats)) {
-                throw new Exception\InvalidFormat();
+                throw new InvalidFormat();
             }
         }
     }
 
-    /**
-     * @param string $input
-     * @return $this
-     * @throws \Exception
-     */
-    public function listParameters(string $input)
+    public function listParameters(string $input): Jasper
     {
         if (!is_file($input)) {
-            throw new Exception\InvalidInputFile();
+            throw new InvalidInputFile();
         }
 
         $this->command = $this->checkServer();
@@ -229,14 +157,7 @@ class PHPJasper
         return $this;
     }
 
-    /**
-     * @param bool $user
-     * @return mixed
-     * @throws Exception\InvalidCommandExecutable
-     * @throws Exception\InvalidResourceDirectory
-     * @throws Exception\ErrorCommandExecutable
-     */
-    public function execute($user = false)
+    public function execute(bool $user = false): string
     {
         $this->validateExecute();
         $this->addUserToCommand($user);
@@ -248,52 +169,37 @@ class PHPJasper
         exec($this->command, $output, $returnVar);
 
         if ($returnVar !== 0) {
-            throw new Exception\ErrorCommandExecutable(null, 0, null, $output);
+            throw new ErrorCommandExecutable(null, 0, null, $output);
         }
 
         return implode("\n", $output);
     }
 
-    /**
-     * @return string
-     */
-    public function output()
+    public function output(): string
     {
         return $this->command;
     }
 
-    /**
-     * Prints the command.
-     *
-     * @return void
-     */
-    public function printOutput()
+    public function printOutput(): void
     {
         print $this->command . "\n";
     }
 
-    /**
-     * @param $user
-     */
-    protected function addUserToCommand($user)
+    protected function addUserToCommand($user): void
     {
         if ($user && !$this->windows) {
             $this->command = 'su -u ' . $user . " -c \"" . $this->command . "\"";
         }
     }
 
-    /**
-     * @throws Exception\InvalidCommandExecutable
-     * @throws Exception\InvalidResourceDirectory
-     */
-    protected function validateExecute()
+    protected function validateExecute(): void
     {
         if (!$this->command) {
-            throw new Exception\InvalidCommandExecutable();
+            throw new InvalidCommandExecutable();
         }
 
         if (!is_dir($this->pathExecutable)) {
-            throw new Exception\InvalidResourceDirectory();
+            throw new InvalidResourceDirectory();
         }
     }
 }

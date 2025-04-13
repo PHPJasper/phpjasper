@@ -128,11 +128,11 @@ First we need to compile our `JRXML` file into a `JASPER` binary file. We just h
 
 require __DIR__ . '/vendor/autoload.php';
 
-use PHPJasper\PHPJasper;
+use PHPJasper\Jasper;
 
 $input = __DIR__ . '/vendor/geekcom/phpjasper/examples/hello_world.jrxml';   
 
-$jasper = new PHPJasper;
+$jasper = new Jasper;
 $jasper->compile($input)->execute();
 ```
 
@@ -146,7 +146,7 @@ Now lets process the report that we compile before:
 
 require __DIR__ . '/vendor/autoload.php';
 
-use PHPJasper\PHPJasper;
+use PHPJasper\Jasper;
 
 $input = __DIR__ . '/vendor/geekcom/phpjasper/examples/hello_world.jasper';  
 $output = __DIR__ . '/vendor/geekcom/phpjasper/examples';    
@@ -154,7 +154,7 @@ $options = [
     'format' => ['pdf', 'rtf'] 
 ];
 
-$jasper = new PHPJasper;
+$jasper = new Jasper;
 
 $jasper->process(
     $input,
@@ -175,11 +175,11 @@ Querying the jasper file to examine parameters available in the given jasper rep
 
 require __DIR__ . '/vendor/autoload.php';
 
-use PHPJasper\PHPJasper;
+use PHPJasper\Jasper;
 
 $input = __DIR__ . '/vendor/geekcom/phpjasper/examples/hello_world_params.jrxml';
 
-$jasper = new PHPJasper;
+$jasper = new Jasper;
 $output = $jasper->listParameters($input)->execute();
 
 foreach($output as $parameter_description)
@@ -193,7 +193,7 @@ We can also specify parameters for connecting to database:
 ```php
 require __DIR__ . '/vendor/autoload.php';
 
-use PHPJasper\PHPJasper;    
+use PHPJasper\Jasper;    
 
 $input = '/your_input_path/your_report.jasper';   
 $output = '/your_output_path';
@@ -211,7 +211,7 @@ $options = [
     ]
 ];
 
-$jasper = new PHPJasper;
+$jasper = new Jasper;
 
 $jasper->process(
         $input,
@@ -229,7 +229,7 @@ For a complete list of locales see [Supported Locales](http://www.oracle.com/tec
 ```php
 require __DIR__ . '/vendor/autoload.php';
 
-use PHPJasper\PHPJasper;
+use PHPJasper\Jasper;
 
 $input = '/your_input_path/your_report.jasper or .jrxml';   
 $output = '/your_output_path';
@@ -251,7 +251,7 @@ $options = [
     ]
 ];
 
-$jasper = new PHPJasper;
+$jasper = new Jasper;
 
 $jasper->process(
         $input,
@@ -265,7 +265,7 @@ $jasper->process(
 ```php
 require __DIR__ . '/vendor/autoload.php';
 
-use PHPJasper\PHPJasper;
+use PHPJasper\Jasper;
 
 $input = '/your_input_path/your_report.jasper';   
 $output = '/your_output_path';
@@ -281,7 +281,7 @@ $options = [
     ]
 ];
 
-$jasper = new PHPJasper;
+$jasper = new Jasper;
 
 $jasper->process(
     $input,
@@ -295,7 +295,7 @@ $jasper->process(
 ```php
 require __DIR__ . '/vendor/autoload.php';
 
-use PHPJasper\PHPJasper;
+use PHPJasper\Jasper;
 
 $input = '/your_input_path/your_report.jasper';   
 $output = '/your_output_path';
@@ -312,7 +312,7 @@ $options = [
     ]
 ];
 
-$jasper = new PHPJasper;
+$jasper = new Jasper;
 
 $jasper->process(
     $input,
